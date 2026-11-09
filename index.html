@@ -1,0 +1,2190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Notes</title>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github.min.css" media="(prefers-color-scheme: light)">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/github-dark.min.css" media="(prefers-color-scheme: dark)">
+<style>
+:root { --bg:#ffffff; --fg:#1f2328; --muted:#59636e; --side:#f6f8fa; --line:#d1d9e0; --code:#f6f8fa; --accent:#0969da; --th:#eef1f4; }
+@media (prefers-color-scheme: dark) {
+  :root { --bg:#0d1117; --fg:#e6edf3; --muted:#9198a1; --side:#151b23; --line:#3d444d; --code:#151b23; --accent:#4493f8; --th:#1c232c; }
+}
+* { box-sizing: border-box; }
+html { scroll-padding-top: 12px; }
+body { margin:0; background:var(--bg); color:var(--fg); font:15px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif; }
+nav { position:fixed; top:0; left:0; bottom:0; width:290px; overflow-y:auto; background:var(--side); border-right:1px solid var(--line); padding:14px 10px 40px; font-size:13.5px; }
+nav .title { font-weight:700; margin:0 6px 10px; }
+nav ul { list-style:none; margin:0; padding-left:0; }
+nav ul ul { padding-left:12px; }
+nav li.l1 > a { font-weight:650; margin-top:8px; }
+nav a { display:block; color:var(--fg); text-decoration:none; padding:2px 6px; border-radius:4px; }
+nav a:hover { background:var(--line); }
+main { margin-left:290px; padding:20px 36px 80px; max-width:1180px; }
+h1 { border-bottom:2px solid var(--line); padding-bottom:6px; margin-top:42px; }
+h2 { border-bottom:1px solid var(--line); padding-bottom:4px; margin-top:34px; }
+h3 { margin-top:26px; color:var(--accent); }
+a { color:var(--accent); }
+code { font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace; font-size:13px; background:var(--code); padding:1px 5px; border-radius:4px; }
+pre { position:relative; background:var(--code); border:1px solid var(--line); border-radius:6px; padding:12px 14px; overflow-x:auto; tab-size:8; }
+pre code { padding:0; background:none; font-size:12.8px; line-height:1.45; }
+pre code.hljs { background:none; padding:0; }
+.copy { position:absolute; top:6px; right:6px; font-size:12px; padding:2px 9px; border:1px solid var(--line); border-radius:5px; background:var(--bg); color:var(--fg); cursor:pointer; opacity:.85; }
+.copy:hover { opacity:1; }
+.tw { overflow-x:auto; margin:12px 0; }
+table { border-collapse:collapse; font-size:13.5px; }
+th, td { border:1px solid var(--line); padding:5px 9px; vertical-align:top; text-align:left; }
+th { background:var(--th); }
+hr { display:none; }
+@media (max-width: 900px) { nav { position:static; width:auto; max-height:40vh; border-right:none; border-bottom:1px solid var(--line); } main { margin-left:0; padding:14px; } }
+</style>
+</head>
+<body>
+<nav><ul><li class="l1"><a href="#contents">Contents</a><ul><li class="l2"><a href="#01-method-method">0.1 Method [METHOD]</a></li></ul></li><li class="l1"><a href="#1-linux-and-bash-bash">1. Linux and bash [BASH]</a><ul><li class="l2"><a href="#11-command-anatomy-paths-globs">1.1 Command anatomy, paths, globs</a></li><li class="l2"><a href="#12-everyday-commands">1.2 Everyday commands</a></li><li class="l2"><a href="#13-redirection-and-pipes">1.3 Redirection and pipes</a></li><li class="l2"><a href="#14-grep-matching-lines">1.4 grep: matching lines</a></li><li class="l2"><a href="#15-sed-print-delete-substitute">1.5 sed: print / delete / substitute</a></li><li class="l2"><a href="#16-awk-columns">1.6 awk: columns</a></li><li class="l2"><a href="#17-variables-quotes-arithmetic">1.7 Variables, quotes, arithmetic</a></li><li class="l2"><a href="#18-scripts-skeleton-tests-if-loops">1.8 Scripts: skeleton, tests, if, loops</a></li><li class="l2"><a href="#19-script-templates-tested">1.9 Script templates (tested)</a></li><li class="l2"><a href="#110-the-question-says-you-type-bash">1.10 The question says → you type [BASH]</a></li><li class="l2"><a href="#111-errors-fix-bash">1.11 Errors → fix [BASH]</a><ul><li class="l3"><a href="#past-bash-solutions-2021-22-ex-3-2022-23-ex-1">[PAST] Bash solutions: 2021-22 Ex 3 · 2022-23 Ex 1</a></li><li class="l3"><a href="#past-class-linux-exercise-sheet-114">[PAST] Class Linux exercise sheet (1–14)</a></li></ul></li></ul></li><li class="l1"><a href="#2-gnuplot-gnu">2. Gnuplot [GNU]</a><ul><li class="l2"><a href="#21-templates-tested">2.1 Templates (tested)</a></li></ul></li><li class="l1"><a href="#3-fortran-and-make-f90-make">3. Fortran and make [F90] [MAKE]</a><ul><li class="l2"><a href="#31-compile-and-run">3.1 Compile and run</a></li><li class="l2"><a href="#32-program-skeleton">3.2 Program skeleton</a></li><li class="l2"><a href="#33-declarations-and-traps">3.3 Declarations and traps</a></li><li class="l2"><a href="#34-intrinsics">3.4 Intrinsics</a></li><li class="l2"><a href="#35-input-output">3.5 Input / output</a></li><li class="l2"><a href="#36-control-flow">3.6 Control flow</a></li><li class="l2"><a href="#37-functions-subroutines-modules">3.7 Functions, subroutines, modules</a></li><li class="l2"><a href="#38-make">3.8 make</a></li><li class="l2"><a href="#39-templates-tested">3.9 Templates (tested)</a></li><li class="l2"><a href="#310-the-question-says-you-write-f90">3.10 The question says → you write [F90]</a></li><li class="l2"><a href="#311-errors-fix-f90-make">3.11 Errors → fix [F90] [MAKE]</a><ul><li class="l3"><a href="#past-fortran-solutions-2021-22-ex-5-2022-23-ex-3-enzyme-class-evaluation-xyz-is-in-39">[PAST] Fortran solutions: 2021-22 Ex 5 (π) · 2022-23 Ex 3 (enzyme) · class evaluation (.xyz is in 3.9)</a></li></ul></li></ul></li><li class="l1"><a href="#4-python-numpy-np">4. Python: NumPy [NP]</a><ul><li class="l2"><a href="#41-shapes-and-axes">4.1 Shapes and axes</a></li><li class="l2"><a href="#42-vectors">4.2 Vectors</a></li><li class="l2"><a href="#43-all-pairs">4.3 All pairs</a></li><li class="l2"><a href="#44-the-question-says-you-type-np">4.4 The question says → you type [NP]</a></li><li class="l2"><a href="#45-templates-tested-np">4.5 Templates (tested) [NP]</a><ul><li class="l3"><a href="#past-numpy-solutions-2021-22-ex-1-2022-23-ex-4">[PAST] NumPy solutions: 2021-22 Ex 1 · 2022-23 Ex 4</a></li></ul></li></ul></li><li class="l1"><a href="#5-python-parsing-output-files-matplotlib-parse-plt">5. Python: parsing output files + matplotlib [PARSE] [PLT]</a><ul><li class="l2"><a href="#51-choose-the-pattern">5.1 Choose the pattern</a></li><li class="l2"><a href="#52-parsing-templates-tested-parse">5.2 Parsing templates (tested) [PARSE]</a></li><li class="l2"><a href="#53-matplotlib-plt">5.3 matplotlib [PLT]</a></li><li class="l2"><a href="#54-plot-templates-tested-plt">5.4 Plot templates (tested) [PLT]</a><ul><li class="l3"><a href="#past-parsing-plot-solutions-2021-22-ex-2-orca-e-fit-2022-23-ex-5-homolumo-gap">[PAST] Parsing + plot solutions: 2021-22 Ex 2 (ORCA ΔE fit) · 2022-23 Ex 5 (HOMO–LUMO gap)</a></li></ul></li></ul></li><li class="l1"><a href="#6-the-traps-list-gotcha">6. The traps list [GOTCHA]</a></li></ul></nav>
+<main>
+<h1 id="contents">Contents</h1>
+<h2 id="01-method-method">0.1 Method <code>[METHOD]</code></h2>
+<p><strong>For every question:</strong></p>
+<ol>
+<li><strong>Classify it</strong> (≈ 30 s): which template is it? Use the "question says → you type" table in each section.</li>
+<li><strong>Copy the template</strong> (Copy button on each code block). Don't start from a blank file.</li>
+<li><strong>Adapt it:</strong> names, formula, range, file names, formats. Change one thing, run, then change the next.</li>
+<li><strong>Verify it</strong> (≈ 30 s): row count, a value you can check by hand, the output file exists, the "prove it" line.</li>
+<li>Move on. Come back later to polish if there's time.</li>
+</ol>
+<p><strong>Time:</strong> split the time across questions in proportion to their points, and do the questions you're surest about first. Leave about 10 minutes at the end to re-run everything from clean (<code>make clean &amp;&amp; make</code>, re-run the notebook from the top) and check what you'll hand in.</p>
+<p><strong>Feeding input without typing:</strong> <code>bash s.sh &lt;&lt;&lt; "answer"</code> · <code>printf "a\nb\n" | bash s.sh</code> · <code>echo 10 | ./prog</code>. (Colab: <code>%%bash</code> = shell cell, <code>%%writefile name</code> = create a file, <code>!cmd</code> = one shell command.)</p>
+<hr />
+<h1 id="1-linux-and-bash-bash">1. Linux and bash <code>[BASH]</code></h1>
+<h2 id="11-command-anatomy-paths-globs">1.1 Command anatomy, paths, globs</h2>
+<p><code>command -flags arguments</code> · flags can be combined (<code>-la</code>) · help: <code>cmd --help</code> (quick), <code>man cmd</code> (<code>q</code> quits)</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Symbol</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>.</code> / <code>..</code> / <code>~</code></td>
+<td>current directory / parent directory / home directory (<code>$HOME</code>)</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>any characters (<code>*.f90</code>) · <code>?</code> exactly one character · <code>*.{txt,doc}</code> several extensions</td>
+</tr>
+<tr>
+<td><code>./prog</code></td>
+<td>run the program in this folder</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="12-everyday-commands">1.2 Everyday commands</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>ls -l</code> <code>-a</code> <code>-t</code> <code>-S</code> <code>-r</code> <code>-h</code> <code>-d</code></td>
+<td>long format · include hidden · sort by time (newest first) · by size (largest first) · reverse · human-readable sizes · the directory itself, not its contents</td>
+</tr>
+<tr>
+<td><code>cat f</code> · <code>cat -n f</code></td>
+<td>print · with line numbers</td>
+</tr>
+<tr>
+<td><code>head -n 7 f</code> · <code>tail -n 5 f</code></td>
+<td>first 7 / last 5 lines</td>
+</tr>
+<tr>
+<td><code>wc -l f</code> / <code>-w</code> / <code>-c</code> · <code>wc -l &lt; f</code></td>
+<td>lines/words/bytes · <strong>just the number</strong> (use this in scripts)</td>
+</tr>
+<tr>
+<td><code>cut -c 10-15 f</code> · <code>cut -d',' -f2 f</code></td>
+<td>characters 10–15 of each line · 2nd comma-separated field</td>
+</tr>
+<tr>
+<td><code>sort</code> · <code>sort -n -k3</code> · <code>sort -r</code> · <code>uniq</code></td>
+<td>sort · numerically on column 3 · reversed · remove adjacent duplicate lines</td>
+</tr>
+<tr>
+<td><code>cp a b</code> · <code>cp *.f90 dir/</code> · <code>mv a b</code> · <code>rm f</code> · <code>rm -r d</code> · <code>mkdir -p d</code></td>
+<td>copy · copy into a directory · move/rename · delete · delete a directory · make a directory (no error if it exists)</td>
+</tr>
+<tr>
+<td><code>ln -s target link</code></td>
+<td>symbolic link (it breaks if the target is deleted: <code>No such file or directory</code>)</td>
+</tr>
+<tr>
+<td><code>diff f1 f2</code></td>
+<td><code>3c3</code> = line 3 changed; <code>&lt;</code> lines are from f1, <code>&gt;</code> from f2</td>
+</tr>
+<tr>
+<td><code>chmod 660 f</code> · <code>chmod u+x f</code></td>
+<td>permissions (see below) · make it executable</td>
+</tr>
+<tr>
+<td><code>history | grep ssh</code></td>
+<td>earlier commands containing ssh</td>
+</tr>
+<tr>
+<td><code>scp file user@host:dir/new</code> · <code>scp user@host:path .</code></td>
+<td>copy to / from a remote machine</td>
+</tr>
+<tr>
+<td><code>find . -name "*.f90"</code></td>
+<td>find files recursively</td>
+</tr>
+<tr>
+<td><code>echo "text"</code> · <code>printf "a\nb\n"</code></td>
+<td>print text</td>
+</tr>
+<tr>
+<td><code>tr -d ' '</code> · <code>tr 'a-z' 'A-Z'</code></td>
+<td>delete characters · translate characters</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>chmod digits:</strong> r=4, w=2, x=1, summed for <strong>u</strong>ser, <strong>g</strong>roup, <strong>o</strong>thers. <code>660</code> = rw-rw---- · <code>644</code> = rw-r--r-- · <code>700</code> = rwx------ · <code>755</code> = rwxr-xr-x</p>
+<h2 id="13-redirection-and-pipes">1.3 Redirection and pipes</h2>
+<p><code>&gt;</code> into a file (overwrite) · <code>&gt;&gt;</code> append · <code>&lt;</code> from a file · <code>|</code> pipe · <code>2&gt;/dev/null</code> hide errors · <code>&amp;&amp;</code> run next if this succeeded · <code>||</code> run next if this failed<br />
+<strong>A multi-line file:</strong></p>
+<pre><code class="language-bash">cat &gt; poem.txt &lt;&lt; 'END'
+I went down to the river,
+I set down on the bank.
+END
+</code></pre>
+<h2 id="14-grep-matching-lines">1.4 grep: matching lines</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Flag</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-v</code></td>
+<td>lines that do <strong>not</strong> match</td>
+</tr>
+<tr>
+<td><code>-c</code></td>
+<td>count matching <strong>lines</strong></td>
+</tr>
+<tr>
+<td><code>-o</code></td>
+<td>each match on its own line → <code>grep -o X f | wc -l</code> counts <strong>occurrences</strong></td>
+</tr>
+<tr>
+<td><code>-w</code></td>
+<td>whole word only (<code>for</code> ≠ <code>format</code>)</td>
+</tr>
+<tr>
+<td><code>-i</code></td>
+<td>ignore case</td>
+</tr>
+<tr>
+<td><code>-n</code></td>
+<td>line numbers</td>
+</tr>
+<tr>
+<td><code>-l</code> / <code>-L</code></td>
+<td>names of files that match / don't match</td>
+</tr>
+<tr>
+<td><code>-q</code></td>
+<td>silent (just success or failure, for use in <code>if</code>)</td>
+</tr>
+<tr>
+<td><code>-r</code></td>
+<td>recursive</td>
+</tr>
+<tr>
+<td><code>-E</code></td>
+<td>extended patterns: <code>-E 'a|b'</code> · <code>-E '\.(txt|doc|odt)$'</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>Patterns (in <strong>single quotes</strong>): <code>^I</code> starts with I · <code>x$</code> ends with x · <code>.</code> any character · <code>\.</code> a literal dot · <code>*</code> the previous character repeated</p>
+<h2 id="15-sed-print-delete-substitute">1.5 sed: print / delete / substitute</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Command</th>
+<th>Effect</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>sed -n '3p' f</code> · <code>sed -n '3,7p' f</code> · <code>sed -n '$p' f</code> · <code>sed -n '4,$p' f</code></td>
+<td>line 3 · lines 3–7 · last line · line 4 to the end</td>
+</tr>
+<tr>
+<td><code>sed -n '/pat/p' f</code></td>
+<td>lines matching a pattern</td>
+</tr>
+<tr>
+<td><code>sed '1d' f</code> · <code>sed '1d;$d' f</code> · <code>sed '/^#/d' f</code></td>
+<td>without line 1 · without the first and last lines · without comment lines</td>
+</tr>
+<tr>
+<td><code>sed 's/a/b/' f</code> · <code>sed 's/a/b/g' f</code></td>
+<td>replace the first match per line · replace all matches</td>
+</tr>
+<tr>
+<td><code>sed -i 's/a/b/g' f</code></td>
+<td>edit the file in place (Mac: <code>sed -i ''</code>)</td>
+</tr>
+<tr>
+<td><code>sed -n "${n}p" f</code></td>
+<td>a shell variable inside sed → <strong>double</strong> quotes</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Reorder the lines of a file</strong> (temp file + <code>mv</code>, because <code>&gt; f</code> would empty f before sed reads it):</p>
+<pre><code class="language-bash">{ sed -n '1p' f; sed -n '3p' f; sed -n '2p' f; sed -n '4,$p' f; } &gt; tmp &amp;&amp; mv tmp f
+</code></pre>
+<h2 id="16-awk-columns">1.6 awk: columns</h2>
+<p><code>awk '{print $1, $3}' f</code> · <code>awk 'NR==3' f</code> · <code>awk 'NR&gt;1 &amp;&amp; $4&gt;80 {print $1}' f</code> · <code>awk '{s+=$2} END {print s}' f</code> · <code>awk '$1 == 20 {print $2}'</code> · <code>$NF</code> = last field · <code>NR</code> = line number</p>
+<h2 id="17-variables-quotes-arithmetic">1.7 Variables, quotes, arithmetic</h2>
+<pre><code class="language-bash">name=&quot;x&quot;                 # NO spaces around =
+echo &quot;$name&quot;             # double quotes expand variables; 'single' quotes don't
+n=$(wc -l &lt; &quot;$f&quot;)        # capture a command's output
+k=$((n + 1))             # integer arithmetic
+dir=${1:-.}              # first argument, or &quot;.&quot; if none was given
+</code></pre>
+<p><code>$1 $2</code> = arguments · <code>$#</code> = number of arguments · <code>exit 1</code> = stop with an error</p>
+<h2 id="18-scripts-skeleton-tests-if-loops">1.8 Scripts: skeleton, tests, if, loops</h2>
+<pre><code class="language-bash">#!/bin/bash                       # shebang: MUST be line 1
+# name.sh - what it does
+read -p &quot;File name: &quot; f           # ask the user
+if [ -f &quot;$f&quot; ]; then              # spaces inside [ ] are REQUIRED
+    echo &quot;$f: $(wc -l &lt; &quot;$f&quot;) lines&quot;
+elif [ -d &quot;$f&quot; ]; then
+    echo &quot;$f is a directory&quot;
+else
+    echo &quot;$f does not exist&quot;
+fi
+</code></pre>
+<p>Run it with <code>bash s.sh</code>, or <code>chmod +x s.sh</code> once and then <code>./s.sh</code>. Debug with <code>bash -x s.sh</code>.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Test</th>
+<th>True if</th>
+<th></th>
+<th>Test</th>
+<th>True if</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>-f "$x"</code></td>
+<td>a regular file</td>
+<td></td>
+<td><code>"$a" -eq "$b"</code></td>
+<td>integers equal (also <code>-ne -lt -le -gt -ge</code>)</td>
+</tr>
+<tr>
+<td><code>-d "$x"</code></td>
+<td>a directory</td>
+<td></td>
+<td><code>"$s" = "$t"</code> / <code>!=</code></td>
+<td>strings equal / different</td>
+</tr>
+<tr>
+<td><code>-e "$x"</code></td>
+<td>exists</td>
+<td></td>
+<td><code>-z "$s"</code></td>
+<td>empty string</td>
+</tr>
+<tr>
+<td><code>-s "$x"</code></td>
+<td>non-empty</td>
+<td></td>
+<td><code>! -f "$x"</code></td>
+<td>NOT a file</td>
+</tr>
+<tr>
+<td><code>[ A ] &amp;&amp; [ B ]</code></td>
+<td>both true</td>
+<td></td>
+<td><code>if grep -q w "$f"; then</code></td>
+<td>a command as the condition</td>
+</tr>
+</tbody>
+</table></div>
+<pre><code class="language-bash">for f in *.py; do                 # each matching file in turn
+    [ -f &quot;$f&quot; ] || continue       # guard: no matches -&gt; the literal &quot;*.py&quot;
+    echo &quot;$f&quot;
+done &gt; out.txt                    # (optional) the whole loop's output into a file
+
+for i in 1 2 3; do ...; done      # for i in $(seq 1 2 9) · for ((i=1;i&lt;=5;i++))
+count=0; count=$((count + 1))     # counter
+while read -r a b c; do ...; done &lt; file   # read a file line by line, split into columns
+</code></pre>
+<h2 id="19-script-templates-tested">1.9 Script templates (tested)</h2>
+<p><strong>Three-way: file / directory / neither</strong> (2022 pattern; this version: words / copy .sh files / a report file)</p>
+<pre><code class="language-bash">#!/bin/bash
+read -p &quot;Name: &quot; name
+if [ -f &quot;$name&quot; ]; then
+    echo &quot;$name has $(wc -w &lt; &quot;$name&quot;) words&quot;
+elif [ -d &quot;$name&quot; ]; then
+    cp *.sh &quot;$name&quot;
+    echo &quot;copied .sh files to $name&quot;
+else
+    for f in *.f90; do
+        echo &quot;$f $(grep -ow real &quot;$f&quot; | wc -l)&quot;
+    done &gt; &quot;$name&quot;
+    echo &quot;created $name&quot;
+fi
+</code></pre>
+<p><strong>Reorder lines in every file with an extension</strong> (2022 3.1: swap lines 2 and 3)</p>
+<pre><code class="language-bash">#!/bin/bash
+# swap the 2nd and 3rd line of every .swap23 file
+for f in *.swap23; do
+    [ -f &quot;$f&quot; ] || continue
+    { sed -n '1p' &quot;$f&quot;; sed -n '3p' &quot;$f&quot;; sed -n '2p' &quot;$f&quot;; sed -n '4,$p' &quot;$f&quot;; } &gt; tmp &amp;&amp; mv tmp &quot;$f&quot;
+done
+</code></pre>
+<p><strong>Swap the first and last lines</strong> (class ex2, <code>.alter</code> files)</p>
+<pre><code class="language-bash">#!/bin/bash
+# swap first and last line of every .alter file
+for f in *.alter; do
+    n=$(wc -l &lt; &quot;$f&quot;)
+    if [ &quot;$n&quot; -lt 2 ]; then
+        echo &quot;$f: fewer than 2 lines, skipped&quot;
+        continue
+    fi
+    {
+        sed -n '$p' &quot;$f&quot;           # last line first
+        sed -n &quot;2,$((n-1))p&quot; &quot;$f&quot;  # middle lines (prints nothing if n=2)
+        sed -n '1p' &quot;$f&quot;           # first line last
+    } &gt; tmp &amp;&amp; mv tmp &quot;$f&quot;
+    echo &quot;$f: swapped&quot;
+done
+</code></pre>
+<p><strong>Compare the sizes of two files</strong> (2021 3.2)</p>
+<pre><code class="language-bash">#!/bin/bash
+read -p &quot;First file: &quot; f1
+read -p &quot;Second file: &quot; f2
+if [ &quot;$(wc -c &lt; &quot;$f1&quot;)&quot; -gt &quot;$(wc -c &lt; &quot;$f2&quot;)&quot; ]; then
+    echo &quot;$f1 is larger&quot;
+else
+    echo &quot;$f2 is larger&quot;
+fi
+</code></pre>
+<p><strong>Loop over files with if-grep and counters</strong></p>
+<pre><code class="language-bash">#!/bin/bash
+ok=0; bad=0
+for f in *.log; do
+    if grep -q &quot;Normal termination&quot; &quot;$f&quot;; then
+        echo &quot;$f OK&quot;; ok=$((ok+1))
+    else
+        echo &quot;$f FAILED&quot;; bad=$((bad+1))
+    fi
+done
+echo &quot;OK: $ok  FAILED: $bad&quot;
+</code></pre>
+<p><strong>Lines with a word into different files depending on a count</strong> (class ex3)</p>
+<pre><code class="language-bash">#!/bin/bash
+# lines containing the word &quot;for&quot; of every .py file -&gt; name.forY.txt (&gt;=10 times) or name.forN.txt
+for f in *.py; do
+    count=$(grep -ow 'for' &quot;$f&quot; | wc -l)
+    if [ &quot;$count&quot; -ge 10 ]; then
+        out=&quot;$f.forY.txt&quot;
+    else
+        out=&quot;$f.forN.txt&quot;
+    fi
+    grep -w 'for' &quot;$f&quot; &gt; &quot;$out&quot;
+    echo &quot;$f: $count -&gt; $out&quot;
+done
+</code></pre>
+<p><strong>Folder as an argument, with a default and an error exit</strong></p>
+<pre><code class="language-bash">#!/bin/bash
+# usage: bash count_ext.sh [folder]   (default: current folder)
+dir=${1:-.}
+if [ ! -d &quot;$dir&quot; ]; then
+    echo &quot;$dir is not a directory&quot;
+    exit 1
+fi
+for ext in f90 py txt; do
+    n=$(ls &quot;$dir&quot;/*.&quot;$ext&quot; 2&gt;/dev/null | wc -l)
+    echo &quot;$ext: $n&quot;
+done
+</code></pre>
+<p><strong>Compare numbers</strong> (class ex1)</p>
+<pre><code class="language-bash">#!/bin/bash
+# numbers.sh - sign of a number, then compare a second number with it
+read -p &quot;Enter a number: &quot; a
+if [ &quot;$a&quot; -lt 0 ]; then
+    echo &quot;$a is negative&quot;
+elif [ &quot;$a&quot; -eq 0 ]; then
+    echo &quot;$a is zero&quot;
+else
+    echo &quot;$a is positive&quot;
+fi
+read -p &quot;Enter a second number: &quot; b
+if [ &quot;$b&quot; -eq &quot;$a&quot; ]; then
+    echo &quot;$b is equal to $a&quot;
+elif [ &quot;$b&quot; -lt &quot;$a&quot; ]; then
+    echo &quot;$b is less than $a&quot;
+else
+    echo &quot;$b is greater than $a&quot;
+fi
+</code></pre>
+<p><strong>Keep track of the maximum in a loop</strong></p>
+<pre><code class="language-bash">read -p &quot;Word: &quot; word
+best_file=&quot;&quot;; best_n=-1
+for f in *.f90 *.py; do
+    n=$(grep -ow &quot;$word&quot; &quot;$f&quot; | wc -l)
+    echo &quot;$f $n&quot;
+    if [ &quot;$n&quot; -gt &quot;$best_n&quot; ]; then best_n=$n; best_file=$f; fi
+done
+echo &quot;Most: $best_file ($best_n)&quot;
+</code></pre>
+<h2 id="110-the-question-says-you-type-bash">1.10 The question says → you type <code>[BASH]</code></h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>The question says…</th>
+<th>You type…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>lines containing A but not B</td>
+<td><code>grep A f | grep -v B</code></td>
+</tr>
+<tr>
+<td>how many times the <strong>word</strong> X appears</td>
+<td><code>grep -ow X f | wc -l</code></td>
+</tr>
+<tr>
+<td>how many <strong>lines</strong> contain X</td>
+<td><code>grep -c X f</code></td>
+</tr>
+<tr>
+<td>which files contain X / how many</td>
+<td><code>grep -l X *.ext</code> / <code>| wc -l</code></td>
+</tr>
+<tr>
+<td>lines N to M</td>
+<td><code>sed -n 'N,Mp' f</code> (or <code>head -n M f | tail -n M-N+1</code>)</td>
+</tr>
+<tr>
+<td>lines starting with I, into a file "me"</td>
+<td><code>grep '^I' poem.txt &gt; me</code></td>
+</tr>
+<tr>
+<td>characters 10–15 of the lines without the word "to"</td>
+<td><code>grep -vw 'to' f | cut -c 10-15</code></td>
+</tr>
+<tr>
+<td>list sorted by time, newest first, into a file</td>
+<td><code>ls -lt /etc &gt; etc.out</code></td>
+</tr>
+<tr>
+<td>list incl. hidden files with extension txt/doc/odt</td>
+<td><code>ls -a ~ | grep -E '\.(txt|doc|odt)$'</code></td>
+</tr>
+<tr>
+<td>the five largest files</td>
+<td><code>ls -lS | grep '^-' | head -n 5</code></td>
+</tr>
+<tr>
+<td>how many files end in .txt</td>
+<td><code>ls ~/*.txt | wc -l</code></td>
+</tr>
+<tr>
+<td>.f90 files with exactly 20 lines</td>
+<td><code>wc -l ~/*.f90 | awk '$1 == 20 {print $2}'</code></td>
+</tr>
+<tr>
+<td>readable and writable only by you and your group</td>
+<td><code>chmod 660 f</code></td>
+</tr>
+<tr>
+<td>the number of lines (in a script)</td>
+<td><code>n=$(wc -l &lt; "$f")</code></td>
+</tr>
+<tr>
+<td>file size (in a script)</td>
+<td><code>s=$(wc -c &lt; "$f")</code></td>
+</tr>
+<tr>
+<td>ask the user for a name</td>
+<td><code>read -p "Name: " name</code></td>
+</tr>
+<tr>
+<td>if it's a file / a directory / neither</td>
+<td><code>if [ -f ] … elif [ -d ] … else … fi</code></td>
+</tr>
+<tr>
+<td>copy the .f90 files into that directory</td>
+<td><code>cp *.f90 "$name"</code></td>
+</tr>
+<tr>
+<td>generate a file with the name + a count for each file</td>
+<td><code>for f in *.py; do echo "$f $(…)"; done &gt; "$name"</code></td>
+</tr>
+<tr>
+<td>swap / reorder lines of every *.ext file</td>
+<td>the temp-file block in 1.5 inside <code>for f in *.ext</code></td>
+</tr>
+<tr>
+<td>commands in your history with ssh</td>
+<td><code>history | grep ssh</code></td>
+</tr>
+<tr>
+<td>copy to the cluster under a new name</td>
+<td><code>scp poem.txt user@cluster:Copied/poem_remote.txt</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="111-errors-fix-bash">1.11 Errors → fix <code>[BASH]</code></h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Cause</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>x: command not found</code> on <code>x = 5</code></td>
+<td>spaces around <code>=</code></td>
+</tr>
+<tr>
+<td><code>[: missing ']'</code> · <code>[-f: command not found</code></td>
+<td>missing spaces inside <code>[ ]</code></td>
+</tr>
+<tr>
+<td><code>unexpected end of file</code></td>
+<td>a missing <code>fi</code> / <code>done</code></td>
+</tr>
+<tr>
+<td><code>integer expression expected</code></td>
+<td>an empty or non-numeric variable (check it with <code>echo</code>)</td>
+</tr>
+<tr>
+<td><code>Permission denied</code> on <code>./s.sh</code></td>
+<td><code>chmod +x s.sh</code>, or use <code>bash s.sh</code></td>
+</tr>
+<tr>
+<td>the loop prints <code>*.xyz</code></td>
+<td>no file matched → <code>[ -f "$f" ] || continue</code></td>
+</tr>
+<tr>
+<td>the file is empty after <code>sed ... f &gt; f</code></td>
+<td>use a temp file + <code>mv</code></td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="past-bash-solutions-2021-22-ex-3-2022-23-ex-1">[PAST] Bash solutions: 2021-22 Ex 3 · 2022-23 Ex 1</h3>
+<p><strong>2021 3.1</strong> <code>grep x_pos program.f90 | grep -v y_pos</code></p>
+<p><strong>2021 3.2</strong></p>
+<pre><code class="language-bash">#!/bin/bash
+read -p &quot;First file: &quot; f1
+read -p &quot;Second file: &quot; f2
+if [ &quot;$(wc -c &lt; &quot;$f1&quot;)&quot; -gt &quot;$(wc -c &lt; &quot;$f2&quot;)&quot; ]; then
+    echo &quot;$f1 is larger&quot;
+else
+    echo &quot;$f2 is larger&quot;
+fi
+</code></pre>
+<p><strong>2022 3.1</strong> (swap lines 2 and 3 of every .swap23 file)</p>
+<pre><code class="language-bash">#!/bin/bash
+# swap the 2nd and 3rd line of every .swap23 file
+for f in *.swap23; do
+    [ -f &quot;$f&quot; ] || continue
+    { sed -n '1p' &quot;$f&quot;; sed -n '3p' &quot;$f&quot;; sed -n '2p' &quot;$f&quot;; sed -n '4,$p' &quot;$f&quot;; } &gt; tmp &amp;&amp; mv tmp &quot;$f&quot;
+done
+</code></pre>
+<p><strong>2022 3.2</strong></p>
+<pre><code class="language-bash">#!/bin/bash
+# file -&gt; number of lines; directory -&gt; copy the .f90 files into it;
+# neither -&gt; create a file listing every .py file and how many times the word &quot;import&quot; appears
+read -p &quot;Name: &quot; name
+if [ -f &quot;$name&quot; ]; then
+    echo &quot;$name has $(wc -l &lt; &quot;$name&quot;) lines&quot;
+elif [ -d &quot;$name&quot; ]; then
+    cp *.f90 &quot;$name&quot;
+    echo &quot;copied the .f90 files to $name&quot;
+else
+    for f in *.py; do
+        echo &quot;$f $(grep -ow import &quot;$f&quot; | wc -l)&quot;
+    done &gt; &quot;$name&quot;
+    echo &quot;created $name&quot;
+fi
+</code></pre>
+<h3 id="past-class-linux-exercise-sheet-114">[PAST] Class Linux exercise sheet (1–14)</h3>
+<pre><code class="language-bash"># 1
+ls -lt /etc &gt; etc.out
+# 2
+ls -a ~ | grep -E '\.(txt|doc|odt)$'
+# 3
+chmod 660 etc.out
+# 4
+sed -n '3,7p' llistat.llarg            # or: head -n 7 llistat.llarg | tail -n 5
+# 5
+wc -l ~/*.f90 | awk '$1 == 20 {print $2}'
+# 6
+cat &gt; poem.txt &lt;&lt; 'END'
+I went down to the river,
+I set down on the bank.
+I tried to think but couldn't,
+So I jumped in and sank.
+END
+# 7
+grep '^I' poem.txt &gt; me
+# 8
+grep -vw 'to' poem.txt | cut -c 10-15
+# 9
+history | grep ssh
+# 10
+ls -lS | grep '^-' | head -n 5
+# 11
+ls ~/*.txt | wc -l
+# 12
+cp poem.txt poem2.txt; sed -i 's/think/swim/' poem2.txt; diff poem.txt poem2.txt
+# 13  -&gt; afterwards &quot;cat poem_link&quot; gives: No such file or directory (dangling link)
+ln -s poem.txt poem_link; rm poem.txt; cat poem_link
+# 14
+scp poem.txt user@cluster:Copied/poem_remote.txt
+</code></pre>
+<hr />
+<h1 id="2-gnuplot-gnu">2. Gnuplot <code>[GNU]</code></h1>
+<p>Run a script with <code>gnuplot script.gp</code>. <code>set</code> commands only change settings; nothing is drawn until <code>plot</code> / <code>splot</code>. Settings carry over to later plots until you <code>unset</code> them.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>output</td>
+<td><code>set terminal pngcairo size 900,700</code> (or <code>png</code>, <code>jpeg</code>, <code>postscript eps</code>) · <code>set output 'f.png'</code> (a new one for each figure)</td>
+</tr>
+<tr>
+<td>function</td>
+<td><code>f(x,y) = sin(x)*cos(y) + 0.2*x*y</code> · power is <code>**</code> · <code>pi</code> is built in · <strong><code>1/2 = 0</code></strong> (integers!) → write <code>1.0/2</code></td>
+</tr>
+<tr>
+<td>ranges / labels / title</td>
+<td><code>set xrange [-5:5]</code> · <code>set xlabel 'x/nm'</code> · <code>set zlabel 'z'</code> · <code>set title '...'</code></td>
+</tr>
+<tr>
+<td>grid density</td>
+<td><code>set isosamples 50,30</code> + <code>set samples 50,30</code> (50 x-values × 30 y-values)</td>
+</tr>
+<tr>
+<td>surface</td>
+<td><code>set hidden3d</code> (opaque mesh) · gray: <code>set pm3d implicit at s; set palette gray; unset colorbox</code> + <code>splot f(x,y) with lines lc rgb 'gray50'</code></td>
+</tr>
+<tr>
+<td>contours</td>
+<td><code>set contour base</code> (also <code>surface</code>, <code>both</code>) · <code>set cntrparam levels incremental -2,0.5,2</code> · <code>set cntrparam levels 10</code></td>
+</tr>
+<tr>
+<td>view</td>
+<td><code>set view 50,60</code> (rotation about x, about z) · 2D map: <code>set view map; unset surface</code></td>
+</tr>
+<tr>
+<td>legend</td>
+<td><code>set key title 'Waves' box</code> · <code>set key outside left top</code> · <code>notitle</code> · <code>title 'surface'</code></td>
+</tr>
+<tr>
+<td>arrow / label</td>
+<td><code>set arrow 1 from x1,y1,z1 to x2,y2,z2 lw 2</code> · <code>set label 1 'Max' at x,y,z</code></td>
+</tr>
+<tr>
+<td>grid to a file</td>
+<td><code>set table 'values.dat'; splot f(x,y); unset table</code> (<strong>before</strong> <code>set contour</code>)</td>
+</tr>
+<tr>
+<td>plot a data file</td>
+<td><code>plot 'f.out' using 1:2 with linespoints title 'a', '' using 1:3 with lines dt 2</code></td>
+</tr>
+<tr>
+<td>line styles</td>
+<td><code>with lines</code> / <code>points</code> / <code>linespoints</code> · <code>lw 2</code> · <code>dt 2</code> (dashed) · <code>lc rgb 'red'</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Question says → you type:</strong> "contours separated by 0.5" → <code>levels incremental start,0.5,end</code> · "contours at the base" → <code>set contour base</code> · "2D, only the level curves" → <code>set view map; unset surface</code> · "a file with the x y z values of a 50×30 grid" → <code>isosamples 50,30</code> + <code>set table</code> · "surface in gray" → the pm3d gray line · "View: 50,60" → <code>set view 50,60</code></p>
+<h2 id="21-templates-tested">2.1 Templates (tested)</h2>
+<p><strong>3D surface + base contours + arrow/label + data file + a second 2D figure</strong> (2021 Ex 4)</p>
+<pre><code class="language-gnuplot">set terminal pngcairo size 900,700
+f(x,y) = sin(x)*cos(y) + 0.2*x*y
+set xrange [-5:5]
+set yrange [-3:3]
+set xlabel 'x'
+set ylabel 'y'
+set zlabel 'z'
+
+# 1) values.dat on a 50x30 grid -- BEFORE 'set contour'
+set samples 50,30
+set isosamples 50,30
+set table 'values.dat'
+splot f(x,y)
+unset table
+
+# 2) 3D surface + contours on the base, every 0.5
+set contour base
+set cntrparam levels incremental -4,0.5,4
+set hidden3d
+set key outside
+set arrow 1 from 3.5,2.5,5 to 1.64,0.34,1.05 lw 2
+set label 1 'Max' at 3.6,2.6,5.3
+set output 'surface3d.png'
+splot f(x,y) title 'z(x,y)'
+
+# 3) 2D: only the level curves
+set output 'contours2d.png'
+unset surface
+set view map
+unset hidden3d
+set arrow 1 from 3.5,2.5 to 1.64,0.34 lw 2
+set label 1 'Max' at 3.6,2.6
+splot f(x,y) notitle
+</code></pre>
+<p><strong>Gray surface + contours + key title + view</strong> (2022 Ex 2)</p>
+<pre><code class="language-gnuplot">set terminal pngcairo size 900,700
+set output 'waves.png'
+f(x,y) = cos(x**3-y) - sin(x+y)
+set xrange [0:2]
+set yrange [0:5]
+set isosamples 40,40
+set samples 40,40
+set xlabel 'x/nm'
+set ylabel 'y/nm'
+set zlabel 'A/s'
+set title 'cos(x**3-y)-sin(x+y). View: 50,60'
+set view 50,60
+set key outside left top title 'Waves' box
+set contour base
+set cntrparam levels incremental -2,0.2,2
+set pm3d implicit at s
+set palette gray
+unset colorbox
+splot f(x,y) with lines lc rgb 'gray50' title 'surface'
+</code></pre>
+<p><strong>Plot columns of a data file</strong> (e.g. a Fortran output)</p>
+<pre><code class="language-gnuplot">set terminal pngcairo size 800,500
+set output 'tables.png'
+set xlabel 'x'; set ylabel 'value'
+set key top left
+plot 'two/table1.out' using 1:2 with linespoints title 'f1 (set 1)', \
+     'two/table1.out' using 1:3 with linespoints dt 2 title 'f2 (set 1)'
+</code></pre>
+<p><strong>Finding the maximum to point an arrow at:</strong> read it off the 2D map, or use Python on <code>values.dat</code>: <code>d = np.loadtxt('values.dat', usecols=(0,1,2)); d[np.argmax(d[:,2])]</code>. For a <em>relative</em> (interior) maximum, ignore the edges of the grid.</p>
+<hr />
+<h1 id="3-fortran-and-make-f90-make">3. Fortran and make <code>[F90]</code> <code>[MAKE]</code></h1>
+<h2 id="31-compile-and-run">3.1 Compile and run</h2>
+<pre><code class="language-bash">gfortran -Wall prog.f90 -o prog      # compile + link (-Wall: warnings that catch bugs)
+./prog                               # run
+echo &quot;3 4&quot; | ./prog                  # feed the values that read(*,*) asks for
+gfortran -c f1.f90                   # compile only -&gt; f1.o
+gfortran main.o f1.o f2.o -o prog    # link the objects
+</code></pre>
+<h2 id="32-program-skeleton">3.2 Program skeleton</h2>
+<pre><code class="language-fortran">program name
+  implicit none                      ! ALWAYS: every variable must be declared
+  integer :: i                       ! 1) ALL declarations first
+  real(8) :: x
+  x = 1.0d0                          ! 2) then the statements
+  print *, x
+contains                             ! (optional) internal functions/subroutines
+end program name
+</code></pre>
+<p><code>!</code> comment · case-insensitive · <code>&amp;</code> continues a line · <code>;</code> separates statements on one line</p>
+<h2 id="33-declarations-and-traps">3.3 Declarations and traps</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>integer :: i, n</code> · <code>real(8) :: x</code> · <code>character(len=20) :: s</code> · <code>logical :: ok</code></td>
+<td>types</td>
+</tr>
+<tr>
+<td><code>real(8), parameter :: g = 9.81d0</code></td>
+<td>constant</td>
+</tr>
+<tr>
+<td><code>real(8) :: x(10)</code> · <code>real(8) :: a(3,3)</code> · <code>integer :: v(3) = [1,2,3]</code></td>
+<td>arrays (indices start at <strong>1</strong>)</td>
+</tr>
+<tr>
+<td><code>real(8), allocatable :: x(:), xyz(:,:)</code> → <code>allocate(x(n), xyz(3,n))</code> → <code>deallocate(x)</code></td>
+<td>size known only at run time</td>
+</tr>
+<tr>
+<td><code>character(len=2), allocatable :: sym(:)</code></td>
+<td>array of strings</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Traps:</strong> <code>0.1</code> is single precision → <code>0.1d0</code> · <code>7/2 = 3</code> → <code>dble(7)/2</code> · <code>1/n</code> with integer n → <code>1.0d0/n</code> · never compare reals with <code>==</code> → <code>abs(a-b) &lt; 1d-12</code> · no implicit multiplication: <code>a(r-re)</code> must be <code>a*(r-re)</code></p>
+<h2 id="34-intrinsics">3.4 Intrinsics</h2>
+<p><code>+ - * / **</code> · <code>sqrt exp log log10 sin cos tan acos abs mod(i,2) min max</code> · <code>dble(i) int(x) nint(x)</code> · π = <code>acos(-1.0d0)</code> · <code>huge(1.0d0)</code><br />
+Arrays: <code>sum size maxval minval maxloc product</code> · whole-array maths <code>2*x</code>, <code>sqrt(sum((a-b)**2))</code> · <code>a(i,:)</code> row, <code>a(:,j)</code> column, <code>xyz(:,i)</code> all coordinates of atom i<br />
+Strings: <code>trim(s)</code> · <code>len_trim(s)</code> · <code>//</code> concatenation · <code>trim(sym(i)) == 'C'</code><br />
+Comparisons: <code>== /= &lt; &lt;= &gt; &gt;=</code> · <code>.and. .or. .not.</code></p>
+<h2 id="35-input-output">3.5 Input / output</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Code</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>print *, 'x =', x</code> · <code>write(*,*) x</code></td>
+<td>screen, default format</td>
+</tr>
+<tr>
+<td><code>write(*,'(A,F10.4)') 'x =', x</code></td>
+<td>formatted</td>
+</tr>
+<tr>
+<td><code>write(*,'(A)', advance='no') 'n: '</code></td>
+<td>prompt on the same line</td>
+</tr>
+<tr>
+<td><code>read(*,*) a, b</code> · <code>read(*,*,iostat=ios) x</code></td>
+<td>keyboard · <code>ios /= 0</code> → invalid input</td>
+</tr>
+<tr>
+<td><code>open(unit=10, file='o.out', status='replace')</code></td>
+<td>a new file to write (units ≥ 10)</td>
+</tr>
+<tr>
+<td><code>open(unit=10, file='in.dat', status='old')</code></td>
+<td>an existing file to read</td>
+</tr>
+<tr>
+<td><code>write(10,'(2F12.6)') x, y</code> · <code>read(10,*) a, b</code> · <code>read(10,'(A)') line</code></td>
+<td>to/from a file · a whole line as text</td>
+</tr>
+<tr>
+<td><code>close(10)</code> · <code>stop 'msg'</code></td>
+<td>close · end the program</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Formats:</strong> <code>I5</code> <code>I0</code> (minimum width) · <code>F10.4</code> · <code>ES14.5</code> (scientific; use it for values that span orders of magnitude) · <code>A</code> · <code>L3</code> · <code>2X</code> · <code>/</code> (new line) · <code>3F12.5</code> (repeat) · <code>'(10F7.2)'</code> (a whole array on one line)</p>
+<p><strong>Read until the end of a file:</strong></p>
+<pre><code class="language-fortran">n = 0
+do
+   read(10,*,iostat=ios) x, y
+   if (ios /= 0) exit
+   n = n + 1
+end do
+</code></pre>
+<h2 id="36-control-flow">3.6 Control flow</h2>
+<pre><code class="language-fortran">if (g &gt;= 9.0d0) then ... else if (g &gt;= 7.0d0) then ... else ... end if
+if (x &lt; 0.0d0) print *, 'neg'            ! one-line if
+do i = 1, 10 ... end do                  ! do i = 10, 0, -2 (step)
+   if (...) cycle                        ! next i
+   if (...) exit                         ! leave the loop
+rows: do i = 1, 3 ... end do rows        ! labelled loop
+do while (nfact &lt;= 1000000) ... end do
+</code></pre>
+<p>"x from a to b in steps of h" → <code>do i = 0, n</code> with <code>x = a + h*i</code> (loop over an integer, never over a real) · all pairs once → <code>do i = 1, n-1</code> / <code>do j = i+1, n</code></p>
+<h2 id="37-functions-subroutines-modules">3.7 Functions, subroutines, modules</h2>
+<pre><code class="language-fortran">real(8) function f(x, a)            ! the type in front = the type of the RESULT
+  implicit none
+  real(8), intent(in) :: x, a       ! declare every argument
+  f = a*x**2                        ! return the value by assigning to the NAME
+end function f
+
+subroutine solve(a, b, r1, r2)      ! several results -&gt; subroutine; called with &quot;call solve(...)&quot;
+  implicit none
+  real(8), intent(in)  :: a, b
+  real(8), intent(out) :: r1, r2    ! (inout = read and modified)
+  ...
+end subroutine solve
+</code></pre>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Where the procedure lives</th>
+<th>How</th>
+<th>Use it when</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>after <code>contains</code></td>
+<td>inside the program, before <code>end program</code></td>
+<td>everything in one file; arrays <code>x(:)</code> work</td>
+</tr>
+<tr>
+<td><strong>a separate file + external</strong></td>
+<td><code>f.f90</code>; in main: <code>real(8), external :: f</code></td>
+<td><strong>the standard pattern "functions in separate files"</strong></td>
+</tr>
+<tr>
+<td>a module</td>
+<td><code>module m … contains … end module m</code>; in main: <code>use m</code> (before <code>implicit none</code>)</td>
+<td>separate files + array arguments; no <code>external</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="38-make">3.8 make</h2>
+<pre><code class="language-makefile">FC = gfortran
+FFLAGS = -O2 -Wall
+OBJ = main.o f1.o f2.o
+
+prog: $(OBJ)                        # target: prerequisites
+	$(FC) $(FFLAGS) -o prog $(OBJ)   # recipe: starts with a TAB
+
+main.o: main.f90                    # with a module: main.o: main.f90 m.o
+	$(FC) $(FFLAGS) -c main.f90
+
+f1.o: f1.f90
+	$(FC) $(FFLAGS) -c f1.f90
+
+f2.o: f2.f90
+	$(FC) $(FFLAGS) -c f2.f90
+
+clean:
+	rm -f *.o *.mod prog *.out
+</code></pre>
+<ul>
+<li><code>make</code> builds the first target · <code>make clean</code> · <code>make -n</code> (show the commands without running them) · after <code>touch f1.f90</code>, only <code>f1.o</code> is rebuilt and the program relinked (timestamps).</li>
+<li><strong>"At least 4 rules"</strong> = the program + one rule per <code>.o</code> + <code>clean</code> (+ <code>run</code>).</li>
+<li>Pasted text can lose its TABs. Fix them all at once: <code>sed -i 's/^ \+/\t/' Makefile</code></li>
+</ul>
+<h2 id="39-templates-tested">3.9 Templates (tested)</h2>
+<p><strong>Two functions in separate files + two tables (screen + files) + Makefile.</strong> This is the standard pattern; edit the lines marked EDIT.</p>
+<pre><code class="language-fortran">program two_tables
+  ! TEMPLATE: two functions in separate files, two tables on screen + in files.
+  ! EDIT: names, parameters, range (x0, dx, n), formats, file names.
+  implicit none
+  real(8), external :: f1, f2          ! one entry per function file
+  real(8) :: x, x0, dx, a, b
+  integer :: i, n
+
+  x0 = 0.1d0; dx = 0.1d0; n = 9        ! x = x0, x0+dx, ..., x0+n*dx  (here 0.1 .. 1.0)
+  ! (if the question says &quot;ask for n&quot;:  write(*,'(A)',advance='no') 'n: '; read(*,*) n)
+
+  ! ---------- table 1 ----------
+  a = 2.0d0; b = 1.0d0
+  open(unit=10, file='table1.out', status='replace')
+  write(*,'(A)') '=== table 1'
+  write(*,'(3A14)')  'x',  'f1', 'f2'
+  write(10,'(3A14)') '#x', 'f1', 'f2'
+  do i = 0, n
+     x = x0 + dx*i
+     write(*,'(F14.4,2ES14.5)')  x, f1(x, a), f2(x, a, b)
+     write(10,'(F14.4,2ES14.5)') x, f1(x, a), f2(x, a, b)
+  end do
+  close(10)
+
+  ! ---------- table 2 ----------
+  a = 0.5d0; b = 3.0d0
+  open(unit=11, file='table2.out', status='replace')
+  write(*,'(/,A)') '=== table 2'
+  write(*,'(3A14)')  'x',  'f1', 'f2'
+  write(11,'(3A14)') '#x', 'f1', 'f2'
+  do i = 0, n
+     x = x0 + dx*i
+     write(*,'(F14.4,2ES14.5)')  x, f1(x, a), f2(x, a, b)
+     write(11,'(F14.4,2ES14.5)') x, f1(x, a), f2(x, a, b)
+  end do
+  close(11)
+end program two_tables
+</code></pre>
+<pre><code class="language-fortran">real(8) function f1(x, a)
+  ! EDIT: formula 1
+  implicit none
+  real(8), intent(in) :: x, a
+  f1 = a*x**2
+end function f1
+</code></pre>
+<pre><code class="language-fortran">real(8) function f2(x, a, b)
+  ! EDIT: formula 2
+  implicit none
+  real(8), intent(in) :: x, a, b
+  f2 = a*exp(-b*x)
+end function f2
+</code></pre>
+<pre><code class="language-makefile">FC = gfortran
+FFLAGS = -O2 -Wall
+OBJ = main.o f1.o f2.o
+
+prog: $(OBJ)
+	$(FC) $(FFLAGS) -o prog $(OBJ)
+
+main.o: main.f90
+	$(FC) $(FFLAGS) -c main.f90
+
+f1.o: f1.f90
+	$(FC) $(FFLAGS) -c f1.f90
+
+f2.o: f2.f90
+	$(FC) $(FFLAGS) -c f2.f90
+
+run: prog
+	./prog
+
+clean:
+	rm -f *.o *.mod prog *.out
+</code></pre>
+<p><strong>Read an .xyz file → print it → largest distance (indices + symbols) → atom counts + molecular mass</strong> (class evaluation)</p>
+<pre><code class="language-fortran">program molecule
+  implicit none
+  integer :: nat, i, j, imax, jmax, nC, nH, nO
+  character(len=80) :: title
+  character(len=2), allocatable :: sym(:)
+  real(8), allocatable :: xyz(:,:)
+  real(8) :: d, dmax, mass
+
+  ! ---------- a) read and print ----------
+  open(unit=10, file='molecule_B.xyz', status='old')
+  read(10,*) nat                      ! line 1: number of atoms
+  read(10,'(A)') title                ! line 2: the whole line as text
+  allocate(sym(nat), xyz(3,nat))
+  do i = 1, nat
+     read(10,*) sym(i), xyz(:,i)      ! symbol, then x y z
+  end do
+  close(10)
+  print *, nat
+  print *, trim(title)
+  do i = 1, nat
+     write(*,'(A3,3F12.5)') sym(i), xyz(:,i)
+  end do
+
+  ! ---------- b) largest distance between any two atoms ----------
+  dmax = 0.0d0
+  do i = 1, nat - 1
+     do j = i + 1, nat                ! each pair once
+        d = sqrt(sum((xyz(:,i) - xyz(:,j))**2))
+        if (d &gt; dmax) then
+           dmax = d; imax = i; jmax = j
+        end if
+     end do
+  end do
+  write(*,'(/,A,F8.4,A)') 'Largest distance:', dmax, ' Angstrom'
+  write(*,'(A,I0,3A,I0,3A)') ' between atom ', imax, ' (', trim(sym(imax)), ') and atom ', &amp;
+                             jmax, ' (', trim(sym(jmax)), ')'
+  ! ---------- c) count atoms and molecular mass ----------
+  nC = 0; nH = 0; nO = 0
+  do i = 1, nat
+     if (trim(sym(i)) == 'C') nC = nC + 1
+     if (trim(sym(i)) == 'H') nH = nH + 1
+     if (trim(sym(i)) == 'O') nO = nO + 1
+  end do
+  mass = 12.0d0*nC + 1.0d0*nH + 16.0d0*nO
+  print '(/,A,I3,A,I3,A,I3)', 'C:', nC, '   H:', nH, '   O:', nO
+  print '(A,F8.2,A)', 'Molecular mass:', mass, ' g/mol'
+end program molecule
+</code></pre>
+<p><strong>More .xyz analysis:</strong> centre of mass, shortest C–H distance, bond count, report written to screen + file</p>
+<pre><code class="language-fortran">program report
+  implicit none
+  integer :: nat, i, j, ic, ih, nbonds
+  character(len=80) :: title
+  character(len=2), allocatable :: sym(:)
+  real(8), allocatable :: xyz(:,:), m(:)
+  real(8) :: com(3), d, dmin
+
+  ! ---------- read ----------
+  open(unit=10, file='molecule_B.xyz', status='old')
+  read(10,*) nat
+  read(10,'(A)') title
+  allocate(sym(nat), xyz(3,nat), m(nat))
+  do i = 1, nat
+     read(10,*) sym(i), xyz(:,i)
+  end do
+  close(10)
+
+  ! ---------- a) centre of mass ----------
+  do i = 1, nat
+     if (trim(sym(i)) == 'C') m(i) = 12.0d0
+     if (trim(sym(i)) == 'H') m(i) = 1.0d0
+     if (trim(sym(i)) == 'O') m(i) = 16.0d0
+  end do
+  do j = 1, 3
+     com(j) = sum(m*xyz(j,:))/sum(m)
+  end do
+
+  ! ---------- b) shortest C-H distance ----------
+  dmin = huge(1.0d0)
+  do i = 1, nat
+     do j = 1, nat
+        if (trim(sym(i)) == 'C' .and. trim(sym(j)) == 'H') then
+           d = sqrt(sum((xyz(:,i) - xyz(:,j))**2))
+           if (d &lt; dmin) then
+              dmin = d; ic = i; ih = j
+           end if
+        end if
+     end do
+  end do
+
+  ! ---------- c) bonds: pairs closer than 1.6 A ----------
+  nbonds = 0
+  do i = 1, nat - 1
+     do j = i + 1, nat
+        if (sqrt(sum((xyz(:,i) - xyz(:,j))**2)) &lt; 1.6d0) nbonds = nbonds + 1
+     end do
+  end do
+
+  ! ---------- d) write the report to screen and file ----------
+  open(unit=20, file='report.txt', status='replace')
+  write(*,'(A,3F10.4)')  'Centre of mass:', com
+  write(20,'(A,3F10.4)') 'Centre of mass:', com
+  write(*,'(A,F8.4,A,I0,A,I0)')  'Shortest C-H:', dmin, '  atoms ', ic, ' and ', ih
+  write(20,'(A,F8.4,A,I0,A,I0)') 'Shortest C-H:', dmin, '  atoms ', ic, ' and ', ih
+  write(*,'(A,I0)')  'Bonds (&lt; 1.6 A): ', nbonds
+  write(20,'(A,I0)') 'Bonds (&lt; 1.6 A): ', nbonds
+  close(20)
+end program report
+</code></pre>
+<p><strong>Module version</strong> (functions in a module; the Makefile needs <code>main.o: main.f90 energies.o</code>)</p>
+<pre><code class="language-fortran">module energies
+  implicit none
+  real(8), parameter :: c = 2.998d8
+contains
+  real(8) function e_classic(m, v)
+    real(8), intent(in) :: m, v
+    e_classic = 0.5d0*m*v**2
+  end function e_classic
+
+  real(8) function e_relat(m, v)
+    real(8), intent(in) :: m, v
+    e_relat = (1.0d0/sqrt(1.0d0 - (v/c)**2) - 1.0d0)*m*c**2
+  end function e_relat
+end module energies
+</code></pre>
+<pre><code class="language-fortran">program kinetic_mod
+  use energies                 ! gives access to e_classic, e_relat and c (no 'external' needed)
+  implicit none
+  real(8) :: m, v
+  integer :: i
+  m = 9.109d-31
+  do i = 1, 9
+     v = 0.1d0*i*c
+     write(*,'(F6.2,2ES14.5)') v/c, e_classic(m, v), e_relat(m, v)
+  end do
+end program kinetic_mod
+</code></pre>
+<pre><code class="language-makefile">FC = gfortran
+FFLAGS = -O2 -Wall
+
+kinetic: main.o energies.o
+	$(FC) $(FFLAGS) -o kinetic main.o energies.o
+
+main.o: main.f90 energies.o
+	$(FC) $(FFLAGS) -c main.f90
+
+energies.o: energies.f90
+	$(FC) $(FFLAGS) -c energies.f90
+
+clean:
+	rm -f *.o *.mod kinetic
+</code></pre>
+<p><strong>Subroutine with intent(out) after contains + keyboard input</strong></p>
+<pre><code class="language-fortran">program quad
+  implicit none
+  real(8) :: a, b, c, disc, x1, x2
+  integer :: nroots
+  print *, 'a, b, c ='
+  read(*,*) a, b, c
+  call solve(a, b, c, disc, x1, x2, nroots)
+  print *, 'discriminant =', disc
+  if (nroots == 2) then
+     print *, 'two roots:', x1, x2
+  else if (nroots == 1) then
+     print *, 'one root:', x1
+  else
+     print *, 'no real roots'
+  end if
+contains
+  subroutine solve(a, b, c, disc, x1, x2, nroots)
+    real(8), intent(in)  :: a, b, c
+    real(8), intent(out) :: disc, x1, x2
+    integer, intent(out) :: nroots
+    disc = b*b - 4.0d0*a*c
+    x1 = 0.0d0; x2 = 0.0d0
+    if (disc &gt; 0.0d0) then
+       nroots = 2
+       x1 = (-b + sqrt(disc))/(2.0d0*a)
+       x2 = (-b - sqrt(disc))/(2.0d0*a)
+    else if (disc == 0.0d0) then
+       nroots = 1
+       x1 = -b/(2.0d0*a)
+    else
+       nroots = 0
+    end if
+  end subroutine solve
+end program quad
+</code></pre>
+<p><strong>Subroutine taking an array of any length</strong></p>
+<pre><code class="language-fortran">program statistics
+  implicit none
+  real(8) :: data(6) = [2.0d0, 4.0d0, 4.0d0, 5.0d0, 7.0d0, 9.0d0]
+  real(8) :: m, sd
+  call stats(data, m, sd)
+  print '(A,F8.4,A,F8.4)', 'mean =', m, '   std dev =', sd
+contains
+  subroutine stats(x, mean, sd)
+    real(8), intent(in)  :: x(:)          ! assumed shape: any length
+    real(8), intent(out) :: mean, sd
+    integer :: n
+    n = size(x)
+    mean = sum(x)/n
+    sd = sqrt(sum((x - mean)**2)/n)
+  end subroutine stats
+end program statistics
+</code></pre>
+<p><strong>Read a file until the end</strong></p>
+<pre><code class="language-fortran">program readsin
+  implicit none
+  integer :: ios, n
+  real(8) :: x, y, ymax, xmax
+  n = 0
+  ymax = -huge(1.0d0)
+  open(unit=10, file='sin.dat', status='old')
+  do
+     read(10,*,iostat=ios) x, y
+     if (ios /= 0) exit                 ! end of file (or a bad line)
+     n = n + 1
+     if (y &gt; ymax) then
+        ymax = y; xmax = x
+     end if
+  end do
+  close(10)
+  print *, 'lines read:', n
+  print *, 'max y =', ymax, ' at x =', xmax
+end program readsin
+</code></pre>
+<p><strong>Validate input with iostat + if/else if</strong> (class ex1)</p>
+<pre><code class="language-fortran">program grade
+  implicit none
+  real(8) :: g
+  integer :: ios
+  print *, 'Enter a grade between 0 and 10:'
+  read(*,*,iostat=ios) g
+  if (ios /= 0) then
+     print *, 'Error: not a number'
+  else if (g &lt; 0.0d0 .or. g &gt; 10.0d0) then
+     print *, 'Error: out of range'
+  else if (g &gt;= 9.0d0) then
+     print *, 'Excellent'
+  else if (g &gt;= 7.0d0) then
+     print *, 'Good'
+  else if (g &gt;= 5.0d0) then
+     print *, 'Pass'
+  else
+     print *, 'Fail'
+  end if
+end program grade
+</code></pre>
+<p><strong>Arrays: sum / mean / maxval / maxloc / slices; allocatable</strong></p>
+<pre><code class="language-fortran">program arrays
+  implicit none
+  real(8) :: x(10)
+  integer :: i
+  do i = 1, 10
+     x(i) = i**2/10.0d0
+  end do
+  print '(10F7.2)', x
+  print *, 'sum  =', sum(x)
+  print *, 'mean =', sum(x)/size(x)
+  print *, 'max  =', maxval(x), ' at index', maxloc(x)
+  print '(10F7.2)', 2*x            ! whole-array operation
+end program arrays
+</code></pre>
+<pre><code class="language-fortran">program alloc
+  implicit none
+  real(8), allocatable :: x(:)
+  integer :: n, i
+  print *, 'n ='
+  read(*,*) n
+  allocate(x(n))
+  do i = 1, n
+     x(i) = 1.0d0/i
+  end do
+  print '(A,F12.6)', 'sum of 1/i =', sum(x)
+  deallocate(x)
+end program alloc
+</code></pre>
+<h2 id="310-the-question-says-you-write-f90">3.10 The question says → you write <code>[F90]</code></h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>The question says…</th>
+<th>You write…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>functions written in separate files</td>
+<td><code>f1.f90</code>, <code>f2.f90</code> + <code>real(8), external :: f1, f2</code> in main</td>
+</tr>
+<tr>
+<td>different functions / separate files <strong>with arrays</strong></td>
+<td>a module (+ <code>use</code>)</td>
+</tr>
+<tr>
+<td>x from a to b in steps of h</td>
+<td><code>do i = 0, n</code> with <code>x = a + h*i</code></td>
+</tr>
+<tr>
+<td>write a table on the screen and in a file</td>
+<td><code>open</code> + two <code>write</code>s per row (<code>*</code> and <code>10</code>) + <code>close</code></td>
+</tr>
+<tr>
+<td>two tables with different parameters</td>
+<td>the loop twice (units 10 and 11), or a subroutine called twice</td>
+</tr>
+<tr>
+<td>ask for the number of terms n</td>
+<td><code>read(*,*) n</code> → test with <code>echo 100 | ./prog</code></td>
+</tr>
+<tr>
+<td>the value of π from the arccosine of −1</td>
+<td><code>acos(-1.0d0)</code></td>
+</tr>
+<tr>
+<td>read the file X</td>
+<td><code>open(..., status='old')</code> + <code>read(10,*)</code></td>
+</tr>
+<tr>
+<td>the largest / smallest distance between any two</td>
+<td>double loop <code>i&lt;j</code> + <code>dmax, imax, jmax</code></td>
+</tr>
+<tr>
+<td>number of atoms of each type</td>
+<td><code>if (trim(sym(i)) == 'C') nC = nC + 1</code></td>
+</tr>
+<tr>
+<td>compilation with make, at least 4 rules</td>
+<td>the template Makefile (3.8)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="311-errors-fix-f90-make">3.11 Errors → fix <code>[F90]</code> <code>[MAKE]</code></h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Error</th>
+<th>Cause</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>Function 'f' at (1) has no IMPLICIT type</code></td>
+<td>missing <code>real(8), external :: f</code> in main</td>
+</tr>
+<tr>
+<td><code>Unclassifiable statement</code></td>
+<td>a typo, or a declaration placed after an executable statement</td>
+</tr>
+<tr>
+<td><code>Symbol 'x' has no IMPLICIT type</code></td>
+<td>the variable isn't declared</td>
+</tr>
+<tr>
+<td><code>Rank mismatch</code> / <code>Type mismatch in argument</code></td>
+<td><code>0.1</code> passed where <code>0.1d0</code> is needed, or an array vs a scalar</td>
+</tr>
+<tr>
+<td>Explicit interface required (assumed-shape <code>x(:)</code> in an external procedure)</td>
+<td>put it after <code>contains</code> or in a module</td>
+</tr>
+<tr>
+<td><code>Fortran runtime error: End of file</code></td>
+<td>reading past the end → <code>iostat</code> loop, or a wrong count</td>
+</tr>
+<tr>
+<td>garbage / 0 results</td>
+<td>integer division, or a single-precision literal</td>
+</tr>
+<tr>
+<td><code>missing separator. Stop.</code></td>
+<td>spaces instead of a TAB in the Makefile → <code>sed -i 's/^ \+/\t/' Makefile</code></td>
+</tr>
+<tr>
+<td><code>No rule to make target 'x.f90'</code></td>
+<td>a misspelled file name in a rule</td>
+</tr>
+<tr>
+<td><code>undefined reference to 'f_'</code></td>
+<td>an object is missing from the link line</td>
+</tr>
+<tr>
+<td><code>Cannot open module file 'm.mod'</code></td>
+<td>main.o doesn't depend on m.o</td>
+</tr>
+</tbody>
+</table></div>
+<h3 id="past-fortran-solutions-2021-22-ex-5-2022-23-ex-3-enzyme-class-evaluation-xyz-is-in-39">[PAST] Fortran solutions: 2021-22 Ex 5 (π) · 2022-23 Ex 3 (enzyme) · class evaluation (.xyz is in 3.9)</h3>
+<p><strong>2021 Ex 5:</strong> π with Leibniz and Euler; asks for n; acos(−1)</p>
+<pre><code class="language-fortran">program pi_main
+  implicit none
+  real(8), external :: pi_1, pi_2
+  integer :: n
+  write(*,'(A)', advance='no') 'Number of terms n: '
+  read(*,*) n
+  write(*,*)
+  write(*,'(A,F18.15)') 'Leibniz  pi_1(n) = ', pi_1(n)
+  write(*,'(A,F18.15)') 'Euler    pi_2(n) = ', pi_2(n)
+  write(*,'(A,F18.15)') 'acos(-1)         = ', acos(-1.0d0)
+end program pi_main
+</code></pre>
+<pre><code class="language-fortran">real(8) function pi_1(n)
+  ! Leibniz: sum_{k=0}^{n-1} (-1)^k/(2k+1) = pi/4      (n terms)
+  implicit none
+  integer, intent(in) :: n
+  integer :: k
+  real(8) :: s
+  s = 0.0d0
+  do k = 0, n-1
+     s = s + (-1.0d0)**k / (2.0d0*k + 1.0d0)
+  end do
+  pi_1 = 4.0d0*s
+end function pi_1
+</code></pre>
+<pre><code class="language-fortran">real(8) function pi_2(n)
+  ! Euler: sum_{k=0}^{n-1} 2^k (k!)^2/(2k+1)! = pi/2   (n terms)
+  ! term_k = term_{k-1} * k/(2k+1)  -&gt; no factorials, no overflow
+  implicit none
+  integer, intent(in) :: n
+  integer :: k
+  real(8) :: s, t
+  t = 1.0d0
+  s = t
+  do k = 1, n-1
+     t = t * dble(k)/dble(2*k + 1)
+     s = s + t
+  end do
+  pi_2 = 2.0d0*s
+end function pi_2
+</code></pre>
+<p>(Makefile: the template with <code>OBJ = main.o pi1.o pi2.o</code>.)</p>
+<p><strong>2022 Ex 3:</strong> enzyme rates v1 and v2, two tables</p>
+<pre><code class="language-fortran">real(8) function v1(s, k2, e0, km)
+  ! Michaelis-Menten: k2*[E0]*[S]/(Km + [S])
+  implicit none
+  real(8), intent(in) :: s, k2, e0, km
+  v1 = k2*e0*s/(km + s)
+end function v1
+</code></pre>
+<pre><code class="language-fortran">real(8) function v2(s, k2, e0, km, ci, ki)
+  ! competitive inhibition: k2*[E0]*[S]/(Km*(1 + [I]/KI) + [S])
+  implicit none
+  real(8), intent(in) :: s, k2, e0, km, ci, ki
+  v2 = k2*e0*s/(km*(1.0d0 + ci/ki) + s)
+end function v2
+</code></pre>
+<pre><code class="language-fortran">program enzyme
+  implicit none
+  real(8), external :: v1, v2
+  real(8) :: s, k2, e0, km, ci, ki
+  integer :: i
+
+  ! ---------- table 1 ----------
+  k2 = 0.002d0; e0 = 0.04d0; km = 0.005d0; ci = 0.1d0; ki = 0.002d0
+  open(unit=10, file='table1.out', status='replace')
+  write(*,'(A)') '=== table 1'
+  write(*,'(A8,2A14)')  '[S](M)',  'v1', 'v2'
+  write(10,'(A8,2A14)') '#[S](M)', 'v1', 'v2'
+  do i = 1, 10
+     s = 0.01d0*i
+     write(*,'(F8.3,2ES14.5)')  s, v1(s, k2, e0, km), v2(s, k2, e0, km, ci, ki)
+     write(10,'(F8.3,2ES14.5)') s, v1(s, k2, e0, km), v2(s, k2, e0, km, ci, ki)
+  end do
+  close(10)
+
+  ! ---------- table 2 ----------
+  k2 = 0.0005d0; e0 = 0.06d0; km = 0.01d0; ci = 0.03d0; ki = 0.03d0
+  open(unit=11, file='table2.out', status='replace')
+  write(*,'(/,A)') '=== table 2'
+  write(*,'(A8,2A14)')  '[S](M)',  'v1', 'v2'
+  write(11,'(A8,2A14)') '#[S](M)', 'v1', 'v2'
+  do i = 1, 10
+     s = 0.01d0*i
+     write(*,'(F8.3,2ES14.5)')  s, v1(s, k2, e0, km), v2(s, k2, e0, km, ci, ki)
+     write(11,'(F8.3,2ES14.5)') s, v1(s, k2, e0, km), v2(s, k2, e0, km, ci, ki)
+  end do
+  close(11)
+end program enzyme
+</code></pre>
+<pre><code class="language-makefile">FC = gfortran
+FFLAGS = -O2 -Wall
+OBJ = main.o v1.o v2.o
+
+enzyme: $(OBJ)
+	$(FC) $(FFLAGS) -o enzyme $(OBJ)
+
+main.o: main.f90
+	$(FC) $(FFLAGS) -c main.f90
+
+v1.o: v1.f90
+	$(FC) $(FFLAGS) -c v1.f90
+
+v2.o: v2.f90
+	$(FC) $(FFLAGS) -c v2.f90
+
+clean:
+	rm -f *.o enzyme *.out
+</code></pre>
+<hr />
+<h1 id="4-python-numpy-np">4. Python: NumPy <code>[NP]</code></h1>
+<h2 id="41-shapes-and-axes">4.1 Shapes and axes</h2>
+<p><code>v.shape == (5, 7, 3)</code> = 5 systems × 7 particles × xyz. <strong>The axis you reduce over disappears:</strong> <code>v.mean(axis=1)</code> → (5, 3) · <code>np.linalg.norm(v, axis=2)</code> → (5, 7) · <code>axis=-1</code> = the last axis (xyz)</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Task</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>random data</td>
+<td><code>rng = np.random.default_rng(12345)</code> (<strong>once</strong>; re-run from here) · <code>rng.random((N,3)) * np.array([Lx,Ly,Lz])</code> · <code>rng.random(size=(5,7,3))</code> · <code>rng.uniform(a,b,n)</code> · <code>rng.normal(m,s,n)</code> · <code>rng.integers(lo,hi,n)</code> · <code>rng.choice([-1,1], size=n)</code></td>
+</tr>
+<tr>
+<td>indexing</td>
+<td><code>v[2,4]</code> · <code>v[:,:,2]</code> (all z) · <code>pos[i]</code> · <code>pos[:,0]</code> · <code>a[-1]</code></td>
+</tr>
+<tr>
+<td>masks</td>
+<td><code>m = pos[:,2] &gt; 5</code> → <code>pos[m]</code> · <code>np.where(m)[0]</code> (indices) · <code>m.sum()</code> (count) · <code>(a&gt;1) &amp; (b&lt;2)</code> · <code>(M&gt;1).any(axis=1)</code> · <code>.all(axis=1)</code></td>
+</tr>
+<tr>
+<td>set with a mask</td>
+<td><code>w[w &gt; 0.9] = 0.9</code> · <code>np.clip(v, lo, hi)</code></td>
+</tr>
+<tr>
+<td>reductions</td>
+<td><code>sum mean std min max</code> with <code>axis=</code> · <code>axis=(0,1)</code></td>
+</tr>
+<tr>
+<td>which one</td>
+<td><code>np.argmax</code>, <code>np.argmin</code> · matrix: <code>np.unravel_index(np.argmax(M), M.shape)</code></td>
+</tr>
+<tr>
+<td>broadcasting</td>
+<td><code>v - v.mean(axis=1, keepdims=True)</code> · <code>q[:, None] * pos</code></td>
+</tr>
+<tr>
+<td>sort</td>
+<td><code>np.argsort(d)</code> (indices) · <code>np.sort(d)</code></td>
+</tr>
+<tr>
+<td>print</td>
+<td><code>f"{x:.3f}"</code> · <code>np.round(a,3)</code> · <code>", ".join(f"{c:.3f}" for c in vec)</code> · <code>int(i)</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="42-vectors">4.2 Vectors</h2>
+<p><code>unit = v / np.linalg.norm(v, axis=-1, keepdims=True)</code> · <code>a @ b</code> dot product · <code>X @ y</code> one per row · <code>A @ B.T</code> all pairs · <code>(a*b).sum(axis=1)</code> row-wise · angle <code>np.degrees(np.arccos(np.clip(cos,-1,1)))</code> · <code>np.cross(a,b)</code></p>
+<h2 id="43-all-pairs">4.3 All pairs</h2>
+<pre><code class="language-python">from scipy.spatial.distance import pdist, squareform
+d = pdist(pos)                      # each pair once (i&lt;j)
+D = squareform(d)                   # (N,N), zeros on the diagonal
+np.fill_diagonal(D, np.inf)         # for MIN / closest / neighbours
+i, j = np.unravel_index(np.argmin(D), D.shape)
+print(D[i,j], np.linalg.norm(pos[i]-pos[j]))       # prove it
+ii, jj = np.triu_indices(N, k=1)    # the index pairs in pdist order
+np.outer(q, q)                      # q_i*q_j for every pair
+diff = pos[:,None,:] - pos[None,:,:]; D = np.sqrt((diff**2).sum(-1))   # without SciPy
+</code></pre>
+<p><strong>Fallback double loop:</strong> <code>for a in range(N): for b in range(a+1, N): d = np.linalg.norm(pos[a]-pos[b])</code>, keeping <code>best, ba, bb</code>.</p>
+<h2 id="44-the-question-says-you-type-np">4.4 The question says → you type <code>[NP]</code></h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>The question says…</th>
+<th>You type…</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>use this random seed</td>
+<td><code>rng = np.random.default_rng(seed)</code></td>
+</tr>
+<tr>
+<td>N particles in a box (a, b, c)</td>
+<td><code>rng.random((N,3)) * np.array([a,b,c])</code></td>
+</tr>
+<tr>
+<td>normalise / module 1</td>
+<td><code>v / np.linalg.norm(v, axis=-1, keepdims=True)</code></td>
+</tr>
+<tr>
+<td>vector (2,4) with 3 decimals</td>
+<td><code>", ".join(f"{c:.3f}" for c in unit[2,4])</code></td>
+</tr>
+<tr>
+<td>the vector of system 1 with the largest dot product with vector 3 of system 0</td>
+<td><code>np.argmax(v[1] @ v[0,3])</code></td>
+</tr>
+<tr>
+<td>dot product of all pairs between systems 3 and 4</td>
+<td><code>prods = v[3] @ v[4].T</code></td>
+</tr>
+<tr>
+<td>rows with a value &gt; 1 → their first element</td>
+<td><code>for r in np.where((prods&gt;1).any(axis=1))[0]: print(prods[r,0])</code></td>
+</tr>
+<tr>
+<td>minimum distance between all pairs</td>
+<td><code>squareform(pdist)</code> + <code>fill_diagonal(inf)</code> + <code>.min()</code></td>
+</tr>
+<tr>
+<td>which pair (indices) + prove it</td>
+<td><code>unravel_index(argmin)</code> + <code>np.linalg.norm(pos[i]-pos[j])</code></td>
+</tr>
+<tr>
+<td>a function for the energy U = Σ zᵢ²</td>
+<td><code>def U(pos): return np.sum(pos[:,2]**2)</code></td>
+</tr>
+<tr>
+<td>Σᵢ&lt;ⱼ f(rᵢⱼ)</td>
+<td><code>r = pdist(pos); np.sum(f(r))</code></td>
+</tr>
+<tr>
+<td>neighbours within a cutoff</td>
+<td><code>(D &lt; rc).sum(axis=1)</code> (with inf on the diagonal)</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="45-templates-tested-np">4.5 Templates (tested) <code>[NP]</code></h2>
+<p><strong>Shapes, centres, lengths, the index of the maximum</strong></p>
+<pre><code class="language-python">import numpy as np
+rng = np.random.default_rng(2025)
+v = rng.random((4, 10, 3))
+print(v.shape)                                   # (4, 10, 3)
+centres = v.mean(axis=1)                         # average over particles -&gt; (4, 3)
+print(centres.shape); print(np.round(centres, 3))
+lengths = np.linalg.norm(v, axis=2)              # one number per particle -&gt; (4, 10)
+print(lengths.shape)
+idx = np.unravel_index(np.argmax(v), v.shape)    # (system, particle, coordinate)
+print(&quot;largest value&quot;, v[idx].round(4), &quot;at&quot;, tuple(int(k) for k in idx))
+</code></pre>
+<p><strong>Masks</strong></p>
+<pre><code class="language-python">print(np.where(v[0, :, 2] &gt; 0.5)[0])             # system 0, particles with z &gt; 0.5
+print((v &lt; 0.5).all(axis=2).sum(axis=1))         # per system: particles with x,y,z all &lt; 0.5
+w = v.copy()
+w[w &gt; 0.9] = 0.9                                 # or: np.clip(v, None, 0.9)
+print(w.max())
+</code></pre>
+<p><strong>Broadcasting: centring, scaling</strong></p>
+<pre><code class="language-python">centred = v - v.mean(axis=1, keepdims=True)      # (4,10,3) - (4,1,3)
+print(np.abs(centred.mean(axis=1)).max() &lt; 1e-12)
+box = v * np.array([20, 20, 5])                  # scale each coordinate
+print(box.max(axis=(0, 1)).round(2))             # largest x, y, z
+</code></pre>
+<p><strong>Normalise</strong></p>
+<pre><code class="language-python">unit = v / np.linalg.norm(v, axis=2, keepdims=True)
+print(np.allclose(np.linalg.norm(unit, axis=2), 1))
+print(&quot;, &quot;.join(f&quot;{c:.3f}&quot; for c in unit[3, 7]))
+</code></pre>
+<p><strong>Angles to one vector, the most parallel</strong></p>
+<pre><code class="language-python">u = unit[2]                                      # system 2, already normalised
+cosang = np.clip(u @ u[0], -1, 1)                # 10 cosines (clip guards against 1.0000000002)
+ang = np.degrees(np.arccos(cosang))
+print(ang.round(1))
+ang[0] = np.inf                                  # exclude vector 0 itself
+print(&quot;most parallel to vector 0:&quot;, np.argmin(ang), f&quot;({ang.min():.1f} deg)&quot;)
+</code></pre>
+<p><strong>Cross product</strong></p>
+<pre><code class="language-python">c = np.cross(v[0, 0], v[0, 1])
+print(c.round(4), np.dot(c, v[0, 0]).round(12), np.dot(c, v[0, 1]).round(12))
+</code></pre>
+<p><strong>Maximum distance pair</strong></p>
+<pre><code class="language-python">from scipy.spatial.distance import pdist, squareform
+rng = np.random.default_rng(99)
+pos = rng.random((25, 3)) * np.array([40, 40, 10])
+D = squareform(pdist(pos))
+i, j = np.unravel_index(np.argmax(D), D.shape)
+print(f&quot;max {D[i, j]:.4f} between {i} and {j}; check {np.linalg.norm(pos[i] - pos[j]):.4f}&quot;)
+</code></pre>
+<p><strong>Minimum distance pair + double loop</strong></p>
+<pre><code class="language-python">Dm = D.copy(); np.fill_diagonal(Dm, np.inf)
+i, j = np.unravel_index(np.argmin(Dm), Dm.shape)
+print(f&quot;min {Dm[i, j]:.4f} between {i} and {j}; check {np.linalg.norm(pos[i] - pos[j]):.4f}&quot;)
+best = np.inf
+for a in range(len(pos)):
+    for b in range(a + 1, len(pos)):
+        d = np.linalg.norm(pos[a] - pos[b])
+        if d &lt; best:
+            best, ba, bb = d, a, b
+print(&quot;loop:&quot;, round(best, 4), ba, bb)
+</code></pre>
+<p><strong>Neighbours</strong></p>
+<pre><code class="language-python">print(&quot;pairs &lt; 8:&quot;, (pdist(pos) &lt; 8).sum())
+nb = (Dm &lt; 8).sum(axis=1)                        # inf on the diagonal -&gt; itself not counted
+print(nb)
+k = np.argmax(nb)
+print(&quot;most neighbours:&quot;, k, &quot;-&gt;&quot;, np.where(Dm[k] &lt; 8)[0])
+</code></pre>
+<p><strong>Dot-product matrix between two systems</strong></p>
+<pre><code class="language-python">prods = v[1] @ v[3].T                            # (10,10)
+i, j = np.unravel_index(np.argmax(prods), prods.shape)
+print(&quot;largest dot product&quot;, prods[i, j].round(4), &quot;at&quot;, (int(i), int(j)))
+for r in np.where(prods.max(axis=1) &gt; 1.5)[0]:
+    print(f&quot;row {r}: first element {prods[r, 0]:.4f}&quot;)
+</code></pre>
+<p><strong>Distance matrix without SciPy</strong></p>
+<pre><code class="language-python">diff = pos[:, None, :] - pos[None, :, :]         # (25,25,3)
+D2 = np.sqrt((diff**2).sum(axis=-1))
+print(np.allclose(D, D2))
+</code></pre>
+<p><strong>A formula as a function (tested on a small case)</strong></p>
+<pre><code class="language-python">def trap_energy(pos, k=0.5, centre=(20.0, 20.0)):
+    &quot;&quot;&quot;U = 1/2 k sum[(x-cx)^2 + (y-cy)^2]&quot;&quot;&quot;
+    dx = pos[:, 0] - centre[0]
+    dy = pos[:, 1] - centre[1]
+    return 0.5 * k * np.sum(dx**2 + dy**2)
+print(trap_energy(np.array([[21.0, 20.0, 0.0], [20.0, 22.0, 5.0]])))   # 0.25*(1+4) = 1.25
+print(f&quot;U = {trap_energy(pos):.3f}&quot;)
+</code></pre>
+<p><strong>Pair sum Σᵢ&lt;ⱼ qᵢqⱼ/rᵢⱼ</strong></p>
+<pre><code class="language-python">def coulomb(pos, q):
+    &quot;&quot;&quot;U = sum_{i&lt;j} q_i q_j / r_ij&quot;&quot;&quot;
+    i, j = np.triu_indices(len(pos), k=1)        # same pair order as pdist
+    return np.sum(q[i] * q[j] / pdist(pos))
+q = np.array([1 if n % 2 == 0 else -1 for n in range(len(pos))])
+print(coulomb(np.array([[0.0, 0, 0], [2.0, 0, 0]]), np.array([1, -1])))   # -0.5
+print(f&quot;U = {coulomb(pos, q):.4f}&quot;)
+</code></pre>
+<p><strong>A function returning a tuple</strong></p>
+<pre><code class="language-python">def closest_pair(pos):
+    D = squareform(pdist(pos))
+    np.fill_diagonal(D, np.inf)
+    i, j = np.unravel_index(np.argmin(D), D.shape)
+    return D[i, j], i, j
+d, i, j = closest_pair(pos)
+print(f&quot;{d:.4f} {i} {j}&quot;)
+</code></pre>
+<p><strong>Closest opposite-charge pair (np.outer mask) + dipole + count inside a sphere</strong></p>
+<pre><code class="language-python">rng = np.random.default_rng(31415)
+coords = rng.random((15, 3)) * 12
+qs = rng.choice([-1, 1], size=15)
+D = squareform(pdist(coords))
+opp = np.outer(qs, qs) &lt; 0                       # True where the charges are opposite
+D[~opp] = np.inf                                 # also removes the diagonal (q*q = +1)
+i, j = np.unravel_index(np.argmin(D), D.shape)
+print(f&quot;closest opposite pair {i} ({qs[i]:+d}) - {j} ({qs[j]:+d}): {D[i, j]:.4f}; check {np.linalg.norm(coords[i]-coords[j]):.4f}&quot;)
+def dipole(coords, q):
+    return (q[:, None] * coords).sum(axis=0)
+mu = dipole(coords, qs)
+print(&quot;dipole&quot;, mu.round(4), f&quot;|mu| = {np.linalg.norm(mu):.4f}&quot;)
+print(&quot;within 5 of the centre:&quot;, (np.linalg.norm(coords - 6, axis=1) &lt; 5).sum())
+</code></pre>
+<h3 id="past-numpy-solutions-2021-22-ex-1-2022-23-ex-4">[PAST] NumPy solutions: 2021-22 Ex 1 · 2022-23 Ex 4</h3>
+<p><strong>2021 Ex 1</strong></p>
+<pre><code class="language-python">import numpy as np
+rng = np.random.default_rng(12345)
+vectors = rng.random(size=(5, 7, 3))
+# 1
+unit = vectors / np.linalg.norm(vectors, axis=2, keepdims=True)
+print(&quot;, &quot;.join(f&quot;{c:.3f}&quot; for c in unit[2, 4]))
+# 2
+dots = vectors[1] @ vectors[0, 3]
+print(&quot;index:&quot;, np.argmax(dots))
+# 3
+prods = vectors[3] @ vectors[4].T                    # prods[i,j] = v(3,i) . v(4,j)
+for r in np.where((prods &gt; 1).any(axis=1))[0]:
+    print(f&quot;row {r}: first element {prods[r, 0]:.3f}&quot;)
+</code></pre>
+<p><strong>2022 Ex 4</strong></p>
+<pre><code class="language-python">import numpy as np
+from scipy.spatial.distance import pdist, squareform
+# 4.1
+rng = np.random.default_rng(12345)
+pos = rng.random((20, 3)) * np.array([100, 10, 10])
+# 4.2
+D = squareform(pdist(pos))
+np.fill_diagonal(D, np.inf)
+print(f&quot;minimum distance: {D.min():.4f}&quot;)
+# 4.3
+i, j = np.unravel_index(np.argmin(D), D.shape)
+print(f&quot;pair: {i} and {j}&quot;)
+print(f&quot;check: |r_{i} - r_{j}| = {np.linalg.norm(pos[i] - pos[j]):.4f}&quot;)
+# 4.4
+def total_energy(pos):
+    &quot;&quot;&quot;U = sum_i z_i**2&quot;&quot;&quot;
+    return np.sum(pos[:, 2]**2)
+print(f&quot;U = {total_energy(pos):.4f}&quot;)
+</code></pre>
+<hr />
+<h1 id="5-python-parsing-output-files-matplotlib-parse-plt">5. Python: parsing output files + matplotlib <code>[PARSE]</code> <code>[PLT]</code></h1>
+<h2 id="51-choose-the-pattern">5.1 Choose the pattern</h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>The file looks like…</th>
+<th>Pattern</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>a clean numeric table (<code>#</code> comments)</td>
+<td><strong>E0</strong> <code>np.loadtxt('f', comments='#', usecols=(0,2), skiprows=k)</code></td>
+</tr>
+<tr>
+<td>one value on a marker line, once per step</td>
+<td><strong>E1</strong> <code>if 'MARKER' in line: vals.append(float(line.split()[k]))</code></td>
+</tr>
+<tr>
+<td>a block between a start marker and an end marker</td>
+<td><strong>E2</strong> an <code>inside</code> flag; rows with <code>p and p[0].isdigit()</code>; <code>break</code> (first block only) or store each block</td>
+</tr>
+<tr>
+<td>several lines of values per step</td>
+<td><strong>E3</strong> <code>steps.append([])</code> when a step starts; <code>steps[-1] += values</code></td>
+</tr>
+<tr>
+<td>N / title / N lines, repeated (multi-frame .xyz)</td>
+<td><strong>E4</strong> a <code>while True:</code> loop with <code>f.readline()</code></td>
+</tr>
+<tr>
+<td>a table of labelled rows per step (e.g. convergence)</td>
+<td><code>line.startswith((...))</code> + <code>.reshape(-1, k)</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Step 0, always:</strong> <code>!grep -n "MARKER" file | head</code>, and <code>print(list(enumerate(line.split())))</code> to find the index of the field you need.</p>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>String tool</th>
+<th>Use</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>'X' in line</code> · <code>line.startswith(' Max')</code> · <code>startswith(('a','b'))</code></td>
+<td>find marker lines</td>
+</tr>
+<tr>
+<td><code>line.split()</code> · <code>line.split('--')[1]</code> · <code>line.strip()</code></td>
+<td>words · the text after a separator · remove surrounding whitespace</td>
+</tr>
+<tr>
+<td><code>p and p[0].isdigit()</code></td>
+<td>a data row starting with a number</td>
+</tr>
+<tr>
+<td><code>float(x)</code> · <code>int(x)</code></td>
+<td>convert</td>
+</tr>
+<tr>
+<td><code>f.readline()</code></td>
+<td>one line (returns <code>''</code> at the end of the file)</td>
+</tr>
+<tr>
+<td><code>line[28:]</code>, chunks of 10</td>
+<td>fixed-width columns (numbers that run together)</td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Gaussian:</strong> <code>Alpha  occ. eigenvalues</code> (two spaces) · HOMO = the <strong>last</strong> value of the last occ line of a step · LUMO = the <strong>first</strong> virt value of that step · energies are in hartree (1 Ha = 627.5095 kcal/mol = 27.2114 eV)<br />
+<strong>ORCA:</strong> <code>SCF ITERATIONS</code> → rows <code>ITER Energy Delta-E ...</code> (Delta-E = index 2) → ends at <code>Energy Check</code> / <code>SUCCESS</code> · the header changes when SOSCF starts (column positions after Delta-E move) · <code>FINAL SINGLE POINT ENERGY</code> once per point</p>
+<h2 id="52-parsing-templates-tested-parse">5.2 Parsing templates (tested) <code>[PARSE]</code></h2>
+<p><strong>E1: one value per line (energies + step numbers)</strong></p>
+<pre><code class="language-python">energies, steps = [], []
+with open('data/opt_mock.log') as f:
+    for line in f:
+        if 'SCF Done' in line:
+            energies.append(float(line.split()[4]))
+        elif 'Step number' in line:
+            steps.append(int(line.split()[2]))
+energies, steps = np.array(energies), np.array(steps)
+print(steps); print(energies)
+</code></pre>
+<p><strong>A table per step: the convergence criteria, the first step where all are YES</strong></p>
+<pre><code class="language-python">conv, flags = [], []
+with open('data/opt_mock.log') as f:
+    for line in f:
+        if line.startswith((' Maximum Force', ' RMS     Force', ' Maximum Displacement', ' RMS     Displacement')):
+            p = line.split()
+            conv.append(float(p[2]))
+            flags.append(p[4] == 'YES')
+conv = np.array(conv).reshape(-1, 4)             # one row per step
+flags = np.array(flags).reshape(-1, 4)
+print(conv)
+first = np.where(flags.all(axis=1))[0][0]
+print(&quot;first fully converged step:&quot;, steps[first])
+</code></pre>
+<p><strong>E2: a block per step (Mulliken charges) → array (steps × atoms)</strong></p>
+<pre><code class="language-python">charges, labels, inside = [], [], False
+with open('data/opt_mock.log') as f:
+    for line in f:
+        if 'Mulliken charges:' in line:
+            inside, block = True, []
+            continue
+        if inside:
+            p = line.split()
+            if 'Sum of Mulliken' in line:
+                charges.append(block); inside = False
+            elif len(p) == 3 and p[0].isdigit():
+                block.append(float(p[2]))
+                if len(charges) == 0:
+                    labels.append(p[1])
+charges = np.array(charges)                      # (nsteps, natoms)
+print(charges.shape)
+for lab, qq in zip(labels, charges[-1]):
+    print(f&quot;{lab:3s}{qq:10.6f}&quot;)
+print(&quot;sums:&quot;, charges.sum(axis=1).round(6))
+</code></pre>
+<p><strong>E3 + fixed width: orbital energies grouped per step</strong></p>
+<pre><code class="language-python">def read_values(line):
+    &quot;&quot;&quot;Gaussian eigenvalue line -&gt; list of floats, using the fixed 10-character columns.&quot;&quot;&quot;
+    data = line[28:].rstrip('\n')
+    return [float(data[k:k+10]) for k in range(0, len(data), 10)]
+
+occ_steps, virt_steps = [], []
+with open('data/opt_mock.log') as f:
+    for line in f:
+        if 'Population analysis' in line:
+            occ_steps.append([]); virt_steps.append([])
+        elif 'Alpha  occ. eigenvalues' in line:
+            occ_steps[-1] += read_values(line)
+        elif 'Alpha virt. eigenvalues' in line:
+            virt_steps[-1] += read_values(line)
+for s, (o, vv) in enumerate(zip(occ_steps, virt_steps), start=1):
+    neg = sum(1 for x in vv if x &lt; 0)
+    print(f&quot;step {s}: {len(o)} occ, lowest {o[0]:.5f}, highest virt {vv[-1]:.5f}, negative virt {neg}&quot;)
+</code></pre>
+<p><strong>E4: multi-frame .xyz → (frames, atoms, 3) + distances and angles</strong></p>
+<pre><code class="language-python">frames = []
+with open('data/traj.xyz') as f:
+    while True:
+        line = f.readline()
+        if not line.strip():
+            break                                # end of file
+        nat = int(line)
+        f.readline()                             # title line
+        frame = [[float(x) for x in f.readline().split()[1:4]] for _ in range(nat)]
+        frames.append(frame)
+traj = np.array(frames)                          # (nframes, natoms, 3)
+print(traj.shape)
+oh1 = np.linalg.norm(traj[:, 1] - traj[:, 0], axis=1)
+oh2 = np.linalg.norm(traj[:, 2] - traj[:, 0], axis=1)
+a = traj[:, 1] - traj[:, 0]; b = traj[:, 2] - traj[:, 0]
+cosang = (a * b).sum(axis=1) / (oh1 * oh2)
+angle = np.degrees(np.arccos(np.clip(cosang, -1, 1)))
+for k in range(len(traj)):
+    print(f&quot;frame {k}: OH1 {oh1[k]:.4f}  OH2 {oh2[k]:.4f}  angle {angle[k]:.2f}&quot;)
+</code></pre>
+<p><strong>E0: np.loadtxt + linear fit</strong></p>
+<pre><code class="language-python">md = np.loadtxt('data/md.dat')                   # '#' lines are skipped automatically
+t, T, Etot = md[:, 0], md[:, 1], md[:, 2]
+print(md.shape, f&quot;mean T = {T.mean():.2f} K, std = {T.std():.2f}&quot;)
+slope, intercept = np.polyfit(t, Etot, 1)
+print(f&quot;Etot drift = {slope:.4f} kJ/mol/ps&quot;)
+</code></pre>
+<h2 id="53-matplotlib-plt">5.3 matplotlib <code>[PLT]</code></h2>
+<div class="tw"><table>
+<thead>
+<tr>
+<th>Need</th>
+<th>Code</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>line / points</td>
+<td><code>plt.plot(x, y, 'o--', color='k', label='...')</code>: markers <code>o s ^ .</code>, lines <code>- -- :</code></td>
+</tr>
+<tr>
+<td>labels</td>
+<td><code>plt.xlabel()</code> <code>plt.ylabel()</code> <code>plt.title(f'slope = {m:.3f}')</code> <code>plt.legend()</code></td>
+</tr>
+<tr>
+<td>ticks / limits / log</td>
+<td><code>plt.xticks(steps)</code> · <code>plt.xlim(a,b)</code> · <code>plt.yscale('log')</code></td>
+</tr>
+<tr>
+<td>reference lines</td>
+<td><code>plt.axhline(y0, ls='--', color='gray')</code> · <code>plt.axvline(x0)</code></td>
+</tr>
+<tr>
+<td>fit</td>
+<td><code>m, b = np.polyfit(x, y, 1)</code> → <code>plt.plot(x, m*x+b, '--')</code></td>
+</tr>
+<tr>
+<td>histogram / scatter</td>
+<td><code>plt.hist(d, bins=20, edgecolor='k')</code> · <code>plt.scatter(x, y)</code></td>
+</tr>
+<tr>
+<td>two panels</td>
+<td><code>fig, ax = plt.subplots(1, 2, figsize=(10,4))</code> → <code>ax[0].plot</code>, <code>ax[0].set_xlabel</code></td>
+</tr>
+<tr>
+<td>finish</td>
+<td><code>plt.tight_layout()</code> · <code>plt.savefig('f.png', dpi=150)</code> <strong>before</strong> <code>plt.show()</code></td>
+</tr>
+<tr>
+<td>maths in labels</td>
+<td><code>'E$_{tot}$'</code> · <code>'log10(|ΔE|)'</code> · <code>'Distance (Å)'</code></td>
+</tr>
+</tbody>
+</table></div>
+<p><strong>Copying a target figure, a checklist:</strong> marker · line style · axis labels and units · integer ticks · legend? · scale (log?) · one panel or two?</p>
+<h2 id="54-plot-templates-tested-plt">5.4 Plot templates (tested) <code>[PLT]</code></h2>
+<p><strong>Points + dashed line, integer ticks</strong></p>
+<pre><code class="language-python">import matplotlib.pyplot as plt
+rel = (energies - energies[-1]) * 627.5095
+plt.figure(figsize=(6, 4))
+plt.plot(steps, rel, 'o--', color='k')
+plt.xlabel('Optimization step'); plt.ylabel('E - E$_{final}$ (kcal/mol)')
+plt.xticks(steps)
+plt.tight_layout(); plt.savefig('fig1.png', dpi=110); plt.show()
+</code></pre>
+<p><strong>Several series, log scale, threshold line</strong></p>
+<pre><code class="language-python">names = ['Max force', 'RMS force', 'Max disp.', 'RMS disp.']
+plt.figure(figsize=(6, 4))
+for col in range(4):
+    plt.plot(steps, conv[:, col], 'o-', label=names[col])
+plt.axhline(0.00045, ls='--', color='gray', label='Max force threshold')
+plt.yscale('log')
+plt.xlabel('Optimization step'); plt.ylabel('Value (a.u.)'); plt.xticks(steps)
+plt.legend(); plt.tight_layout(); plt.savefig('fig2.png', dpi=110); plt.show()
+</code></pre>
+<p><strong>Two panels</strong></p>
+<pre><code class="language-python">fig, ax = plt.subplots(1, 2, figsize=(10, 4))
+frame = np.arange(len(traj))
+ax[0].plot(frame, oh1, 'o-', label='O-H1')
+ax[0].plot(frame, oh2, 's--', label='O-H2')
+ax[0].set_xlabel('Frame'); ax[0].set_ylabel('Distance (Å)'); ax[0].legend()
+ax[1].plot(frame, angle, 'o-', color='C2')
+ax[1].set_xlabel('Frame'); ax[1].set_ylabel('H-O-H angle (deg)')
+plt.tight_layout(); plt.savefig('fig3.png', dpi=110); plt.show()
+</code></pre>
+<p><strong>Data + fit line, slope in the title</strong></p>
+<pre><code class="language-python">plt.figure(figsize=(6, 4))
+plt.plot(t, Etot, '.', label='data')
+plt.plot(t, slope*t + intercept, '-', color='r', label='fit')
+plt.title(f'Energy drift: {slope:.4f} kJ/mol/ps')
+plt.xlabel('time (ps)'); plt.ylabel('E$_{tot}$ (kJ/mol)'); plt.legend()
+plt.tight_layout(); plt.savefig('fig4.png', dpi=110); plt.show()
+</code></pre>
+<p><strong>Histogram + vertical line</strong></p>
+<pre><code class="language-python">plt.figure(figsize=(6, 4))
+plt.hist(pdist(pos), bins=20, edgecolor='k')
+plt.axvline(8, color='r', ls='--', label='cutoff 8')
+plt.xlabel('Pair distance'); plt.ylabel('Count'); plt.legend()
+plt.tight_layout(); plt.savefig('fig5.png', dpi=110); plt.show()
+</code></pre>
+<p><strong>A quantity per frame</strong></p>
+<pre><code class="language-python">hh = np.linalg.norm(traj[:, 1] - traj[:, 2], axis=1)
+print(&quot;max H-H in frame&quot;, np.argmax(hh), f&quot;({hh.max():.4f} Å)&quot;)
+plt.plot(np.arange(len(hh)), hh, 'o-')
+plt.xlabel('Frame'); plt.ylabel('H-H distance (Å)'); plt.xticks(np.arange(len(hh)))
+plt.tight_layout(); plt.show()
+</code></pre>
+<h3 id="past-parsing-plot-solutions-2021-22-ex-2-orca-e-fit-2022-23-ex-5-homolumo-gap">[PAST] Parsing + plot solutions: 2021-22 Ex 2 (ORCA ΔE fit) · 2022-23 Ex 5 (HOMO–LUMO gap)</h3>
+<p><strong>2021 Ex 2</strong></p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+it, dE = [], []
+inside = False
+with open('data/orca_mock.out') as f:                # paper: 'orca.out'
+    for line in f:
+        if 'SCF ITERATIONS' in line:
+            inside = True
+            continue
+        if inside:
+            p = line.split()
+            if p and p[0].isdigit():
+                it.append(int(p[0])); dE.append(float(p[2]))
+            elif 'SUCCESS' in line or 'Energy Check' in line:
+                break                                 # first point only
+it, dE = np.array(it), np.array(dE)
+m = it &gt;= 5
+x, y = it[m], np.log10(np.abs(dE[m]))
+slope, intercept = np.polyfit(x, y, 1)
+print(f&quot;slope = {slope:.4f}&quot;)
+plt.plot(x, y, 'o')
+plt.plot(x, slope*x + intercept, '--')
+plt.xlabel('Iteration'); plt.ylabel('log10(|ΔE|)')
+plt.savefig('/tmp/past/fit.png'); plt.close()
+</code></pre>
+<p><strong>2022 Ex 5</strong></p>
+<pre><code class="language-python">import numpy as np
+import matplotlib.pyplot as plt
+def read_values(line):
+    data = line[28:].rstrip('\n')                     # numbers start after the 28-character label
+    return [float(data[k:k+10]) for k in range(0, len(data), 10)]
+occ, virt = [], []                                    # one list per optimisation step
+new_step = True
+with open('data/piri_mock.log') as f:                 # paper: 'piri.log'
+    for line in f:
+        if 'Alpha  occ. eigenvalues' in line:
+            if new_step:                              # first occ line of a new step
+                occ.append([]); virt.append([])
+                new_step = False
+            occ[-1] += read_values(line)
+        elif 'Alpha virt. eigenvalues' in line:
+            virt[-1] += read_values(line)
+            new_step = True                           # the next occ line starts a new step
+homo = np.array([o[-1] for o in occ])                 # last occupied of each step
+lumo = np.array([v[0] for v in virt])                 # first virtual of each step
+gap = lumo - homo
+print(gap)
+steps = np.arange(len(gap))
+plt.plot(steps, gap, 'o--', color='k')
+plt.xlabel('Optimization step'); plt.ylabel('Energy gap (ha)'); plt.xticks(steps)
+plt.savefig('/tmp/past/gap.png'); plt.close()
+</code></pre>
+<hr />
+<h1 id="6-the-traps-list-gotcha">6. The traps list <code>[GOTCHA]</code></h1>
+<p><strong>Bash:</strong> no spaces around <code>=</code> · spaces inside <code>[ ]</code> · quote <code>"$f"</code> · <code>wc -l &lt; f</code> for a bare number · <code>grep -c</code> counts lines, <code>grep -o … | wc -l</code> counts occurrences · <code>-w</code> for whole words · never <code>sed … f &gt; f</code> (use a temp file + <code>mv</code>) · <code>[ -f "$f" ] || continue</code> when a glob might match nothing · use <code>-gt</code>, not <code>&gt;</code>, inside <code>[ ]</code> · <code>read</code> in Colab needs <code>&lt;&lt;&lt;</code>
+<strong>Gnuplot:</strong> <code>**</code> for powers · <code>1/2 = 0</code> · a new <code>set output</code> for each figure · <code>set table</code> <strong>before</strong> <code>set contour</code> · <code>with pm3d</code> alone draws no contour lines (use <code>pm3d implicit</code> + <code>with lines</code>) · 2D map = <code>set view map; unset surface</code>
+<strong>Fortran:</strong> <code>implicit none</code> · <code>d0</code> literals · integer division · <code>real(8), external :: f</code> · declarations before statements · loop over integers · <code>trim()</code> when comparing strings · <code>iostat</code> for the end of a file · allocate after reading <code>nat</code>
+<strong>make:</strong> TABs (not spaces) · every object on the link line · <code>main.o</code> depends on the module's <code>.o</code> · <code>rm -f *.mod</code> in <code>clean</code> · <code>make clean &amp;&amp; make</code> before handing in
+<strong>NumPy:</strong> create <code>rng</code> once (re-run from it) · <code>keepdims=True</code> when dividing by norms · <code>fill_diagonal(inf)</code> before min/closest · <code>unravel_index</code> for matrix positions · <code>clip</code> before <code>arccos</code> · 0-based indices (the .xyz exercise wants 1-based: add 1)
+<strong>Parsing:</strong> look at the file first · double spaces in the markers (<code>'Alpha  occ.'</code>) · <code>enumerate(line.split())</code> to find the index · numbers that run together → fixed width · <code>p and p[0].isdigit()</code> to skip headers · first block vs all blocks
+<strong>Plots:</strong> <code>savefig</code> before <code>show</code> · <code>xticks(steps)</code> for integer steps · labels with units</p>
+</main>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/fortran.min.js"></script>
+<script>
+document.querySelectorAll('pre > code').forEach(function (code) {
+  var btn = document.createElement('button');
+  btn.className = 'copy'; btn.textContent = 'Copy';
+  btn.addEventListener('click', function () {
+    var text = code.textContent;
+    var done = function () { btn.textContent = 'Copied ✓'; setTimeout(function () { btn.textContent = 'Copy'; }, 1200); };
+    if (navigator.clipboard) { navigator.clipboard.writeText(text).then(done); }
+    else { var t = document.createElement('textarea'); t.value = text; document.body.appendChild(t); t.select(); document.execCommand('copy'); t.remove(); done(); }
+  });
+  code.parentNode.appendChild(btn);
+});
+if (window.hljs) {
+  hljs.configure({ ignoreUnescapedHTML: true });
+  document.querySelectorAll('pre > code[class*="language-"]').forEach(function (el) {
+    var lang = (el.className.match(/language-(\w+)/) || [])[1];
+    if (lang && hljs.getLanguage(lang)) { hljs.highlightElement(el); }
+  });
+}
+</script>
+</body>
+</html>
