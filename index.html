@@ -47,10 +47,12 @@ hr { display:none; }
 .exadapt p { margin:6px 0; }
 .exadapt > strong + p { display:inline; }
 .extable td:first-child { white-space:nowrap; }
+.excheck { border:1px solid var(--line); border-left:3px solid #2da44e; border-radius:0 6px 6px 0; padding:6px 14px; margin:10px 0 6px; }
+.excheck pre { margin:6px 0 4px; }
 </style>
 </head>
 <body>
-<nav><a download="notes.ipynb" href="notes.ipynb" style="font-weight:650;margin:0 0 10px">⬇ Download notes.ipynb</a><ul><li class="l1"><a href="#contents">Contents</a><ul><li class="l2"><a href="#01-method-method">0.1 Method [METHOD]</a></li></ul></li><li class="l1"><a href="#1-linux-and-bash-bash">1. Linux and bash [BASH]</a><ul><li class="l2"><a href="#11-command-anatomy-paths-globs">1.1 Command anatomy, paths, globs</a></li><li class="l2"><a href="#12-everyday-commands">1.2 Everyday commands</a></li><li class="l2"><a href="#13-redirection-and-pipes">1.3 Redirection and pipes</a></li><li class="l2"><a href="#14-grep-matching-lines">1.4 grep: matching lines</a></li><li class="l2"><a href="#15-sed-print-delete-substitute">1.5 sed: print / delete / substitute</a></li><li class="l2"><a href="#16-awk-columns">1.6 awk: columns</a></li><li class="l2"><a href="#17-variables-quotes-arithmetic">1.7 Variables, quotes, arithmetic</a></li><li class="l2"><a href="#18-scripts-skeleton-tests-if-loops">1.8 Scripts: skeleton, tests, if, loops</a></li><li class="l2"><a href="#19-script-templates-tested">1.9 Script templates (tested)</a></li><li class="l2"><a href="#110-the-question-says-you-type-bash">1.10 The question says → you type [BASH]</a></li><li class="l2"><a href="#111-errors-fix-bash">1.11 Errors → fix [BASH]</a><ul><li class="l3"><a href="#past-bash-solutions-2021-22-ex-3-2022-23-ex-1">[PAST] Bash solutions: 2021-22 Ex 3 · 2022-23 Ex 1</a></li><li class="l3"><a href="#past-class-linux-exercise-sheet-114">[PAST] Class Linux exercise sheet (1–14)</a></li></ul></li></ul></li><li class="l1"><a href="#2-gnuplot-gnu">2. Gnuplot [GNU]</a><ul><li class="l2"><a href="#21-templates-tested">2.1 Templates (tested)</a></li></ul></li><li class="l1"><a href="#3-fortran-and-make-f90-make">3. Fortran and make [F90] [MAKE]</a><ul><li class="l2"><a href="#31-compile-and-run">3.1 Compile and run</a></li><li class="l2"><a href="#32-program-skeleton">3.2 Program skeleton</a></li><li class="l2"><a href="#33-declarations-and-traps">3.3 Declarations and traps</a></li><li class="l2"><a href="#34-intrinsics">3.4 Intrinsics</a></li><li class="l2"><a href="#35-input-output">3.5 Input / output</a></li><li class="l2"><a href="#36-control-flow">3.6 Control flow</a></li><li class="l2"><a href="#37-functions-subroutines-modules">3.7 Functions, subroutines, modules</a></li><li class="l2"><a href="#38-make">3.8 make</a><ul><li class="l3"><a href="#38-make-written-out">make without variables</a></li></ul></li><li class="l2"><a href="#39-templates-tested">3.9 Templates (tested)</a></li><li class="l2"><a href="#310-the-question-says-you-write-f90">3.10 The question says → you write [F90]</a></li><li class="l2"><a href="#311-errors-fix-f90-make">3.11 Errors → fix [F90] [MAKE]</a><ul><li class="l3"><a href="#past-fortran-solutions-2021-22-ex-5-2022-23-ex-3-enzyme-class-evaluation-xyz-is-in-39">[PAST] Fortran solutions: 2021-22 Ex 5 (π) · 2022-23 Ex 3 (enzyme) · class evaluation (.xyz is in 3.9)</a></li></ul></li></ul></li><li class="l1"><a href="#4-python-numpy-np">4. Python: NumPy [NP]</a><ul><li class="l2"><a href="#41-shapes-and-axes">4.1 Shapes and axes</a></li><li class="l2"><a href="#42-vectors">4.2 Vectors</a></li><li class="l2"><a href="#43-all-pairs">4.3 All pairs</a></li><li class="l2"><a href="#44-the-question-says-you-type-np">4.4 The question says → you type [NP]</a></li><li class="l2"><a href="#45-templates-tested-np">4.5 Templates (tested) [NP]</a><ul><li class="l3"><a href="#past-numpy-solutions-2021-22-ex-1-2022-23-ex-4">[PAST] NumPy solutions: 2021-22 Ex 1 · 2022-23 Ex 4</a></li></ul></li></ul></li><li class="l1"><a href="#5-python-parsing-output-files-matplotlib-parse-plt">5. Python: parsing output files + matplotlib [PARSE] [PLT]</a><ul><li class="l2"><a href="#51-choose-the-pattern">5.1 Choose the pattern</a></li><li class="l2"><a href="#52-parsing-templates-tested-parse">5.2 Parsing templates (tested) [PARSE]</a></li><li class="l2"><a href="#53-matplotlib-plt">5.3 matplotlib [PLT]</a></li><li class="l2"><a href="#54-plot-templates-tested-plt">5.4 Plot templates (tested) [PLT]</a><ul><li class="l3"><a href="#past-parsing-plot-solutions-2021-22-ex-2-orca-e-fit-2022-23-ex-5-homolumo-gap">[PAST] Parsing + plot solutions: 2021-22 Ex 2 (ORCA ΔE fit) · 2022-23 Ex 5 (HOMO–LUMO gap)</a></li></ul></li></ul></li><li class="l1"><a href="#6-the-traps-list-gotcha">6. The traps list [GOTCHA]</a></li><li class="l1"><a href="#7-worked-examples-ex">7. Worked examples [EX]</a><ul><li class="l2"><a href="#7-1-python-ex-py">7.1 Python [EX-PY]</a><ul><li class="l3"><a href="#ex-py-01">EX-PY-01 Particles in a box: minimum distance, the pair, …</a></li><li class="l3"><a href="#ex-py-02">EX-PY-02 Vectors: normalise, largest dot product, dot-pro…</a></li><li class="l3"><a href="#ex-py-03">EX-PY-03 Gaussian log: HOMO–LUMO gap per optimisation ste…</a></li><li class="l3"><a href="#ex-py-04">EX-PY-04 ORCA output: Delta-E of the first SCF block, fit…</a></li><li class="l3"><a href="#ex-py-05">EX-PY-05 Neighbours within a cutoff, particle with most n…</a></li><li class="l3"><a href="#ex-py-06">EX-PY-06 ORCA output: Max-DP of the second SCF block when…</a></li><li class="l3"><a href="#ex-py-07">EX-PY-07 Particles drill: max distance + pair, pairs clos…</a></li><li class="l3"><a href="#ex-py-08">EX-PY-08 Speed drill: masks, sort by distance, minimum pa…</a></li><li class="l3"><a href="#ex-py-09">EX-PY-09 All pairs: max and min pair (NumPy + double loop…</a></li><li class="l3"><a href="#ex-py-10">EX-PY-10 Formulas as functions: harmonic trap, Coulomb pa…</a></li><li class="l3"><a href="#ex-py-11">EX-PY-11 Mini mock: closest opposite-charge pair, dipole …</a></li><li class="l3"><a href="#ex-py-12">EX-PY-12 NumPy foundations: shapes, axes, centres, masks,…</a></li><li class="l3"><a href="#ex-py-13">EX-PY-13 Vectors: normalise, angles between vectors, most…</a></li><li class="l3"><a href="#ex-py-14">EX-PY-14 Gaussian log: SCF Done energy per step, relative…</a></li><li class="l3"><a href="#ex-py-15">EX-PY-15 ORCA output: SCF iterations and final energy for…</a></li><li class="l3"><a href="#ex-py-16">EX-PY-16 Reusable reader: one (iterations, ΔE) pair per S…</a></li><li class="l3"><a href="#ex-py-17">EX-PY-17 Gaussian optimisation log: energies + step numbe…</a></li><li class="l3"><a href="#ex-py-18">EX-PY-18 Block per step: Mulliken charges of every step</a></li><li class="l3"><a href="#ex-py-19">EX-PY-19 Fixed-width columns: occupied and virtual orbita…</a></li><li class="l3"><a href="#ex-py-20">EX-PY-20 Multi-frame .xyz trajectory: frames × atoms × xy…</a></li><li class="l3"><a href="#ex-py-21">EX-PY-21 Plain numeric table: np.loadtxt, mean/std, linea…</a></li><li class="l3"><a href="#ex-py-22">EX-PY-22 matplotlib: five target figures (relative energy…</a></li><li class="l3"><a href="#ex-py-23">EX-PY-23 Homework (Assignment 1): read a .cif file, dista…</a></li><li class="l3"><a href="#ex-py-24">EX-PY-24 Homework (Assignment 2): Euler integrator — NumP…</a></li></ul></li><li class="l2"><a href="#7-2-fortran-make-ex-f90">7.2 Fortran + make [EX-F90]</a><ul><li class="l3"><a href="#ex-f90-01">EX-F90-01 Enzyme kinetics: Michaelis–Menten vs competitive…</a></li><li class="l3"><a href="#ex-f90-02">EX-F90-02 π two ways (Leibniz and Euler series), n read fr…</a></li><li class="l3"><a href="#ex-f90-03">EX-F90-03 Ideal gas vs van der Waals pressure, two gases, …</a></li><li class="l3"><a href="#ex-f90-04">EX-F90-04 Arrhenius vs modified Arrhenius: two tables with…</a></li><li class="l3"><a href="#ex-f90-05">EX-F90-05 Adsorption isotherms (Langmuir vs Freundlich), n…</a></li><li class="l3"><a href="#ex-f90-06">EX-F90-06 Morse vs harmonic bond potential (H₂ and HCl), b…</a></li><li class="l3"><a href="#ex-f90-07">EX-F90-07 Homework (Fortran assignment): read an .xyz file…</a></li><li class="l3"><a href="#ex-f90-08">EX-F90-08 Molecule file, new questions: centre of mass, sh…</a></li><li class="l3"><a href="#ex-f90-09">EX-F90-09 Warm-up: one function in its own file, table on …</a></li><li class="l3"><a href="#ex-f90-10">EX-F90-10 Tables: read n, write i, i², √i to screen + file…</a></li><li class="l3"><a href="#ex-f90-11">EX-F90-11 Functions and subroutines: Gaussian in its own f…</a></li><li class="l3"><a href="#ex-f90-12">EX-F90-12 make: write a 5-rule Makefile; debug three broke…</a></li></ul></li><li class="l2"><a href="#7-3-bash-ex-sh">7.3 Bash [EX-SH]</a><ul><li class="l3"><a href="#ex-sh-01">EX-SH-01 Three-way script: file → lines; directory → copy…</a></li><li class="l3"><a href="#ex-sh-02">EX-SH-02 Swap lines 2 and 3 of every .swap23 file, in pla…</a></li><li class="l3"><a href="#ex-sh-03">EX-SH-03 Ask for two file names and print the larger one</a></li><li class="l3"><a href="#ex-sh-04">EX-SH-04 One line: lines containing x_pos but not y_pos</a></li><li class="l3"><a href="#ex-sh-05">EX-SH-05 One line: count .log files with “Normal terminat…</a></li><li class="l3"><a href="#ex-sh-06">EX-SH-06 Three-way script: file → words; directory → copy…</a></li><li class="l3"><a href="#ex-sh-07">EX-SH-07 Three-way script: file → words; directory → numb…</a></li><li class="l3"><a href="#ex-sh-08">EX-SH-08 Swap lines 1 and 3 of every .swap13 file</a></li><li class="l3"><a href="#ex-sh-09">EX-SH-09 Swap the first and last line of every .alter fil…</a></li><li class="l3"><a href="#ex-sh-10">EX-SH-10 Lines with the word “for” of every .py file → na…</a></li><li class="l3"><a href="#ex-sh-11">EX-SH-11 Sign of a number, then compare a second number w…</a></li><li class="l3"><a href="#ex-sh-12">EX-SH-12 Job checker: OK / FAILED per .log file, then the…</a></li><li class="l3"><a href="#ex-sh-13">EX-SH-13 Folder as an argument ($1, default .): count .f9…</a></li><li class="l3"><a href="#ex-sh-14">EX-SH-14 Ask for a word, count it in every .f90 and .py f…</a></li><li class="l3"><a href="#ex-sh-15">EX-SH-15 One-liners: lines per file, A but not B, lines v…</a></li><li class="l3"><a href="#ex-sh-16">EX-SH-16 Class Linux sheet, part 1: listing and counting</a></li><li class="l3"><a href="#ex-sh-17">EX-SH-17 Class Linux sheet, part 2: creating files, permi…</a></li><li class="l3"><a href="#ex-sh-18">EX-SH-18 Class Linux sheet, part 3: filtering and cutting</a></li></ul></li><li class="l2"><a href="#7-4-gnuplot-ex-gp">7.4 Gnuplot [EX-GP]</a><ul><li class="l3"><a href="#ex-gp-01">EX-GP-01 3D surface with base contours every 0.5, arrow +…</a></li><li class="l3"><a href="#ex-gp-02">EX-GP-02 Make this picture: gray surface cos(x**3−y)−sin(…</a></li><li class="l3"><a href="#ex-gp-03">EX-GP-03 Surface with 8 contour levels, arrows + labels t…</a></li><li class="l3"><a href="#ex-gp-04">EX-GP-04 Gray shaded surface, contours from −1 to 1 every…</a></li><li class="l3"><a href="#ex-gp-05">EX-GP-05 One script, two figures: surface with contours, …</a></li><li class="l3"><a href="#ex-gp-06">EX-GP-06 2D plot of two functions with labels, title, leg…</a></li></ul></li></ul></li></ul></nav>
+<nav><a download="notes.ipynb" href="notes.ipynb" style="font-weight:650;margin:0 0 10px">⬇ Download notes.ipynb</a><ul><li class="l1"><a href="#contents">Contents</a><ul><li class="l2"><a href="#01-method-method">0.1 Method [METHOD]</a></li></ul></li><li class="l1"><a href="#1-linux-and-bash-bash">1. Linux and bash [BASH]</a><ul><li class="l2"><a href="#11-command-anatomy-paths-globs">1.1 Command anatomy, paths, globs</a></li><li class="l2"><a href="#12-everyday-commands">1.2 Everyday commands</a></li><li class="l2"><a href="#13-redirection-and-pipes">1.3 Redirection and pipes</a></li><li class="l2"><a href="#14-grep-matching-lines">1.4 grep: matching lines</a></li><li class="l2"><a href="#15-sed-print-delete-substitute">1.5 sed: print / delete / substitute</a></li><li class="l2"><a href="#16-awk-columns">1.6 awk: columns</a></li><li class="l2"><a href="#17-variables-quotes-arithmetic">1.7 Variables, quotes, arithmetic</a></li><li class="l2"><a href="#18-scripts-skeleton-tests-if-loops">1.8 Scripts: skeleton, tests, if, loops</a></li><li class="l2"><a href="#19-script-templates-tested">1.9 Script templates (tested)</a></li><li class="l2"><a href="#110-the-question-says-you-type-bash">1.10 The question says → you type [BASH]</a></li><li class="l2"><a href="#111-errors-fix-bash">1.11 Errors → fix [BASH]</a><ul><li class="l3"><a href="#past-bash-solutions-2021-22-ex-3-2022-23-ex-1">[PAST] Bash solutions: 2021-22 Ex 3 · 2022-23 Ex 1</a></li><li class="l3"><a href="#past-class-linux-exercise-sheet-114">[PAST] Class Linux exercise sheet (1–14)</a></li></ul></li></ul></li><li class="l1"><a href="#2-gnuplot-gnu">2. Gnuplot [GNU]</a><ul><li class="l2"><a href="#21-templates-tested">2.1 Templates (tested)</a></li></ul></li><li class="l1"><a href="#3-fortran-and-make-f90-make">3. Fortran and make [F90] [MAKE]</a><ul><li class="l2"><a href="#31-compile-and-run">3.1 Compile and run</a></li><li class="l2"><a href="#32-program-skeleton">3.2 Program skeleton</a></li><li class="l2"><a href="#33-declarations-and-traps">3.3 Declarations and traps</a></li><li class="l2"><a href="#34-intrinsics">3.4 Intrinsics</a></li><li class="l2"><a href="#35-input-output">3.5 Input / output</a></li><li class="l2"><a href="#36-control-flow">3.6 Control flow</a></li><li class="l2"><a href="#37-functions-subroutines-modules">3.7 Functions, subroutines, modules</a></li><li class="l2"><a href="#38-make">3.8 make</a><ul><li class="l3"><a href="#38-make-written-out">make without variables</a></li></ul></li><li class="l2"><a href="#39-templates-tested">3.9 Templates (tested)</a></li><li class="l2"><a href="#310-the-question-says-you-write-f90">3.10 The question says → you write [F90]</a></li><li class="l2"><a href="#311-errors-fix-f90-make">3.11 Errors → fix [F90] [MAKE]</a><ul><li class="l3"><a href="#past-fortran-solutions-2021-22-ex-5-2022-23-ex-3-enzyme-class-evaluation-xyz-is-in-39">[PAST] Fortran solutions: 2021-22 Ex 5 (π) · 2022-23 Ex 3 (enzyme) · class evaluation (.xyz is in 3.9)</a></li></ul></li></ul></li><li class="l1"><a href="#4-python-numpy-np">4. Python: NumPy [NP]</a><ul><li class="l2"><a href="#41-shapes-and-axes">4.1 Shapes and axes</a></li><li class="l2"><a href="#42-vectors">4.2 Vectors</a></li><li class="l2"><a href="#43-all-pairs">4.3 All pairs</a></li><li class="l2"><a href="#44-the-question-says-you-type-np">4.4 The question says → you type [NP]</a></li><li class="l2"><a href="#45-templates-tested-np">4.5 Templates (tested) [NP]</a><ul><li class="l3"><a href="#past-numpy-solutions-2021-22-ex-1-2022-23-ex-4">[PAST] NumPy solutions: 2021-22 Ex 1 · 2022-23 Ex 4</a></li></ul></li></ul></li><li class="l1"><a href="#5-python-parsing-output-files-matplotlib-parse-plt">5. Python: parsing output files + matplotlib [PARSE] [PLT]</a><ul><li class="l2"><a href="#51-choose-the-pattern">5.1 Choose the pattern</a></li><li class="l2"><a href="#52-parsing-templates-tested-parse">5.2 Parsing templates (tested) [PARSE]</a></li><li class="l2"><a href="#53-matplotlib-plt">5.3 matplotlib [PLT]</a></li><li class="l2"><a href="#54-plot-templates-tested-plt">5.4 Plot templates (tested) [PLT]</a><ul><li class="l3"><a href="#past-parsing-plot-solutions-2021-22-ex-2-orca-e-fit-2022-23-ex-5-homolumo-gap">[PAST] Parsing + plot solutions: 2021-22 Ex 2 (ORCA ΔE fit) · 2022-23 Ex 5 (HOMO–LUMO gap)</a></li></ul></li></ul></li><li class="l1"><a href="#6-the-traps-list-gotcha">6. The traps list [GOTCHA]</a></li><li class="l1"><a href="#7-worked-examples-ex">7. Worked examples [EX]</a><ul><li class="l2"><a href="#7-1-python-ex-py">7.1 Python [EX-PY]</a><ul><li class="l3"><a href="#ex-py-01">EX-PY-01 Particles in a box: minimum distance, the pair, …</a></li><li class="l3"><a href="#ex-py-02">EX-PY-02 Vectors: normalise, largest dot product, dot-pro…</a></li><li class="l3"><a href="#ex-py-03">EX-PY-03 Gaussian log: HOMO–LUMO gap per optimisation ste…</a></li><li class="l3"><a href="#ex-py-04">EX-PY-04 ORCA output: Delta-E of the first SCF block, fit…</a></li><li class="l3"><a href="#ex-py-05">EX-PY-05 Neighbours within a cutoff, particle with most n…</a></li><li class="l3"><a href="#ex-py-06">EX-PY-06 ORCA output: Max-DP of the second SCF block when…</a></li><li class="l3"><a href="#ex-py-07">EX-PY-07 Particles drill: max distance + pair, pairs clos…</a></li><li class="l3"><a href="#ex-py-08">EX-PY-08 Speed drill: masks, sort by distance, minimum pa…</a></li><li class="l3"><a href="#ex-py-09">EX-PY-09 All pairs: max and min pair (NumPy + double loop…</a></li><li class="l3"><a href="#ex-py-10">EX-PY-10 Formulas as functions: harmonic trap, Coulomb pa…</a></li><li class="l3"><a href="#ex-py-11">EX-PY-11 Mini mock: closest opposite-charge pair, dipole …</a></li><li class="l3"><a href="#ex-py-12">EX-PY-12 NumPy foundations: shapes, axes, centres, masks,…</a></li><li class="l3"><a href="#ex-py-13">EX-PY-13 Vectors: normalise, angles between vectors, most…</a></li><li class="l3"><a href="#ex-py-14">EX-PY-14 Gaussian log: SCF Done energy per step, relative…</a></li><li class="l3"><a href="#ex-py-15">EX-PY-15 ORCA output: SCF iterations and final energy for…</a></li><li class="l3"><a href="#ex-py-16">EX-PY-16 Reusable reader: one (iterations, ΔE) pair per S…</a></li><li class="l3"><a href="#ex-py-17">EX-PY-17 Gaussian optimisation log: energies + step numbe…</a></li><li class="l3"><a href="#ex-py-18">EX-PY-18 Block per step: Mulliken charges of every step</a></li><li class="l3"><a href="#ex-py-19">EX-PY-19 Fixed-width columns: occupied and virtual orbita…</a></li><li class="l3"><a href="#ex-py-20">EX-PY-20 Multi-frame .xyz trajectory: frames × atoms × xy…</a></li><li class="l3"><a href="#ex-py-21">EX-PY-21 Plain numeric table: np.loadtxt, mean/std, linea…</a></li><li class="l3"><a href="#ex-py-22">EX-PY-22 matplotlib: five target figures (relative energy…</a></li><li class="l3"><a href="#ex-py-23">EX-PY-23 Homework (Assignment 1): read a .cif file, dista…</a></li><li class="l3"><a href="#ex-py-24">EX-PY-24 Homework (Assignment 2): Euler integrator — NumP…</a></li></ul></li><li class="l2"><a href="#7-2-fortran-make-ex-f90">7.2 Fortran + make [EX-F90]</a><ul><li class="l3"><a href="#ex-f90-01">EX-F90-01 Enzyme kinetics: Michaelis–Menten vs competitive…</a></li><li class="l3"><a href="#ex-f90-02">EX-F90-02 π two ways (Leibniz and Euler series), n read fr…</a></li><li class="l3"><a href="#ex-f90-03">EX-F90-03 Ideal gas vs van der Waals pressure, two gases, …</a></li><li class="l3"><a href="#ex-f90-04">EX-F90-04 Arrhenius vs modified Arrhenius: two tables with…</a></li><li class="l3"><a href="#ex-f90-05">EX-F90-05 Adsorption isotherms (Langmuir vs Freundlich), n…</a></li><li class="l3"><a href="#ex-f90-06">EX-F90-06 Morse vs harmonic bond potential (H₂ and HCl), b…</a></li><li class="l3"><a href="#ex-f90-07">EX-F90-07 Homework (Fortran assignment): read an .xyz file…</a></li><li class="l3"><a href="#ex-f90-08">EX-F90-08 Molecule file, new questions: centre of mass, sh…</a></li><li class="l3"><a href="#ex-f90-09">EX-F90-09 Warm-up: one function in its own file, table on …</a></li><li class="l3"><a href="#ex-f90-10">EX-F90-10 Tables: read n, write i, i², √i to screen + file…</a></li><li class="l3"><a href="#ex-f90-11">EX-F90-11 Functions and subroutines: Gaussian in its own f…</a></li><li class="l3"><a href="#ex-f90-12">EX-F90-12 make: write a 5-rule Makefile; debug three broke…</a></li></ul></li><li class="l2"><a href="#7-3-bash-ex-sh">7.3 Bash [EX-SH]</a><ul><li class="l3"><a href="#ex-sh-01">EX-SH-01 Three-way script: file → lines; directory → copy…</a></li><li class="l3"><a href="#ex-sh-02">EX-SH-02 Swap lines 2 and 3 of every .swap23 file, in pla…</a></li><li class="l3"><a href="#ex-sh-03">EX-SH-03 Ask for two file names and print the larger one</a></li><li class="l3"><a href="#ex-sh-04">EX-SH-04 One line: lines containing x_pos but not y_pos</a></li><li class="l3"><a href="#ex-sh-05">EX-SH-05 One line: count .log files with “Normal terminat…</a></li><li class="l3"><a href="#ex-sh-06">EX-SH-06 Three-way script: file → words; directory → copy…</a></li><li class="l3"><a href="#ex-sh-07">EX-SH-07 Three-way script: file → words; directory → numb…</a></li><li class="l3"><a href="#ex-sh-08">EX-SH-08 Swap lines 1 and 3 of every .swap13 file</a></li><li class="l3"><a href="#ex-sh-09">EX-SH-09 Swap the first and last line of every .alter fil…</a></li><li class="l3"><a href="#ex-sh-10">EX-SH-10 Lines with the word “for” of every .py file → na…</a></li><li class="l3"><a href="#ex-sh-11">EX-SH-11 Sign of a number, then compare a second number w…</a></li><li class="l3"><a href="#ex-sh-12">EX-SH-12 Job checker: OK / FAILED per .log file, then the…</a></li><li class="l3"><a href="#ex-sh-13">EX-SH-13 Folder as an argument ($1, default .): count .f9…</a></li><li class="l3"><a href="#ex-sh-14">EX-SH-14 Ask for a word, count it in every .f90 and .py f…</a></li><li class="l3"><a href="#ex-sh-15">EX-SH-15 One-liners: lines per file, A but not B, lines v…</a></li><li class="l3"><a href="#ex-sh-16">EX-SH-16 Class Linux sheet, part 1: listing and counting</a></li><li class="l3"><a href="#ex-sh-17">EX-SH-17 Class Linux sheet, part 2: creating files, permi…</a></li><li class="l3"><a href="#ex-sh-18">EX-SH-18 Class Linux sheet, part 3: filtering and cutting</a></li></ul></li><li class="l2"><a href="#7-4-gnuplot-ex-gp">7.4 Gnuplot [EX-GP]</a><ul><li class="l3"><a href="#ex-gp-01">EX-GP-01 3D surface with base contours every 0.5, arrow +…</a></li><li class="l3"><a href="#ex-gp-02">EX-GP-02 Make this picture: gray surface cos(x**3−y)−sin(…</a></li><li class="l3"><a href="#ex-gp-03">EX-GP-03 Surface with 8 contour levels, arrows + labels t…</a></li><li class="l3"><a href="#ex-gp-04">EX-GP-04 Gray shaded surface, contours from −1 to 1 every…</a></li><li class="l3"><a href="#ex-gp-05">EX-GP-05 One script, two figures: surface with contours, …</a></li><li class="l3"><a href="#ex-gp-06">EX-GP-06 2D plot of two functions with labels, title, leg…</a></li></ul></li></ul></li><li class="l1"><a href="#8-exam-day-day">8. Exam day [DAY]</a><ul><li class="l2"><a href="#81-first-5-minutes-check-the-machine">8.1 First 5 minutes: check the machine</a></li><li class="l2"><a href="#82-editors-images-keeping-the-terminal-free">8.2 Editors, images, keeping the terminal free</a></li><li class="l2"><a href="#83-running-things">8.3 Running things</a></li><li class="l2"><a href="#84-first-look-at-an-unfamiliar-output-file">8.4 First look at an unfamiliar output file</a></li><li class="l2"><a href="#85-python-errors-fix">8.5 Python errors → fix</a></li><li class="l2"><a href="#86-units-and-constants">8.6 Units and constants</a></li><li class="l2"><a href="#87-handing-in">8.7 Handing in</a></li></ul></li></ul></nav>
 <main>
 <h1 id="contents">Contents</h1>
 <h2 id="01-method-method">0.1 Method <code>[METHOD]</code></h2>
@@ -1978,6 +1980,7 @@ plt.tight_layout(); plt.show()
 <h1 id="7-worked-examples-ex">7. Worked examples <code>[EX]</code></h1>
 <p><strong>How to use:</strong> walk down the list for the language until you find the problem closest to yours, copy its solution, and change what the <strong>Adapt it</strong> box lists. Within each language the order is: past exam questions <code>[PAST]</code> → the mock exam → exam-style drills → warm-ups and class homework. Every example has a <strong>Search</strong> line, so Ctrl+F a few words from your question (e.g. <code>minimum distance</code>, <code>swap lines</code>, <code>two tables</code>, <code>contour</code>, <code>Max-DP</code>).</p>
 <p>All solutions were run and checked. The parsing examples read the practice files (<code>data/orca_mock.out</code>, <code>data/piri_mock.log</code>, …); in the exam, use the real file name (<code>orca.out</code>, <code>piri.log</code>). Python examples start with the imports they need.</p>
+<p><strong>Check</strong> boxes show what the solution prints when run unchanged (only where the output doesn't depend on a practice file). Run the template once before adapting it: if the numbers match, your paste, TABs and environment are fine, and any later error comes from your changes.</p>
 <h2 id="7-1-python-ex-py">7.1 Python [EX-PY]</h2>
 <div class="tw"><table class="extable"><thead><tr><th>ID</th><th>Problem</th><th>From</th></tr></thead><tbody><tr><td><a href="#ex-py-01">EX-PY-01</a></td><td>Particles in a box: minimum distance, the pair, verify, energy function</td><td>2022-23 exam, Ex 4 (3 points) [PAST]</td></tr><tr><td><a href="#ex-py-02">EX-PY-02</a></td><td>Vectors: normalise, largest dot product, dot-product matrix of two systems</td><td>2021-22 exam, Ex 1 (3 points) [PAST]</td></tr><tr><td><a href="#ex-py-03">EX-PY-03</a></td><td>Gaussian log: HOMO–LUMO gap per optimisation step + plot</td><td>2022-23 exam, Ex 5 (2 points) [PAST]</td></tr><tr><td><a href="#ex-py-04">EX-PY-04</a></td><td>ORCA output: Delta-E of the first SCF block, fit log10|ΔE| with a line, plot</td><td>2021-22 exam, Ex 2 (2 points) [PAST]</td></tr><tr><td><a href="#ex-py-05">EX-PY-05</a></td><td>Neighbours within a cutoff, particle with most neighbours, Lennard-Jones energy</td><td>Mock exam (Day 7), Ex 4</td></tr><tr><td><a href="#ex-py-06">EX-PY-06</a></td><td>ORCA output: Max-DP of the second SCF block when the column order changes (SOSCF)</td><td>Mock exam (Day 7), Ex 5</td></tr><tr><td><a href="#ex-py-07">EX-PY-07</a></td><td>Particles drill: max distance + pair, pairs closer than X, centre, energy, distance matrix without SciPy</td><td>Week notebook 4.2 (exam-style)</td></tr><tr><td><a href="#ex-py-08">EX-PY-08</a></td><td>Speed drill: masks, sort by distance, minimum pair, mean nearest-neighbour distance</td><td>Week notebook 4.3 (uses <code>pos</code> and <code>D</code> from EX-PY-07)</td></tr><tr><td><a href="#ex-py-09">EX-PY-09</a></td><td>All pairs: max and min pair (NumPy + double loop), neighbours, dot-product matrix, broadcasting</td><td>Python 4-hour drill, B3 (3.1–3.5) ⭐</td></tr><tr><td><a href="#ex-py-10">EX-PY-10</a></td><td>Formulas as functions: harmonic trap, Coulomb pair energy, closest_pair returning a tuple</td><td>Python 4-hour drill, B4 (4.1–4.3)</td></tr><tr><td><a href="#ex-py-11">EX-PY-11</a></td><td>Mini mock: closest opposite-charge pair, dipole moment, atoms within a sphere; H–H distance per frame</td><td>Python 4-hour drill, B7 (M1, M2)</td></tr><tr><td><a href="#ex-py-12">EX-PY-12</a></td><td>NumPy foundations: shapes, axes, centres, masks, broadcasting</td><td>Python 4-hour drill, B1 (1.1–1.3)</td></tr><tr><td><a href="#ex-py-13">EX-PY-13</a></td><td>Vectors: normalise, angles between vectors, most parallel, cross product</td><td>Python 4-hour drill, B2 (2.1–2.3)</td></tr><tr><td><a href="#ex-py-14">EX-PY-14</a></td><td>Gaussian log: SCF Done energy per step, relative energy in kcal/mol, plot</td><td>Week notebook 5.1</td></tr><tr><td><a href="#ex-py-15">EX-PY-15</a></td><td>ORCA output: SCF iterations and final energy for every optimisation cycle, two-panel figure</td><td>Week notebook 5.3</td></tr><tr><td><a href="#ex-py-16">EX-PY-16</a></td><td>Reusable reader: one (iterations, ΔE) pair per SCF block, all cycles on one plot</td><td>Week notebook 5.4</td></tr><tr><td><a href="#ex-py-17">EX-PY-17</a></td><td>Gaussian optimisation log: energies + step numbers, convergence table (YES/NO)</td><td>Python 4-hour drill, B5 (5.1, 5.2)</td></tr><tr><td><a href="#ex-py-18">EX-PY-18</a></td><td>Block per step: Mulliken charges of every step</td><td>Python 4-hour drill, B5 (5.3)</td></tr><tr><td><a href="#ex-py-19">EX-PY-19</a></td><td>Fixed-width columns: occupied and virtual orbital energies per step</td><td>Python 4-hour drill, B5 (5.4)</td></tr><tr><td><a href="#ex-py-20">EX-PY-20</a></td><td>Multi-frame .xyz trajectory: frames × atoms × xyz, distances and angle per frame</td><td>Python 4-hour drill, B5 (5.5)</td></tr><tr><td><a href="#ex-py-21">EX-PY-21</a></td><td>Plain numeric table: np.loadtxt, mean/std, linear drift</td><td>Python 4-hour drill, B5 (5.6)</td></tr><tr><td><a href="#ex-py-22">EX-PY-22</a></td><td>matplotlib: five target figures (relative energy, log scale + threshold, two panels, fit in title, histogram)</td><td>Python 4-hour drill, B6 (6.1–6.5)</td></tr><tr><td><a href="#ex-py-23">EX-PY-23</a></td><td>Homework (Assignment 1): read a .cif file, distances to Mg, bound atoms, element counts, water check</td><td>Class assignment <code>20_EI_2026.ipynb</code> (your submitted solution)</td></tr><tr><td><a href="#ex-py-24">EX-PY-24</a></td><td>Homework (Assignment 2): Euler integrator — NumPy, Numba, f2py timings, energy drift, velocity Verlet</td><td>Class assignment <code>22_assignment2.ipynb</code> + <code>fortran_utils.f90</code> / <code>fortran_utils2.f90</code> (your submitted solution)</td></tr></tbody></table></div>
 <h3 id="ex-py-01">EX-PY-01 · Particles in a box: minimum distance, the pair, verify, energy function</h3>
@@ -2007,6 +2010,10 @@ def total_energy(pos):
     """U = sum_i z_i**2"""
     return np.sum(pos[:, 2]**2)
 print(f"U = {total_energy(pos):.4f}")</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged and it prints:<pre><code class="language-plaintext">minimum distance: 3.2736
+pair: 1 and 4
+check: |r_1 - r_4| = 3.2736
+U = 599.2358</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Max instead of min → no <code>fill_diagonal</code>, use <code>argmax</code>. Different box → change <code>np.array([100, 10, 10])</code>. Different energy formula → only the <code>return</code> line (x is <code>pos[:, 0]</code>, y <code>pos[:, 1]</code>, z <code>pos[:, 2]</code>). Pair formula (Σᵢ&lt;ⱼ) → <code>pdist(pos)</code> gives each pair once (see EX-PY-05).</p></div>
 <h3 id="ex-py-02">EX-PY-02 · Vectors: normalise, largest dot product, dot-product matrix of two systems</h3>
 <p class="exmeta"><strong>From:</strong> 2021-22 exam, Ex 1 (3 points) [PAST]<br/><strong>Search:</strong> normalise · unit vectors · norm axis keepdims · dot product · argmax · prods matrix · row with value &gt; 1 · any(axis=1)</p>
@@ -2041,6 +2048,13 @@ print("3) rows with a value &gt; 1:", rows)
 for r in rows:
     print(f"   row {r}: first element = {prods[r,0]:.3f}")
 print("   normalised max:", (unit[3] @ unit[4].T).max().round(3), "(never &gt; 1, so the question means the raw vectors)")</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged and it prints:<pre><code class="language-plaintext">1) unit[2,4] = 0.547, 0.792, 0.270
+2) dots: [0.676 0.637 0.713 1.839 1.778 1.217 1.001] -&gt; index 3
+   (with normalised vectors: 3 )
+3) rows with a value &gt; 1: [3 5]
+   row 3: first element = 0.685
+   row 5: first element = 0.792
+   normalised max: 0.987 (never &gt; 1, so the question means the raw vectors)</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>“Vector (i, j)” = <code>a[i, j]</code> (0-based). Largest/smallest → <code>argmax</code>/<code>argmin</code>. Matrix of all pairs between two systems → <code>A @ B.T</code>. “Rows with a value &gt; X” → <code>np.where((M &gt; X).any(axis=1))[0]</code>; “rows whose max &gt; X” → <code>M.max(axis=1) &gt; X</code>. Say which array (raw or normalised) you used.</p></div>
 <h3 id="ex-py-03">EX-PY-03 · Gaussian log: HOMO–LUMO gap per optimisation step + plot</h3>
 <p class="exmeta"><strong>From:</strong> 2022-23 exam, Ex 5 (2 points) [PAST] · the practice file is data/piri_mock.log<br/><strong>Search:</strong> HOMO LUMO gap · Alpha occ. eigenvalues · Alpha virt. eigenvalues · fixed width · read_values · line[28:] · optimisation step · o-- plot</p>
@@ -2142,6 +2156,11 @@ def lj_energy(pos, eps=1.0, sigma=1.0):
     return np.sum(4 * eps * (sr6**2 - sr6))
 print(f"U_LJ = {lj_energy(pos):.6f}")
 print("test, one pair at r = 2^(1/6):", lj_energy(np.array([[0, 0, 0], [2**(1/6), 0, 0]])))   # -1</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged and it prints:<pre><code class="language-plaintext">neighbours: [3 4 3 2 2 3 1 1 1 1 1 2 2 4 7 1 3 2 5 4 1 3 3 2 1 0 3 1 1 3 1 1 1 3 4 3 4
+ 0 2 4 3 1 3 5 4 4 5 3 0 3]
+most neighbours: 14 -&gt; [ 0  5 19 20 43 45 46]
+U_LJ = -0.873632
+test, one pair at r = 2^(1/6): -1.0</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Neighbour counting: put <code>inf</code> on the diagonal first, so a particle isn’t its own neighbour. Any <strong>pair</strong> sum Σᵢ&lt;ⱼ f(rᵢⱼ) → <code>r = pdist(pos)</code> then <code>np.sum(f(r))</code>; pair sums with charges → <code>i, j = np.triu_indices(N, k=1)</code> (same order as <code>pdist</code>). Test a pair formula on 2 particles you can do by hand.</p></div>
 <h3 id="ex-py-06">EX-PY-06 · ORCA output: Max-DP of the second SCF block when the column order changes (SOSCF)</h3>
 <p class="exmeta"><strong>From:</strong> Mock exam (Day 7), Ex 5 · solution written and tested for these notes<br/><strong>Search:</strong> Max-DP · second block · block counter · header changes · SOSCF · index of column from header · o-- plot</p>
@@ -2209,6 +2228,11 @@ print(f"e) U = {energy(pos):.4f}")
 diff = pos[:, None, :] - pos[None, :, :]              # f) shape (30,30,3)
 D2 = np.sqrt((diff**2).sum(axis=-1))
 print("f) same as scipy:", np.allclose(D, D2))</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged and it prints:<pre><code class="language-plaintext">b) max distance 57.276 between 21 and 25; check: 57.276
+c) pairs closer than 10: 50
+d) centre [21.09 20.49  2.23] closest particle 27
+e) U = 31.4120
+f) same as scipy: True</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Counting pairs → <code>np.sum(pdist(pos) &lt; X)</code> (each pair once). Centre of mass instead of geometric centre → <code>(m[:, None]*pos).sum(axis=0)/m.sum()</code>.</p></div>
 <h3 id="ex-py-08">EX-PY-08 · Speed drill: masks, sort by distance, minimum pair, mean nearest-neighbour distance</h3>
 <p class="exmeta"><strong>From:</strong> Week notebook 4.3 (uses <code>pos</code> and <code>D</code> from EX-PY-07)<br/><strong>Search:</strong> mask &amp; · argsort · nearest neighbour · min(axis=1) · fill_diagonal inf</p>
@@ -2221,6 +2245,11 @@ Dn = D.copy(); np.fill_diagonal(Dn, np.inf)          # otherwise the minimum is 
 a, b = np.unravel_index(np.argmin(Dn), Dn.shape)
 print(f"(iii) min distance {Dn.min():.3f} between {a} and {b}")
 print(f"(iv) mean nearest-neighbour distance {Dn.min(axis=1).mean():.3f}")</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged (after EX-PY-07) and it prints:<pre><code class="language-plaintext">(i)   [ 0  1  6 14 21 22 29]
+(ii)  [ 2 16 23 13  8  9 19 17 28 24  7 10 27  4 26  3 18  6  0 29 25 20 22 11
+ 15 21 14 12  5  1]
+(iii) min distance 0.742 between 5 and 12
+(iv) mean nearest-neighbour distance 5.623</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Two conditions → <code>(cond1) &amp; (cond2)</code> with brackets. Any “minimum over pairs” → <code>inf</code> on the diagonal first.</p></div>
 <h3 id="ex-py-09">EX-PY-09 · All pairs: max and min pair (NumPy + double loop), neighbours, dot-product matrix, broadcasting</h3>
 <p class="exmeta"><strong>From:</strong> Python 4-hour drill, B3 (3.1–3.5) ⭐<br/><strong>Search:</strong> max pair · min pair · double loop · neighbours &lt; 8 · prods · row max &gt; 1.5 · broadcasting distance matrix</p>
@@ -2277,6 +2306,18 @@ for r in np.where(prods.max(axis=1) &gt; 1.5)[0]:
 diff = pos[:, None, :] - pos[None, :, :]         # (25,25,3)
 D2 = np.sqrt((diff**2).sum(axis=-1))
 print(np.allclose(D, D2))</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged (after EX-PY-12) and it prints:<pre><code class="language-plaintext">max 46.7687 between 11 and 24; check 46.7687
+min 1.4463 between 2 and 23; check 1.4463
+loop: 1.4463 2 23
+pairs &lt; 8: 26
+[4 0 5 0 3 0 1 3 5 5 1 1 2 0 4 2 4 1 0 0 1 3 3 4 0]
+most neighbours: 2 -&gt; [ 4  8 21 22 23]
+largest dot product 1.9569 at (9, 4)
+row 1: first element 0.8570
+row 2: first element 0.9236
+row 8: first element 0.9084
+row 9: first element 0.9229
+True</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>3.3: with <code>inf</code> on the diagonal, <code>(Dm &lt; 8).sum(axis=1)</code> doesn't count each particle as its own neighbour.</p></div>
 <h3 id="ex-py-10">EX-PY-10 · Formulas as functions: harmonic trap, Coulomb pair energy, closest_pair returning a tuple</h3>
 <p class="exmeta"><strong>From:</strong> Python 4-hour drill, B4 (4.1–4.3) · uses <code>pos</code> from EX-PY-09<br/><strong>Search:</strong> function with defaults · trap energy · Coulomb · charges alternating · triu_indices · return tuple</p>
@@ -2312,6 +2353,11 @@ def closest_pair(pos):
     return D[i, j], i, j
 d, i, j = closest_pair(pos)
 print(f"{d:.4f} {i} {j}")</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged (after EX-PY-09) and it prints:<pre><code class="language-plaintext">1.25
+U = 1362.163
+-0.5
+U = -1.7846
+1.4463 2 23</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Always test the formula on a 2-particle case you can do by hand. Charges ±1 alternating → <code>np.where(np.arange(N) % 2 == 0, 1, -1)</code> also works.</p></div>
 <h3 id="ex-py-11">EX-PY-11 · Mini mock: closest opposite-charge pair, dipole moment, atoms within a sphere; H–H distance per frame</h3>
 <p class="exmeta"><strong>From:</strong> Python 4-hour drill, B7 (M1, M2) · M2 uses <code>traj</code> from EX-PY-20<br/><strong>Search:</strong> opposite charges · np.outer · dipole · sum q r · within radius · H-H distance per frame</p>
@@ -2348,6 +2394,9 @@ print("max H-H in frame", np.argmax(hh), f"({hh.max():.4f} Å)")
 plt.plot(np.arange(len(hh)), hh, 'o-')
 plt.xlabel('Frame'); plt.ylabel('H-H distance (Å)'); plt.xticks(np.arange(len(hh)))
 plt.tight_layout(); plt.show()</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged (M1 only) and it prints:<pre><code class="language-plaintext">closest opposite pair 6 (+1) - 7 (-1): 1.6065; check 1.6065
+dipole [ -7.1907   5.3121 -28.2591] |mu| = 29.6395
+within 5 of the centre: 1</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p><strong>Expected:</strong> M1 → closest opposite pair 6 (+1) and 7 (−1), 1.6065 · μ = [−7.1907, 5.3121, −28.2591], |μ| = 29.6395 · 1 atom within 5 of the centre. M2 → the maximum H–H distance is in frame 0 (1.5484 Å). <strong>Trick in M1:</strong> <code>np.outer(qs, qs) &lt; 0</code> is True only for opposite-charge pairs, and setting the rest to <code>inf</code> also takes care of the diagonal.</p></div>
 <h3 id="ex-py-12">EX-PY-12 · NumPy foundations: shapes, axes, centres, masks, broadcasting</h3>
 <p class="exmeta"><strong>From:</strong> Python 4-hour drill, B1 (1.1–1.3)<br/><strong>Search:</strong> shape · mean axis · norm axis · unravel_index 3D · mask · all(axis=2) · clip · keepdims · scale box</p>
@@ -2397,6 +2446,19 @@ centred = v - v.mean(axis=1, keepdims=True)      # (4,10,3) - (4,1,3)
 print(np.abs(centred.mean(axis=1)).max() &lt; 1e-12)
 box = v * np.array([20, 20, 5])                  # scale each coordinate
 print(box.max(axis=(0, 1)).round(2))             # largest x, y, z</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged and it prints:<pre><code class="language-plaintext">(4, 10, 3)
+(4, 3)
+[[0.449 0.513 0.559]
+ [0.663 0.662 0.59 ]
+ [0.374 0.574 0.588]
+ [0.463 0.601 0.385]]
+(4, 10)
+largest value 0.9945 at (0, 0, 0)
+[0 2 4 7 9]
+[4 1 1 1]
+0.9
+True
+[19.89 19.8   4.94]</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Rule: the axis you name is the one that disappears. <code>(4,10,3)</code> → <code>mean(axis=1)</code> → <code>(4,3)</code>.</p></div>
 <h3 id="ex-py-13">EX-PY-13 · Vectors: normalise, angles between vectors, most parallel, cross product</h3>
 <p class="exmeta"><strong>From:</strong> Python 4-hour drill, B2 (2.1–2.3) · uses <code>v</code> from EX-PY-12<br/><strong>Search:</strong> normalise · angle · arccos clip · degrees · most parallel · cross product · perpendicular</p>
@@ -2421,6 +2483,11 @@ print("most parallel to vector 0:", np.argmin(ang), f"({ang.min():.1f} deg)")
 # 2.3
 c = np.cross(v[0, 0], v[0, 1])
 print(c.round(4), np.dot(c, v[0, 0]).round(12), np.dot(c, v[0, 1]).round(12))</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged (after EX-PY-12) and it prints:<pre><code class="language-plaintext">True
+0.439, 0.713, 0.547
+[ 0.  32.7 38.7 37.2 40.7 36.3 44.  22.3 54.5 25.7]
+most parallel to vector 0: 7 (22.3 deg)
+[-0.7776  0.6157  0.6506] -0.0 -0.0</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Always <code>np.clip(cos, -1, 1)</code> before <code>arccos</code>. Most <strong>anti</strong>-parallel → <code>argmax</code> of the angle.</p></div>
 <h3 id="ex-py-14">EX-PY-14 · Gaussian log: SCF Done energy per step, relative energy in kcal/mol, plot</h3>
 <p class="exmeta"><strong>From:</strong> Week notebook 5.1<br/><strong>Search:</strong> SCF Done · split()[4] · relative energy · kcal/mol 627.5095 · o- plot · xticks</p>
@@ -2993,6 +3060,20 @@ v2.o: v2.f90
 
 clean:
 	rm -f *.o enzyme *.out</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged and it prints:<pre><code class="language-plaintext">=== table 1
+  [S](M)            v1            v2
+   0.010   5.33333E-05   3.01887E-06
+   0.020   6.40000E-05   5.81818E-06
+   0.030   6.85714E-05   8.42105E-06
+...
+=== table 2
+  [S](M)            v1            v2
+   0.010   1.50000E-05   1.00000E-05
+   0.020   2.00000E-05   1.50000E-05
+   0.030   2.25000E-05   1.80000E-05
+...
+table1.out
+table2.out</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p><strong>This is the master template</strong> (same shape as EX-F90-03, 04, 05, 06). Change: the two function bodies and arguments; the loop (<code>do i = 1, N</code> + <code>x = start + step*i</code>); the parameter values; file names; column headers. Values spanning orders of magnitude → <code>ES14.5</code>, otherwise <code>F12.5</code>.</p></div>
 <h3 id="ex-f90-02">EX-F90-02 · π two ways (Leibniz and Euler series), n read from the keyboard</h3>
 <p class="exmeta"><strong>From:</strong> 2021-22 exam, Ex 5 (1.5 points) [PAST]<br/><strong>Search:</strong> pi · Leibniz · Euler series · read n · acos(-1) · factorial overflow · term recurrence · advance=no</p>
@@ -3063,6 +3144,13 @@ pi2.o: pi2.f90
 
 clean:
 	rm -f *.o pi</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged with n = 20 and with n = 1000000 (<code>echo 20 | ./pi</code>) and it prints:<pre><code class="language-plaintext">Leibniz  pi_1(n) =  3.091623806667840
+Euler    pi_2(n) =  3.141591927675146
+acos(-1)         =  3.141592653589793
+--- n = 1000000:
+Leibniz  pi_1(n) =  3.141591653589774
+Euler    pi_2(n) =  3.141592653589792
+acos(-1)         =  3.141592653589793</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Euler gains about 0.3 digits per term (each term is roughly half the previous one), so about 20 terms give 6 digits.<br/>
 Leibniz's error is about 1/n, so 6 correct digits need about a million terms.</p>
 <p>Run: <code>make &amp;&amp; echo 20 | ./pi</code>. Any series with factorials → build each term from the previous one (never compute n! directly).</p></div>
@@ -3146,6 +3234,20 @@ run: gases
 
 clean:
 	rm -f *.o gases *.out</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged and it prints:<pre><code class="language-plaintext">=== CO2
+    V(L)       P_ideal         P_vdW
+    0.10     246.17100      65.39299
+    0.20     123.08550      65.46793
+    0.30      82.05700      55.21910
+...
+=== He
+    V(L)       P_ideal         P_vdW
+    0.10     246.17100     319.59906
+    0.20     123.08550     138.84612
+    0.30      82.05700      88.74336
+...
+co2.out
+he.out</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Check: CO₂ at V = 0.1 L gives P_ideal = 246.17100, P_vdW = 65.39299 atm. Constants that never change (R) → <code>real(8), parameter</code> inside the function.</p></div>
 <h3 id="ex-f90-04">EX-F90-04 · Arrhenius vs modified Arrhenius: two tables with an internal subroutine</h3>
 <p class="exmeta"><strong>From:</strong> Week notebook 2.3 (exam-style)<br/><strong>Search:</strong> Arrhenius · rate constant · temperature loop · internal subroutine contains · table subroutine · run rule</p>
@@ -3218,6 +3320,18 @@ run: arrh
 
 clean:
 	rm -f *.o arrh *.out</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged and it prints:<pre><code class="language-plaintext">=== table1.out
+      T(K)       k1(s-1)       k2(s-1)
+     300.0   1.17560E-01   1.17954E-01
+     310.0   3.30831E-01   3.37426E-01
+...
+=== table2.out
+      T(K)       k1(s-1)       k2(s-1)
+     300.0   9.83744E+01   9.93664E+01
+     310.0   1.87812E+02   1.99270E+02
+...
+table1.out
+table2.out</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Writing the loop twice in main, without the internal subroutine, is also perfectly acceptable in the exam. It's just longer.</p>
 <p>With <code>call table(...)</code>, a third parameter set is one more line.</p></div>
 <h3 id="ex-f90-05">EX-F90-05 · Adsorption isotherms (Langmuir vs Freundlich), number of points read from the keyboard</h3>
@@ -3302,6 +3416,18 @@ freundlich.o: freundlich.f90
 
 clean:
 	rm -f *.o iso *.out</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged with N = 10 (<code>echo 10 | ./iso</code>) and it prints:<pre><code class="language-plaintext">=== set 1
+      P(atm)    Langmuir  Freundlich
+     0.10000     0.16667     0.25298
+     0.20000     0.28571     0.35777
+...
+=== set 2
+      P(atm)    Langmuir  Freundlich
+     0.10000     0.50000     0.55699
+     0.20000     0.66667     0.70176
+...
+iso1.out
+iso2.out</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Run with <code>make &amp;&amp; echo 10 | ./iso</code>. Note <code>p**(1.0d0/n)</code>: with an integer <code>n</code>, <code>1/n</code> would be 0 (integer division), so n is real(8) here.</p></div>
 <h3 id="ex-f90-06">EX-F90-06 · Morse vs harmonic bond potential (H₂ and HCl), built step by step</h3>
 <p class="exmeta"><strong>From:</strong> Day 0 notebook, B8 (worked exam-style problem)<br/><strong>Search:</strong> Morse · harmonic · potential · r loop 0.5 to 2.5 · two molecules · a*(r-re) implicit multiplication</p>
@@ -3379,6 +3505,20 @@ run: bond
 
 clean:
 	rm -f *.o bond *.out</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged and it prints:<pre><code class="language-plaintext">=== H2
+    r(A)     V_morse      V_harm
+   0.500     1.68763     1.03832
+   0.600     0.47015     0.35541
+   0.700     0.03256     0.03005
+   0.800     0.05556     0.06223
+...
+=== HCl
+    r(A)     V_morse      V_harm
+   0.500    49.09705     9.70350
+   0.600    29.65082     7.36093
+...
+h2.out
+hcl.out</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Math → Fortran: <code>a(r − re)</code> must be <code>a*(r - re)</code>; otherwise Fortran reads <code>a(...)</code> as an array. 21 values from 0.5 to 2.5 → <code>do i = 0, 20</code> with <code>r = 0.5d0 + 0.1d0*i</code>. Sanity check: both ≈ 0 at r = re.</p></div>
 <h3 id="ex-f90-07">EX-F90-07 · Homework (Fortran assignment): read an .xyz file, largest distance, composition and mass, ≥ 3 files + Makefile</h3>
 <p class="exmeta"><strong>From:</strong> Class assignment <code>Fortran_Assignment_Updated.pdf</code> · modular version written and tested for these notes; your single-file submission is below it<br/><strong>Search:</strong> xyz · read molecule · allocatable · largest interatomic distance · count C H O · molecular mass · modules · use · Makefile module dependency</p>
@@ -3636,6 +3776,14 @@ clean:
 	rm -f molecule
 
 .PHONY: run clean</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged on the class file <code>molecule_B.xyz</code> (ethanol); last lines and it prints:<pre><code class="language-plaintext">
+Largest distance: atoms 2 (H) and 9 (H)
+Distance:   4.069570 Angstrom
+
+C atoms: 2
+H atoms: 6
+O atoms: 1
+Molecular mass:    46.00</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Result for ethanol (<code>molecule_B.xyz</code>): largest distance atoms 2 (H) and 9 (H), 4.069570 Å; C 2, H 6, O 1; mass 46.00. Both versions give the same output. Your submission is one file, so it doesn’t meet part d); the modular version does. With modules: <code>main.o</code> must depend on the module <code>.o</code> files, and <code>clean</code> removes <code>*.mod</code>.</p></div>
 <h3 id="ex-f90-08">EX-F90-08 · Molecule file, new questions: centre of mass, shortest C–H distance, bond count, report file</h3>
 <p class="exmeta"><strong>From:</strong> Fortran 2-hour drill, B5<br/><strong>Search:</strong> centre of mass · masses · shortest C-H · pair of different elements · bonds &lt; 1.6 · report.txt · huge</p>
@@ -3707,6 +3855,9 @@ clean:
   write(20,'(A,I0)') 'Bonds (&lt; 1.6 A): ', nbonds
   close(20)
 end program report</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged on the class file <code>molecule_B.xyz</code> (ethanol) and it prints:<pre><code class="language-plaintext">Centre of mass:    3.1791   -0.2469   -0.1483
+Shortest C-H:  1.1105  atoms 1 and 2
+Bonds (&lt; 1.6 A): 8</code></pre></div>
 <div class="exadapt"><strong>Adapt it:</strong> <p>b) uses a full i×j loop with a symbol test (C first, H second), because here the order of the pair matters. c) uses <code>j = i+1</code> so each pair is counted once.</p></div>
 <h3 id="ex-f90-09">EX-F90-09 · Warm-up: one function in its own file, table on screen + file, 4-rule Makefile</h3>
 <p class="exmeta"><strong>From:</strong> Week notebook 2.1<br/><strong>Search:</strong> function separate file · real(8) external · table 0.0 to 1.0 · header line # · Makefile</p>
@@ -3748,6 +3899,10 @@ g.o: g.f90
 
 clean:
 	rm -f *.o prog *.out</code></pre>
+<div class="excheck"><strong>Check:</strong> run it unchanged and it prints:<pre><code class="language-plaintext">           x        g(x)
+    0.000000    0.000000
+    0.100000    0.090333
+    0.200000    0.162657</code></pre></div>
 <h3 id="ex-f90-10">EX-F90-10 · Tables: read n, write i, i², √i to screen + file; then adapt to a real-valued x loop</h3>
 <p class="exmeta"><strong>From:</strong> Fortran 2-hour drill, B1 (1a, 1b)<br/><strong>Search:</strong> read n · table · integer loop · sqrt(dble(i)) · adapt loop · x step 0.05</p>
 <div class="exq"><p><strong>1a</strong> Read n from the keyboard. Write a table with columns i, i², √i for i = 1..n, <strong>on the screen and in <code>t1.out</code></strong>, each with a header line (in the file, start the header with <code>#</code>).</p>
@@ -4544,6 +4699,355 @@ set key top right
 plot sin(x) title 'sin(x)' with lines lw 2, \
      exp(-x/5)*cos(2*x) title 'exp(-x/5)cos(2x)' with lines dt 2 lw 2</code></pre>
 <div class="exadapt"><strong>Adapt it:</strong> <p>Data from a file instead of a formula → <code>plot 'table1.out' using 1:2 with linespoints title 'v1'</code>.</p></div>
+<h1 id="8-exam-day-day">8. Exam day <code>[DAY]</code></h1>
+<h2 id="81-first-5-minutes-check-the-machine">8.1 First 5 minutes: check the machine</h2>
+<pre><code class="language-bash">python3 -c "import numpy, scipy, matplotlib; print('python OK')"
+which python3 jupyter gfortran make gnuplot      # every tool you'll need, one line each
+gnuplot -e "set terminal" 2&gt;&amp;1 | grep -i png     # is pngcairo there?
+mkdir -p ~/exam &amp;&amp; cd ~/exam &amp;&amp; mkdir -p ex1 ex2 ex3 ex4 ex5   # one folder per exercise</code></pre>
+<div class="tw"><table>
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Problem</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>gnuplot: <code>unknown or ambiguous terminal type</code> for <code>pngcairo</code></td>
+<td><code>set terminal png size 900,700</code></td>
+</tr>
+<tr class="even">
+<td>gnuplot opens a window instead of writing a file</td>
+<td><code>set terminal ...</code> and <code>set output 'name.png'</code> must come <strong>before</strong> <code>plot</code>/<code>splot</code></td>
+</tr>
+<tr class="odd">
+<td>Python: no plot window appears</td>
+<td><code>plt.savefig('fig.png')</code> (before <code>plt.show()</code>), then open the png</td>
+</tr>
+<tr class="even">
+<td>Python over ssh / no display: <code>cannot connect to X server</code> or a Qt error</td>
+<td>first two lines of the script: <code>import matplotlib</code> and <code>matplotlib.use('Agg')</code>; then only <code>savefig</code></td>
+</tr>
+<tr class="odd">
+<td>no <code>jupyter</code></td>
+<td>write <code>ex4.py</code> and run <code>python3 ex4.py</code>: the exams accept “a notebook or a python script”</td>
+</tr>
+<tr class="even">
+<td>no <code>scipy</code></td>
+<td>distance matrix by broadcasting: <code>D = np.sqrt(((pos[:, None, :] - pos[None, :, :])**2).sum(axis=-1))</code> (EX-PY-07 f)</td>
+</tr>
+<tr class="odd">
+<td>a tool is missing on the lab machine</td>
+<td>check the cluster (<code>ssh cmm4@cerqt2.qt.ub.es</code>, then <code>which gfortran gnuplot</code>), and work there with <code>scp</code> to move files</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="82-editors-images-keeping-the-terminal-free">8.2 Editors, images, keeping the terminal free</h2>
+<div class="tw"><table>
+<colgroup>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+<col style="width: 25%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Action</th>
+<th>nano</th>
+<th>vim</th>
+<th>gedit</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>open</td>
+<td><code>nano f.py</code></td>
+<td><code>vim f.py</code></td>
+<td><code>gedit f.py &amp;</code></td>
+</tr>
+<tr class="even">
+<td>start typing</td>
+<td>(just type)</td>
+<td><code>i</code> (Esc to stop)</td>
+<td>(just type)</td>
+</tr>
+<tr class="odd">
+<td>save</td>
+<td>Ctrl+O, Enter</td>
+<td><code>:w</code></td>
+<td>Ctrl+S</td>
+</tr>
+<tr class="even">
+<td>quit</td>
+<td>Ctrl+X</td>
+<td><code>:q</code> (<code>:q!</code> = without saving, <code>:wq</code> = save + quit)</td>
+<td>Ctrl+Q</td>
+</tr>
+<tr class="odd">
+<td>search</td>
+<td>Ctrl+W</td>
+<td><code>/word</code>, then <code>n</code></td>
+<td>Ctrl+F</td>
+</tr>
+<tr class="even">
+<td>go to line 42</td>
+<td>Ctrl+_ then 42</td>
+<td><code>:42</code></td>
+<td>Ctrl+I</td>
+</tr>
+<tr class="odd">
+<td>undo</td>
+<td>Alt+U</td>
+<td><code>u</code></td>
+<td>Ctrl+Z</td>
+</tr>
+<tr class="even">
+<td>paste without broken indentation</td>
+<td>usually fine</td>
+<td><code>:set paste</code> before, <code>:set nopaste</code> after</td>
+<td>fine</td>
+</tr>
+</tbody>
+</table></div>
+<ul>
+<li><code>&amp;</code> at the end (<code>gedit f.py &amp;</code>, <code>eog fig.png &amp;</code>) keeps the terminal usable while the window is open.</li>
+<li>Images: <code>eog fig.png &amp;</code> or <code>xdg-open fig.png</code>. Text tables: <code>cat table1.out</code>, <code>column -t table1.out</code>.</li>
+<li>After pasting a Makefile: <code>sed -i 's/^ \+/\t/' Makefile</code> (copying from a terminal turns TABs into spaces). Check with <code>cat -A Makefile</code>: recipe lines must start with <code>^I</code>.</li>
+</ul>
+<h2 id="83-running-things">8.3 Running things</h2>
+<div class="tw"><table>
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>What</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>Python script</td>
+<td><code>python3 ex4.py</code></td>
+</tr>
+<tr class="even">
+<td>…and stay inside afterwards to inspect variables</td>
+<td><code>python3 -i ex4.py</code></td>
+</tr>
+<tr class="odd">
+<td>notebook</td>
+<td><code>jupyter notebook ex4.ipynb</code> (or <code>jupyter lab</code>)</td>
+</tr>
+<tr class="even">
+<td>gnuplot script</td>
+<td><code>gnuplot ex2.gp</code>, then <code>eog fig.png &amp;</code></td>
+</tr>
+<tr class="odd">
+<td>Fortran with make</td>
+<td><code>make &amp;&amp; ./prog</code> · from scratch: <code>make clean &amp;&amp; make</code></td>
+</tr>
+<tr class="even">
+<td>program that reads from the keyboard, without typing</td>
+<td><code>echo 10 | ./prog</code></td>
+</tr>
+<tr class="odd">
+<td>bash script</td>
+<td><code>bash ex1.sh</code> · or <code>chmod +x ex1.sh &amp;&amp; ./ex1.sh</code></td>
+</tr>
+<tr class="even">
+<td>script that asks two questions, without typing</td>
+<td><code>printf "a.dat\nb.dat\n" | bash larger.sh</code></td>
+</tr>
+<tr class="odd">
+<td>script that asks one question</td>
+<td><code>bash inspect.sh &lt;&lt;&lt; "results"</code></td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="84-first-look-at-an-unfamiliar-output-file">8.4 First look at an unfamiliar output file</h2>
+<pre><code class="language-bash">wc -l piri.log                                   # how big is it?
+grep -n 'SCF Done' piri.log | head               # each marker: where, and how many times?
+grep -c 'Alpha  occ. eigenvalues' piri.log       # double space after Alpha!
+grep -n -m1 -A6 'SCF ITERATIONS' orca.out        # the first block, with 6 lines after it
+sed -n '120,140p' orca.out                       # print any range of lines</code></pre>
+<pre><code class="language-python">with open('orca.out') as f:
+    lines = f.readlines()
+for k, line in enumerate(lines[120:140], start=120):
+    print(k, repr(line))                         # repr shows spaces, tabs, numbers stuck together
+print(list(enumerate(lines[130].split())))       # which index is the column I need?</code></pre>
+<p>Checklist before writing the parser:</p>
+<ul>
+<li>the exact marker text (copy it from the file; watch double spaces);</li>
+<li>how many times it appears (one per step? one per block?);</li>
+<li>what a data line looks like vs a header or blank line (<code>p and p[0].isdigit()</code>);</li>
+<li>whether the header changes inside a block (ORCA SOSCF);</li>
+<li>where a block ends;</li>
+<li>whether numbers can touch each other (fixed-width columns → slice, don’t <code>split()</code>).</li>
+</ul>
+<h2 id="85-python-errors-fix">8.5 Python errors → fix</h2>
+<div class="tw"><table>
+<colgroup>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+<col style="width: 33%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Message</th>
+<th>Usual cause</th>
+<th>Fix</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><code>IndexError: list index out of range</code></td>
+<td><code>line.split()[k]</code> on a blank, short or header line</td>
+<td>only use rows you’ve checked: <code>p = line.split()</code> then <code>if p and p[0].isdigit():</code> or <code>if len(p) == n:</code></td>
+</tr>
+<tr class="even">
+<td><code>ValueError: could not convert string to float: 'Energy'</code></td>
+<td>converting a header word</td>
+<td>skip non-data lines (as above)</td>
+</tr>
+<tr class="odd">
+<td><code>ValueError: could not convert string to float: '-101.56032-101.56030'</code></td>
+<td>fixed-width numbers that touch</td>
+<td>slice: <code>[float(s[k:k+10]) for k in range(0, len(s), 10)]</code> (EX-PY-19)</td>
+</tr>
+<tr class="even">
+<td><code>ValueError: invalid literal for int() with base 10: '3.0'</code></td>
+<td><code>int()</code> on a float string</td>
+<td><code>int(float(x))</code></td>
+</tr>
+<tr class="odd">
+<td><code>ValueError: too many values to unpack (expected 2)</code></td>
+<td><code>a, b = ...</code> with 3 values</td>
+<td>count what the right-hand side returns</td>
+</tr>
+<tr class="even">
+<td><code>FileNotFoundError: [Errno 2] No such file or directory: 'orca.out'</code></td>
+<td>wrong folder or name</td>
+<td><code>import os; print(os.getcwd(), os.listdir())</code> · use the full path</td>
+</tr>
+<tr class="odd">
+<td><code>ValueError: operands could not be broadcast together with shapes (5,3) (5,)</code></td>
+<td>dividing (N,3) by (N,)</td>
+<td><code>keepdims=True</code> in the norm, or <code>x[:, None]</code></td>
+</tr>
+<tr class="even">
+<td><code>ValueError: matmul: ... mismatch in its core dimension</code></td>
+<td><code>A @ B</code> with (7,3) @ (7,3)</td>
+<td>transpose one: <code>A @ B.T</code></td>
+</tr>
+<tr class="odd">
+<td><code>ValueError: index 5 is out of bounds for array with size 4</code></td>
+<td>a flat index used directly on a matrix</td>
+<td><code>np.unravel_index(k, M.shape)</code></td>
+</tr>
+<tr class="even">
+<td><code>RuntimeWarning: divide by zero encountered in log10</code> (gives <code>-inf</code>)</td>
+<td>log of 0 (e.g. ΔE at iteration 0)</td>
+<td>drop it: <code>m = it &gt;= 1</code> or <code>dE != 0</code></td>
+</tr>
+<tr class="odd">
+<td><code>RuntimeWarning: invalid value encountered in arccos</code> (gives <code>nan</code>)</td>
+<td>cosine slightly &gt; 1</td>
+<td><code>np.arccos(np.clip(c, -1, 1))</code></td>
+</tr>
+<tr class="even">
+<td>minimum distance is <code>0.0</code></td>
+<td>the diagonal (a particle with itself)</td>
+<td><code>np.fill_diagonal(D, np.inf)</code> first</td>
+</tr>
+<tr class="odd">
+<td>results change every time you re-run a cell</td>
+<td><code>rng.random</code> called again without re-creating <code>rng</code></td>
+<td>re-run from the cell that creates <code>rng</code>, or restart and run all</td>
+</tr>
+</tbody>
+</table></div>
+<h2 id="86-units-and-constants">8.6 Units and constants</h2>
+<div class="tw"><table>
+<colgroup>
+<col style="width: 50%"/>
+<col style="width: 50%"/>
+</colgroup>
+<thead>
+<tr class="header">
+<th>Quantity</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td>1 hartree (Ha, a.u.)</td>
+<td>627.5095 kcal/mol = 2625.500 kJ/mol = 27.211386 eV = 219474.63 cm⁻¹</td>
+</tr>
+<tr class="even">
+<td>1 eV</td>
+<td>23.0605 kcal/mol = 96.4853 kJ/mol = 8065.54 cm⁻¹</td>
+</tr>
+<tr class="odd">
+<td>1 kcal</td>
+<td>4.184 kJ</td>
+</tr>
+<tr class="even">
+<td>1 bohr (a₀)</td>
+<td>0.529177 Å · 1 Å = 1.889726 bohr</td>
+</tr>
+<tr class="odd">
+<td>R</td>
+<td>8.314462 J mol⁻¹ K⁻¹ = 0.0820574 L atm mol⁻¹ K⁻¹ = 1.987204 cal mol⁻¹ K⁻¹</td>
+</tr>
+<tr class="even">
+<td>k_B</td>
+<td>1.380649×10⁻²³ J/K = 8.617333×10⁻⁵ eV/K</td>
+</tr>
+<tr class="odd">
+<td>N_A</td>
+<td>6.02214076×10²³ mol⁻¹</td>
+</tr>
+<tr class="even">
+<td>h · c</td>
+<td>6.62607015×10⁻³⁴ J s · 2.99792458×10⁸ m/s</td>
+</tr>
+<tr class="odd">
+<td>pressure</td>
+<td>1 atm = 101325 Pa = 1.01325 bar · 1 L atm = 101.325 J</td>
+</tr>
+<tr class="even">
+<td>π</td>
+<td>Python <code>np.pi</code> · Fortran <code>acos(-1.0d0)</code> · gnuplot <code>pi</code></td>
+</tr>
+</tbody>
+</table></div>
+<p>In Fortran, write constants in double precision: <code>8.314d0</code>, <code>6.022d23</code>.</p>
+<h2 id="87-handing-in">8.7 Handing in</h2>
+<p><strong>Python:</strong> a notebook or a script is accepted.</p>
+<pre><code class="language-bash">jupyter nbconvert --to python ex4.ipynb          # ex4.ipynb -&gt; ex4.py
+python3 ex4.py                                   # must run top to bottom with no error</code></pre>
+<p>In a notebook: Kernel → Restart &amp; Run All before saving, so every cell has run in order.</p>
+<p><strong>Fortran:</strong> sources + Makefile, tested from scratch.</p>
+<pre><code class="language-bash">cd ~/exam/ex3 &amp;&amp; make clean                      # hand in sources, not .o / .mod / executables
+cd ~/exam
+tar czf Boyd_ex3.tar.gz ex3                      # or: zip -r Boyd_ex3.zip ex3
+tar tzf Boyd_ex3.tar.gz                          # list what's inside
+mkdir -p /tmp/check &amp;&amp; tar xzf Boyd_ex3.tar.gz -C /tmp/check &amp;&amp; cd /tmp/check/ex3 &amp;&amp; make &amp;&amp; ./prog</code></pre>
+<p>The last line unpacks your archive somewhere else and builds it there, exactly as the teacher will.</p>
+<p><strong>Gnuplot:</strong> the <code>.gp</code> script, plus the png files and data file it writes. <strong>Bash:</strong> the <code>.sh</code> files, each starting with <code>#!/bin/bash</code>.</p>
+<p><strong>Before you leave:</strong></p>
+<ul>
+<li>Every file the question names exists with exactly that name (<code>table1.out</code>, <code>values.dat</code>, …).</li>
+<li>The output files are included if the question asks for them.</li>
+<li>Your name is in a comment at the top of each file.</li>
+<li>If allowed, keep a backup of the whole folder on the cluster: <code>scp -r ~/exam cmm4@cerqt2.qt.ub.es:~/exam_backup</code></li>
+</ul>
 </main>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/languages/fortran.min.js"></script>

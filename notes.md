@@ -1568,6 +1568,8 @@ Moved to the worked examples, with the full statements: [EX-PY-03](#ex-py-03) (2
 
 All solutions were run and checked. The parsing examples read the practice files (`data/orca_mock.out`, `data/piri_mock.log`, …); in the exam, use the real file name (`orca.out`, `piri.log`). Python examples start with the imports they need.
 
+**Check** boxes show what the solution prints when run unchanged (only where the output doesn't depend on a practice file). Run the template once before adapting it: if the numbers match, your paste, TABs and environment are fine, and any later error comes from your changes.
+
 ## 7.1 Python \[EX-PY\]
 
 | ID                    | Problem                                                                                                       | From                                                                                                           |
@@ -1636,6 +1638,15 @@ def total_energy(pos):
 print(f"U = {total_energy(pos):.4f}")
 ```
 
+**Check:** run it unchanged and it prints:
+
+``` plaintext
+minimum distance: 3.2736
+pair: 1 and 4
+check: |r_1 - r_4| = 3.2736
+U = 599.2358
+```
+
 **Adapt it:**
 
 Max instead of min → no `fill_diagonal`, use `argmax`. Different box → change `np.array([100, 10, 10])`. Different energy formula → only the `return` line (x is `pos[:, 0]`, y `pos[:, 1]`, z `pos[:, 2]`). Pair formula (Σᵢ\<ⱼ) → `pdist(pos)` gives each pair once (see EX-PY-05).
@@ -1678,6 +1689,18 @@ print("3) rows with a value > 1:", rows)
 for r in rows:
     print(f"   row {r}: first element = {prods[r,0]:.3f}")
 print("   normalised max:", (unit[3] @ unit[4].T).max().round(3), "(never > 1, so the question means the raw vectors)")
+```
+
+**Check:** run it unchanged and it prints:
+
+``` plaintext
+1) unit[2,4] = 0.547, 0.792, 0.270
+2) dots: [0.676 0.637 0.713 1.839 1.778 1.217 1.001] -> index 3
+   (with normalised vectors: 3 )
+3) rows with a value > 1: [3 5]
+   row 3: first element = 0.685
+   row 5: first element = 0.792
+   normalised max: 0.987 (never > 1, so the question means the raw vectors)
 ```
 
 **Adapt it:**
@@ -1819,6 +1842,16 @@ print(f"U_LJ = {lj_energy(pos):.6f}")
 print("test, one pair at r = 2^(1/6):", lj_energy(np.array([[0, 0, 0], [2**(1/6), 0, 0]])))   # -1
 ```
 
+**Check:** run it unchanged and it prints:
+
+``` plaintext
+neighbours: [3 4 3 2 2 3 1 1 1 1 1 2 2 4 7 1 3 2 5 4 1 3 3 2 1 0 3 1 1 3 1 1 1 3 4 3 4
+ 0 2 4 3 1 3 5 4 4 5 3 0 3]
+most neighbours: 14 -> [ 0  5 19 20 43 45 46]
+U_LJ = -0.873632
+test, one pair at r = 2^(1/6): -1.0
+```
+
 **Adapt it:**
 
 Neighbour counting: put `inf` on the diagonal first, so a particle isn’t its own neighbour. Any **pair** sum Σᵢ\<ⱼ f(rᵢⱼ) → `r = pdist(pos)` then `np.sum(f(r))`; pair sums with charges → `i, j = np.triu_indices(N, k=1)` (same order as `pdist`). Test a pair formula on 2 particles you can do by hand.
@@ -1908,6 +1941,16 @@ D2 = np.sqrt((diff**2).sum(axis=-1))
 print("f) same as scipy:", np.allclose(D, D2))
 ```
 
+**Check:** run it unchanged and it prints:
+
+``` plaintext
+b) max distance 57.276 between 21 and 25; check: 57.276
+c) pairs closer than 10: 50
+d) centre [21.09 20.49  2.23] closest particle 27
+e) U = 31.4120
+f) same as scipy: True
+```
+
 **Adapt it:**
 
 Counting pairs → `np.sum(pdist(pos) < X)` (each pair once). Centre of mass instead of geometric centre → `(m[:, None]*pos).sum(axis=0)/m.sum()`.
@@ -1929,6 +1972,16 @@ Dn = D.copy(); np.fill_diagonal(Dn, np.inf)          # otherwise the minimum is 
 a, b = np.unravel_index(np.argmin(Dn), Dn.shape)
 print(f"(iii) min distance {Dn.min():.3f} between {a} and {b}")
 print(f"(iv) mean nearest-neighbour distance {Dn.min(axis=1).mean():.3f}")
+```
+
+**Check:** run it unchanged (after EX-PY-07) and it prints:
+
+``` plaintext
+(i)   [ 0  1  6 14 21 22 29]
+(ii)  [ 2 16 23 13  8  9 19 17 28 24  7 10 27  4 26  3 18  6  0 29 25 20 22 11
+ 15 21 14 12  5  1]
+(iii) min distance 0.742 between 5 and 12
+(iv) mean nearest-neighbour distance 5.623
 ```
 
 **Adapt it:**
@@ -2004,6 +2057,23 @@ D2 = np.sqrt((diff**2).sum(axis=-1))
 print(np.allclose(D, D2))
 ```
 
+**Check:** run it unchanged (after EX-PY-12) and it prints:
+
+``` plaintext
+max 46.7687 between 11 and 24; check 46.7687
+min 1.4463 between 2 and 23; check 1.4463
+loop: 1.4463 2 23
+pairs < 8: 26
+[4 0 5 0 3 0 1 3 5 5 1 1 2 0 4 2 4 1 0 0 1 3 3 4 0]
+most neighbours: 2 -> [ 4  8 21 22 23]
+largest dot product 1.9569 at (9, 4)
+row 1: first element 0.8570
+row 2: first element 0.9236
+row 8: first element 0.9084
+row 9: first element 0.9229
+True
+```
+
 **Adapt it:**
 
 3.3: with `inf` on the diagonal, `(Dm < 8).sum(axis=1)` doesn't count each particle as its own neighbour.
@@ -2050,6 +2120,16 @@ def closest_pair(pos):
     return D[i, j], i, j
 d, i, j = closest_pair(pos)
 print(f"{d:.4f} {i} {j}")
+```
+
+**Check:** run it unchanged (after EX-PY-09) and it prints:
+
+``` plaintext
+1.25
+U = 1362.163
+-0.5
+U = -1.7846
+1.4463 2 23
 ```
 
 **Adapt it:**
@@ -2102,6 +2182,14 @@ print("max H-H in frame", np.argmax(hh), f"({hh.max():.4f} Å)")
 plt.plot(np.arange(len(hh)), hh, 'o-')
 plt.xlabel('Frame'); plt.ylabel('H-H distance (Å)'); plt.xticks(np.arange(len(hh)))
 plt.tight_layout(); plt.show()
+```
+
+**Check:** run it unchanged (M1 only) and it prints:
+
+``` plaintext
+closest opposite pair 6 (+1) - 7 (-1): 1.6065; check 1.6065
+dipole [ -7.1907   5.3121 -28.2591] |mu| = 29.6395
+within 5 of the centre: 1
 ```
 
 **Adapt it:**
@@ -2166,6 +2254,24 @@ box = v * np.array([20, 20, 5])                  # scale each coordinate
 print(box.max(axis=(0, 1)).round(2))             # largest x, y, z
 ```
 
+**Check:** run it unchanged and it prints:
+
+``` plaintext
+(4, 10, 3)
+(4, 3)
+[[0.449 0.513 0.559]
+ [0.663 0.662 0.59 ]
+ [0.374 0.574 0.588]
+ [0.463 0.601 0.385]]
+(4, 10)
+largest value 0.9945 at (0, 0, 0)
+[0 2 4 7 9]
+[4 1 1 1]
+0.9
+True
+[19.89 19.8   4.94]
+```
+
 **Adapt it:**
 
 Rule: the axis you name is the one that disappears. `(4,10,3)` → `mean(axis=1)` → `(4,3)`.
@@ -2201,6 +2307,16 @@ print("most parallel to vector 0:", np.argmin(ang), f"({ang.min():.1f} deg)")
 # 2.3
 c = np.cross(v[0, 0], v[0, 1])
 print(c.round(4), np.dot(c, v[0, 0]).round(12), np.dot(c, v[0, 1]).round(12))
+```
+
+**Check:** run it unchanged (after EX-PY-12) and it prints:
+
+``` plaintext
+True
+0.439, 0.713, 0.547
+[ 0.  32.7 38.7 37.2 40.7 36.3 44.  22.3 54.5 25.7]
+most parallel to vector 0: 7 (22.3 deg)
+[-0.7776  0.6157  0.6506] -0.0 -0.0
 ```
 
 **Adapt it:**
@@ -2979,6 +3095,25 @@ clean:
 	rm -f *.o enzyme *.out
 ```
 
+**Check:** run it unchanged and it prints:
+
+``` plaintext
+=== table 1
+  [S](M)            v1            v2
+   0.010   5.33333E-05   3.01887E-06
+   0.020   6.40000E-05   5.81818E-06
+   0.030   6.85714E-05   8.42105E-06
+...
+=== table 2
+  [S](M)            v1            v2
+   0.010   1.50000E-05   1.00000E-05
+   0.020   2.00000E-05   1.50000E-05
+   0.030   2.25000E-05   1.80000E-05
+...
+table1.out
+table2.out
+```
+
 **Adapt it:**
 
 **This is the master template** (same shape as EX-F90-03, 04, 05, 06). Change: the two function bodies and arguments; the loop (`do i = 1, N` + `x = start + step*i`); the parameter values; file names; column headers. Values spanning orders of magnitude → `ES14.5`, otherwise `F12.5`.
@@ -3073,6 +3208,18 @@ pi2.o: pi2.f90
 
 clean:
 	rm -f *.o pi
+```
+
+**Check:** run it unchanged with n = 20 and with n = 1000000 (`echo 20 | ./pi`) and it prints:
+
+``` plaintext
+Leibniz  pi_1(n) =  3.091623806667840
+Euler    pi_2(n) =  3.141591927675146
+acos(-1)         =  3.141592653589793
+--- n = 1000000:
+Leibniz  pi_1(n) =  3.141591653589774
+Euler    pi_2(n) =  3.141592653589792
+acos(-1)         =  3.141592653589793
 ```
 
 **Adapt it:**
@@ -3182,6 +3329,25 @@ clean:
 	rm -f *.o gases *.out
 ```
 
+**Check:** run it unchanged and it prints:
+
+``` plaintext
+=== CO2
+    V(L)       P_ideal         P_vdW
+    0.10     246.17100      65.39299
+    0.20     123.08550      65.46793
+    0.30      82.05700      55.21910
+...
+=== He
+    V(L)       P_ideal         P_vdW
+    0.10     246.17100     319.59906
+    0.20     123.08550     138.84612
+    0.30      82.05700      88.74336
+...
+co2.out
+he.out
+```
+
 **Adapt it:**
 
 Check: CO₂ at V = 0.1 L gives P_ideal = 246.17100, P_vdW = 65.39299 atm. Constants that never change (R) → `real(8), parameter` inside the function.
@@ -3276,6 +3442,23 @@ run: arrh
 
 clean:
 	rm -f *.o arrh *.out
+```
+
+**Check:** run it unchanged and it prints:
+
+``` plaintext
+=== table1.out
+      T(K)       k1(s-1)       k2(s-1)
+     300.0   1.17560E-01   1.17954E-01
+     310.0   3.30831E-01   3.37426E-01
+...
+=== table2.out
+      T(K)       k1(s-1)       k2(s-1)
+     300.0   9.83744E+01   9.93664E+01
+     310.0   1.87812E+02   1.99270E+02
+...
+table1.out
+table2.out
 ```
 
 **Adapt it:**
@@ -3387,6 +3570,23 @@ clean:
 	rm -f *.o iso *.out
 ```
 
+**Check:** run it unchanged with N = 10 (`echo 10 | ./iso`) and it prints:
+
+``` plaintext
+=== set 1
+      P(atm)    Langmuir  Freundlich
+     0.10000     0.16667     0.25298
+     0.20000     0.28571     0.35777
+...
+=== set 2
+      P(atm)    Langmuir  Freundlich
+     0.10000     0.50000     0.55699
+     0.20000     0.66667     0.70176
+...
+iso1.out
+iso2.out
+```
+
 **Adapt it:**
 
 Run with `make && echo 10 | ./iso`. Note `p**(1.0d0/n)`: with an integer `n`, `1/n` would be 0 (integer division), so n is real(8) here.
@@ -3487,6 +3687,25 @@ run: bond
 
 clean:
 	rm -f *.o bond *.out
+```
+
+**Check:** run it unchanged and it prints:
+
+``` plaintext
+=== H2
+    r(A)     V_morse      V_harm
+   0.500     1.68763     1.03832
+   0.600     0.47015     0.35541
+   0.700     0.03256     0.03005
+   0.800     0.05556     0.06223
+...
+=== HCl
+    r(A)     V_morse      V_harm
+   0.500    49.09705     9.70350
+   0.600    29.65082     7.36093
+...
+h2.out
+hcl.out
 ```
 
 **Adapt it:**
@@ -3780,6 +3999,18 @@ clean:
 .PHONY: run clean
 ```
 
+**Check:** run it unchanged on the class file `molecule_B.xyz` (ethanol); last lines and it prints:
+
+``` plaintext
+Largest distance: atoms 2 (H) and 9 (H)
+Distance:   4.069570 Angstrom
+
+C atoms: 2
+H atoms: 6
+O atoms: 1
+Molecular mass:    46.00
+```
+
 **Adapt it:**
 
 Result for ethanol (`molecule_B.xyz`): largest distance atoms 2 (H) and 9 (H), 4.069570 Å; C 2, H 6, O 1; mass 46.00. Both versions give the same output. Your submission is one file, so it doesn’t meet part d); the modular version does. With modules: `main.o` must depend on the module `.o` files, and `clean` removes `*.mod`.
@@ -3862,6 +4093,14 @@ program report
 end program report
 ```
 
+**Check:** run it unchanged on the class file `molecule_B.xyz` (ethanol) and it prints:
+
+``` plaintext
+Centre of mass:    3.1791   -0.2469   -0.1483
+Shortest C-H:  1.1105  atoms 1 and 2
+Bonds (< 1.6 A): 8
+```
+
 **Adapt it:**
 
 b\) uses a full i×j loop with a symbol test (C first, H second), because here the order of the pair matters. c) uses `j = i+1` so each pair is counted once.
@@ -3920,6 +4159,15 @@ g.o: g.f90
 
 clean:
 	rm -f *.o prog *.out
+```
+
+**Check:** run it unchanged and it prints:
+
+``` plaintext
+           x        g(x)
+    0.000000    0.000000
+    0.100000    0.090333
+    0.200000    0.162657
 ```
 
 ### EX-F90-10 · Tables: read n, write i, i², √i to screen + file; then adapt to a real-valued x loop
@@ -5072,3 +5320,149 @@ plot sin(x) title 'sin(x)' with lines lw 2, \
 **Adapt it:**
 
 Data from a file instead of a formula → `plot 'table1.out' using 1:2 with linespoints title 'v1'`.
+
+# 8. Exam day `[DAY]`
+
+## 8.1 First 5 minutes: check the machine
+
+```bash
+python3 -c "import numpy, scipy, matplotlib; print('python OK')"
+which python3 jupyter gfortran make gnuplot      # every tool you'll need, one line each
+gnuplot -e "set terminal" 2>&1 | grep -i png     # is pngcairo there?
+mkdir -p ~/exam && cd ~/exam && mkdir -p ex1 ex2 ex3 ex4 ex5   # one folder per exercise
+```
+
+| Problem                                                                  | Fix                                                                                                                    |
+|--------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------|
+| gnuplot: `unknown or ambiguous terminal type` for `pngcairo`             | `set terminal png size 900,700`                                                                                        |
+| gnuplot opens a window instead of writing a file                         | `set terminal ...` and `set output 'name.png'` must come **before** `plot`/`splot`                                     |
+| Python: no plot window appears                                           | `plt.savefig('fig.png')` (before `plt.show()`), then open the png                                                      |
+| Python over ssh / no display: `cannot connect to X server` or a Qt error | first two lines of the script: `import matplotlib` and `matplotlib.use('Agg')`; then only `savefig`                    |
+| no `jupyter`                                                             | write `ex4.py` and run `python3 ex4.py`: the exams accept “a notebook or a python script”                              |
+| no `scipy`                                                               | distance matrix by broadcasting: `D = np.sqrt(((pos[:, None, :] - pos[None, :, :])**2).sum(axis=-1))` (EX-PY-07 f)     |
+| a tool is missing on the lab machine                                     | check the cluster (`ssh cmm4@cerqt2.qt.ub.es`, then `which gfortran gnuplot`), and work there with `scp` to move files |
+
+## 8.2 Editors, images, keeping the terminal free
+
+| Action                           | nano            | vim                                                | gedit          |
+|----------------------------------|-----------------|----------------------------------------------------|----------------|
+| open                             | `nano f.py`     | `vim f.py`                                         | `gedit f.py &` |
+| start typing                     | (just type)     | `i` (Esc to stop)                                  | (just type)    |
+| save                             | Ctrl+O, Enter   | `:w`                                               | Ctrl+S         |
+| quit                             | Ctrl+X          | `:q` (`:q!` = without saving, `:wq` = save + quit) | Ctrl+Q         |
+| search                           | Ctrl+W          | `/word`, then `n`                                  | Ctrl+F         |
+| go to line 42                    | Ctrl+\_ then 42 | `:42`                                              | Ctrl+I         |
+| undo                             | Alt+U           | `u`                                                | Ctrl+Z         |
+| paste without broken indentation | usually fine    | `:set paste` before, `:set nopaste` after          | fine           |
+
+- `&` at the end (`gedit f.py &`, `eog fig.png &`) keeps the terminal usable while the window is open.
+- Images: `eog fig.png &` or `xdg-open fig.png`. Text tables: `cat table1.out`, `column -t table1.out`.
+- After pasting a Makefile: `sed -i 's/^ \+/\t/' Makefile` (copying from a terminal turns TABs into spaces). Check with `cat -A Makefile`: recipe lines must start with `^I`.
+
+## 8.3 Running things
+
+| What                                                 | Command                                               |
+|------------------------------------------------------|-------------------------------------------------------|
+| Python script                                        | `python3 ex4.py`                                      |
+| …and stay inside afterwards to inspect variables     | `python3 -i ex4.py`                                   |
+| notebook                                             | `jupyter notebook ex4.ipynb` (or `jupyter lab`)       |
+| gnuplot script                                       | `gnuplot ex2.gp`, then `eog fig.png &`                |
+| Fortran with make                                    | `make && ./prog` · from scratch: `make clean && make` |
+| program that reads from the keyboard, without typing | `echo 10 | ./prog`                                    |
+| bash script                                          | `bash ex1.sh` · or `chmod +x ex1.sh && ./ex1.sh`      |
+| script that asks two questions, without typing       | `printf "a.dat\nb.dat\n" | bash larger.sh`            |
+| script that asks one question                        | `bash inspect.sh <<< "results"`                       |
+
+## 8.4 First look at an unfamiliar output file
+
+```bash
+wc -l piri.log                                   # how big is it?
+grep -n 'SCF Done' piri.log | head               # each marker: where, and how many times?
+grep -c 'Alpha  occ. eigenvalues' piri.log       # double space after Alpha!
+grep -n -m1 -A6 'SCF ITERATIONS' orca.out        # the first block, with 6 lines after it
+sed -n '120,140p' orca.out                       # print any range of lines
+```
+
+```python
+with open('orca.out') as f:
+    lines = f.readlines()
+for k, line in enumerate(lines[120:140], start=120):
+    print(k, repr(line))                         # repr shows spaces, tabs, numbers stuck together
+print(list(enumerate(lines[130].split())))       # which index is the column I need?
+```
+
+Checklist before writing the parser:
+
+- the exact marker text (copy it from the file; watch double spaces);
+- how many times it appears (one per step? one per block?);
+- what a data line looks like vs a header or blank line (`p and p[0].isdigit()`);
+- whether the header changes inside a block (ORCA SOSCF);
+- where a block ends;
+- whether numbers can touch each other (fixed-width columns → slice, don’t `split()`).
+
+## 8.5 Python errors → fix
+
+| Message                                                                       | Usual cause                                         | Fix                                                                                                   |
+|-------------------------------------------------------------------------------|-----------------------------------------------------|-------------------------------------------------------------------------------------------------------|
+| `IndexError: list index out of range`                                         | `line.split()[k]` on a blank, short or header line  | only use rows you’ve checked: `p = line.split()` then `if p and p[0].isdigit():` or `if len(p) == n:` |
+| `ValueError: could not convert string to float: 'Energy'`                     | converting a header word                            | skip non-data lines (as above)                                                                        |
+| `ValueError: could not convert string to float: '-101.56032-101.56030'`       | fixed-width numbers that touch                      | slice: `[float(s[k:k+10]) for k in range(0, len(s), 10)]` (EX-PY-19)                                  |
+| `ValueError: invalid literal for int() with base 10: '3.0'`                   | `int()` on a float string                           | `int(float(x))`                                                                                       |
+| `ValueError: too many values to unpack (expected 2)`                          | `a, b = ...` with 3 values                          | count what the right-hand side returns                                                                |
+| `FileNotFoundError: [Errno 2] No such file or directory: 'orca.out'`          | wrong folder or name                                | `import os; print(os.getcwd(), os.listdir())` · use the full path                                     |
+| `ValueError: operands could not be broadcast together with shapes (5,3) (5,)` | dividing (N,3) by (N,)                              | `keepdims=True` in the norm, or `x[:, None]`                                                          |
+| `ValueError: matmul: ... mismatch in its core dimension`                      | `A @ B` with (7,3) @ (7,3)                          | transpose one: `A @ B.T`                                                                              |
+| `ValueError: index 5 is out of bounds for array with size 4`                  | a flat index used directly on a matrix              | `np.unravel_index(k, M.shape)`                                                                        |
+| `RuntimeWarning: divide by zero encountered in log10` (gives `-inf`)          | log of 0 (e.g. ΔE at iteration 0)                   | drop it: `m = it >= 1` or `dE != 0`                                                                   |
+| `RuntimeWarning: invalid value encountered in arccos` (gives `nan`)           | cosine slightly \> 1                                | `np.arccos(np.clip(c, -1, 1))`                                                                        |
+| minimum distance is `0.0`                                                     | the diagonal (a particle with itself)               | `np.fill_diagonal(D, np.inf)` first                                                                   |
+| results change every time you re-run a cell                                   | `rng.random` called again without re-creating `rng` | re-run from the cell that creates `rng`, or restart and run all                                       |
+
+## 8.6 Units and constants
+
+| Quantity             | Value                                                                     |
+|----------------------|---------------------------------------------------------------------------|
+| 1 hartree (Ha, a.u.) | 627.5095 kcal/mol = 2625.500 kJ/mol = 27.211386 eV = 219474.63 cm⁻¹       |
+| 1 eV                 | 23.0605 kcal/mol = 96.4853 kJ/mol = 8065.54 cm⁻¹                          |
+| 1 kcal               | 4.184 kJ                                                                  |
+| 1 bohr (a₀)          | 0.529177 Å · 1 Å = 1.889726 bohr                                          |
+| R                    | 8.314462 J mol⁻¹ K⁻¹ = 0.0820574 L atm mol⁻¹ K⁻¹ = 1.987204 cal mol⁻¹ K⁻¹ |
+| k_B                  | 1.380649×10⁻²³ J/K = 8.617333×10⁻⁵ eV/K                                   |
+| N_A                  | 6.02214076×10²³ mol⁻¹                                                     |
+| h · c                | 6.62607015×10⁻³⁴ J s · 2.99792458×10⁸ m/s                                 |
+| pressure             | 1 atm = 101325 Pa = 1.01325 bar · 1 L atm = 101.325 J                     |
+| π                    | Python `np.pi` · Fortran `acos(-1.0d0)` · gnuplot `pi`                    |
+
+In Fortran, write constants in double precision: `8.314d0`, `6.022d23`.
+
+## 8.7 Handing in
+
+**Python:** a notebook or a script is accepted.
+
+```bash
+jupyter nbconvert --to python ex4.ipynb          # ex4.ipynb -> ex4.py
+python3 ex4.py                                   # must run top to bottom with no error
+```
+
+In a notebook: Kernel → Restart & Run All before saving, so every cell has run in order.
+
+**Fortran:** sources + Makefile, tested from scratch.
+
+```bash
+cd ~/exam/ex3 && make clean                      # hand in sources, not .o / .mod / executables
+cd ~/exam
+tar czf Boyd_ex3.tar.gz ex3                      # or: zip -r Boyd_ex3.zip ex3
+tar tzf Boyd_ex3.tar.gz                          # list what's inside
+mkdir -p /tmp/check && tar xzf Boyd_ex3.tar.gz -C /tmp/check && cd /tmp/check/ex3 && make && ./prog
+```
+
+The last line unpacks your archive somewhere else and builds it there, exactly as the teacher will.
+
+**Gnuplot:** the `.gp` script, plus the png files and data file it writes. **Bash:** the `.sh` files, each starting with `#!/bin/bash`.
+
+**Before you leave:**
+
+- Every file the question names exists with exactly that name (`table1.out`, `values.dat`, …).
+- The output files are included if the question asks for them.
+- Your name is in a comment at the top of each file.
+- If allowed, keep a backup of the whole folder on the cluster: `scp -r ~/exam cmm4@cerqt2.qt.ub.es:~/exam_backup`
